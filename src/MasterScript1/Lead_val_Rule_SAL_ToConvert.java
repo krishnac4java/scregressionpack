@@ -41,6 +41,13 @@ public class Lead_val_Rule_SAL_ToConvert {
 		ObjectRepositoryMain.fillContactFormAndSave();
 	}
 	
+	@Test
+	public void TESTUATAccountCreation() throws Exception {
+		ObjectRepositoryMain.launchChrome();
+		ObjectRepositoryMain.loginFinalUAT();
+		ObjectRepositoryMain.scrollTest();
+	}
+	
 }
 	
 

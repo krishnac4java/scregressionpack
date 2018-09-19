@@ -9,6 +9,7 @@ import java.util.concurrent.TimeUnit;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -28,7 +29,7 @@ public class ObjectRepositoryMain {
 	@Before
 	  public static void launchChrome() throws Exception {
 		
-		  System.setProperty("webdriver.chrome.driver","C:\\Users\\SC\\Desktop\\eclipse\\eclipse\\chromedriver.exe");
+		  System.setProperty("webdriver.chrome.driver","D:\\VijayWorkSpace\\chromedriver.exe");
 		  driver = new ChromeDriver();   
 		  driver.get("https://test.salesforce.com");
 		  driver.manage().window().maximize();
@@ -154,32 +155,57 @@ public class ObjectRepositoryMain {
 		Thread.sleep(3000);
 		driver.findElement(By.xpath("//div[3]/div/div/div/div/div/div/div/div/a")).click();
 		Thread.sleep(3000);
-		driver.findElement(By.xpath("//a[contains(text(),'New')]")).click();
+		driver.findElement(By.xpath("//li[@class='uiMenuItem uiRadioMenuItem']//a[@title='New']")).click();
+		driver.findElement(By.xpath("//div[4]/div/div/div/div/div/div/div/div/a")).click();
+		driver.findElement(By.xpath("//a[contains(text(),'Perpetual')]")).click();
+		driver.findElement(By.xpath("//div[4]/div[2]/div/div/div/div/div/div/div/a")).click();
+		driver.findElement(By.xpath("//a[contains(text(),'Qualification')]")).click();
+		driver.findElement(By.xpath("//div[7]/div[2]/div/div/div/div/div/div/div/a")).click();
+		driver.findElement(By.xpath("//a[contains(text(),'Sales')]")).click();
+		driver.findElement(By.xpath("//div[4]/div/div/div/div/div/div/div/div/div/div/div/a")).click();
+		driver.findElement(By.xpath("//a[contains(text(),'No Competitor')]")).click();
+		driver.findElement(By.xpath("//div[2]/div/div/div/div[2]/div/div/div/div/input")).click();
+		driver.findElement(By.xpath("//div[2]/table/tbody/tr[6]/td/span")).click();
+		driver.findElement(By.xpath("//button[@title='Save']")).click();
+		
+		Thread.sleep(5000);
+		driver.findElement(By.xpath("//span[@class='slds-truncate'][contains(text(),'Opportunities')]")).click();
+		driver.findElement(By.xpath("//lightning-input/div/input")).sendKeys(sdf.format(todayDate));
+		driver.findElement(By.xpath("//a[@title='"+sdf.format(todayDate)+"']")).click();
+		Thread.sleep(8000);
+		((JavascriptExecutor)driver).executeScript("scroll(0,100)");
+		Thread.sleep(8000);
+		driver.findElement(By.xpath("//span[@title='Products']")).click();
 
+		
+		driver.findElement(By.xpath("//a[@title='Add Products']")).click();
+		driver.findElement(By.xpath("//span/span/label/span")).click();
+		
+		
+		
+		driver.findElement(By.xpath("//button[contains(@title,'Next')]")).click();
+		Thread.sleep(5000);
+		driver.findElement(By.xpath("//span/span[2]/button")).click();
+		driver.findElement(By.xpath("//tr/td[2]/div/div/div/div/div/div/input")).sendKeys("114");
+		driver.findElement(By.xpath("//td[3]/span/span[2]/button")).click();
+		driver.findElement(By.xpath("//tr/td[3]/div/div/div/div/div/div/input")).clear();
+		driver.findElement(By.xpath("//tr/td[3]/div/div/div/div/div/div/input")).sendKeys("500");
+		driver.findElement(By.xpath("//button[contains(@title,'Save')]")).click();
+		//driver.findElement(By.xpath("//div/button[3]")).click();
 
 
 	}
+	public static void scrollTest() throws InterruptedException {
+		((JavascriptExecutor)driver).executeScript("scroll(0,100)");
+		Thread.sleep(8000);
+		JavascriptExecutor jse = (JavascriptExecutor)driver;
+		jse.executeScript("window.scrollBy(500,100)", "");
+		Thread.sleep(8000);
+		System.out.println("Window");
+		jse.executeScript("scroll(500,150);");
+		Thread.sleep(8000);
+		System.out.println("Scroll");
+		
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	}
 	
