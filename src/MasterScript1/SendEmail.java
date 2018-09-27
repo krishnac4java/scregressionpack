@@ -15,7 +15,7 @@ public class SendEmail {
 	public static void main(String[] args) {
 
 		final String username = "krishna.c4java@gmail.com";
-		final String password = "password";
+		final String password = "Omsrisairam@5";
 
 		Properties props = new Properties();
 		props.put("mail.smtp.auth", "true");
@@ -33,9 +33,9 @@ public class SendEmail {
 		try {
 
 			Message message = new MimeMessage(session);
-			message.setFrom(new InternetAddress("from-email@gmail.com"));
+			message.setFrom(new InternetAddress("krishna.c4java@gmail.com"));
 			message.setRecipients(Message.RecipientType.TO,
-				InternetAddress.parse("to-email@gmail.com"));
+				InternetAddress.parse("krishna.c4java@gmail.com"));
 			message.setSubject("Testing Subject");
 			message.setText("Dear Mail Crawler,"
 				+ "\n\n No spam to my email, please!");
