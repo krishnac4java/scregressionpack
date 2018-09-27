@@ -13,7 +13,7 @@ import org.junit.runner.Description;
 import org.junit.runners.MethodSorters;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
-public class LeadValidationRules {
+public class Lead_Validation_Rules {
 	
 	private static Date todayDate = new Date();
 	private static SimpleDateFormat sdf = new SimpleDateFormat("SSSssmmHHyyyMMdd");
