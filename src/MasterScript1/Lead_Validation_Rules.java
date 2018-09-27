@@ -40,6 +40,7 @@ public class Lead_Validation_Rules {
 		ObjectRepositoryMain.loginQA();
 		ObjectRepositoryMain.clickAccountsTab();
 		ObjectRepositoryMain.selectCustomerRecord();
+		todayDate = new Date();
 		ObjectRepositoryMain.fillAccountsFormAndSave("CRT", sdf.format(todayDate));
 		ObjectRepositoryMain.clickLeadsTab();
 		ObjectRepositoryMain.leadGenerationLeadGenType();
@@ -56,6 +57,7 @@ public class Lead_Validation_Rules {
 		ObjectRepositoryMain.loginQA();
 		ObjectRepositoryMain.clickAccountsTab();
 		ObjectRepositoryMain.selectCustomerRecord();
+		todayDate = new Date();
 		ObjectRepositoryMain.fillAccountsFormAndSave("CRT", sdf.format(todayDate));
 		ObjectRepositoryMain.clickLeadsTab();
 		ObjectRepositoryMain.leadGenerationLeadGenType();
@@ -68,6 +70,7 @@ public class Lead_Validation_Rules {
 		ObjectRepositoryMain.loginQA();
 		ObjectRepositoryMain.clickAccountsTab();
 		ObjectRepositoryMain.selectCustomerRecord();
+		todayDate = new Date();
 		ObjectRepositoryMain.fillAccountsFormAndSave("CRT", sdf.format(todayDate));
 		ObjectRepositoryMain.clickLeadsTab();
 		ObjectRepositoryMain.leadGenerationLeadGenType();
@@ -80,6 +83,7 @@ public class Lead_Validation_Rules {
 		ObjectRepositoryMain.loginQA();
 		ObjectRepositoryMain.clickAccountsTab();
 		ObjectRepositoryMain.selectCustomerRecord();
+		todayDate = new Date();
 		ObjectRepositoryMain.fillAccountsFormAndSave("CRT", sdf.format(todayDate));
 		ObjectRepositoryMain.clickLeadsTab();
 		ObjectRepositoryMain.leadGenerationLeadGenType();
