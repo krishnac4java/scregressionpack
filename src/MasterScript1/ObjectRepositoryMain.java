@@ -10,6 +10,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -38,18 +39,18 @@ public class ObjectRepositoryMain {
 	public static void loginQA() throws InterruptedException {
 		
 		driver.findElement(By.id("username")).clear();
-	    driver.findElement(By.id("username")).sendKeys("vima@sitecore.net.sitecoreqa");
+	    driver.findElement(By.id("username")).sendKeys("vima@sitecore.net.finaluat");
 	    driver.findElement(By.id("password")).clear();
-	    driver.findElement(By.id("password")).sendKeys("Ovj4519oe26qa3");	   
+	    driver.findElement(By.id("password")).sendKeys("Ovj4519oe26");	   
 	    driver.findElement(By.id("Login")).click();
 	    Thread.sleep(2000);
 	}	
 		
 	public static void clickLeadsTab() throws InterruptedException {
-		Thread.sleep(3000);
+		Thread.sleep(5000);
 		driver.findElement(By.xpath("//span[@class='slds-truncate'][contains(text(),'Leads')]")).click();
 		Thread.sleep(2000);
-		driver.findElement(By.xpath("//a[@title='New']")).click();
+		driver.findElement(By.xpath("//div[@title='New']")).click();
 		Thread.sleep(1000);
 	}
 	
@@ -94,7 +95,6 @@ public class ObjectRepositoryMain {
 		Thread.sleep(2000);
 		driver.findElement(By.xpath("//div[@title='New']")).click();
 		Thread.sleep(1000);
-		System.out.println("ok");
 		
 	}
 
@@ -151,10 +151,11 @@ public class ObjectRepositoryMain {
 		
 	}
 
-	public static void fillContactFormAndSave(String timestamp) throws InterruptedException {
-		driver.findElement(By.xpath("//div/div/div/div/div/fieldset/div/div[4]/input")).sendKeys(timestamp);
-		driver.findElement(By.xpath("//div/div/div/div/div[2]/div/div/div/div/input")).sendKeys(timestamp);
-		driver.findElement(By.xpath("//div[5]/div[2]/div/div/div/input")).sendKeys(timestamp);
+	public static void fillContactFormAndSave(String timestamp, String postName) throws InterruptedException {
+		driver.findElement(By.xpath("//div/div/div/div/div/fieldset/div/div[4]/input")).sendKeys(timestamp+postName);
+		driver.findElement(By.xpath("//div/div/div/div/div[2]/div/div/div/div/input")).sendKeys(timestamp+postName);
+		driver.findElement(By.xpath("//div/div/div[3]/div/div/div[2]/span/div/div/input")).sendKeys(timestamp+postName);
+		driver.findElement(By.xpath("//div[5]/div[2]/div/div/div/input")).sendKeys(timestamp+postName);
 		driver.findElement(By.xpath("//div[4]/div/div/div[5]/div/div/div/div/input")).click();
 		driver.findElement(By.xpath("//div[4]/div[2]/div/div/div/div/div/div/div/a")).click();
 		driver.findElement(By.xpath("//div/ul/li[5]/a")).click();
@@ -229,5 +230,136 @@ public class ObjectRepositoryMain {
 		System.out.println("Scroll");
 		
 	}
+	public static void leadGenerationLeadGenType() throws InterruptedException {
+		driver.findElement(By.xpath("//div[2]/div/label/div/span")).click();
+		driver.findElement(By.xpath("//div[2]/div/div[3]/div/button[2]")).click();
 	}
+	public static void actMgmtLeadGenType() throws InterruptedException {
+		driver.findElement(By.xpath("//div[3]/label/div/span")).click();
+		driver.findElement(By.xpath("//div[2]/div/div[3]/div/button[2]")).click();
+	}
+	public static void sdrGenLeadGenType() throws InterruptedException {
+		driver.findElement(By.xpath("//div[5]/label/div/span")).click();
+		driver.findElement(By.xpath("//div[2]/div/div[3]/div/button[2]")).click();
+	}
+	public static void salesRTtLeadGenType() throws InterruptedException {
+		driver.findElement(By.xpath("//div[7]/label/div/span")).click();
+		driver.findElement(By.xpath("//div[2]/div/div[3]/div/button[2]")).click();
+	}
+	public static void fillFormAndSaveLead(String postFix, String timestamp) throws InterruptedException {
+		driver.findElement(By.xpath("//fieldset/div/div/div/div/div/div/a")).click();
+		driver.findElement(By.xpath("//a[contains(text(),'Mr.')]")).click();
+		driver.findElement(By.xpath("//div[4]/input")).sendKeys(timestamp+"LC"+postFix);
+		driver.findElement(By.xpath("//div/div/div/div/div/div/fieldset/div/div[2]/input")).sendKeys("test");
+		driver.findElement(By.xpath("//div/div/div/div/div[2]/div/div/div/div/input")).sendKeys(timestamp+postFix);
+		driver.findElement(By.xpath("//div[3]/div/div/div/div/input")).sendKeys(timestamp+"@gmail.com");
+		driver.findElement(By.xpath("//div[5]/div/div/div/div/input")).sendKeys("1234567890");
+		driver.findElement(By.xpath("//div[5]/div[2]/div/div/div/div/div/div/div/a")).click();
+		driver.findElement(By.xpath("//a[contains(text(),'SAL')]")).click();
+		driver.findElement(By.xpath("//div[7]/div[2]/div/div/div/div/div/div/div/a")).click();
+		driver.findElement(By.xpath("//div[11]/div/ul/li[3]/a")).click();
+		driver.findElement(By.xpath("//div/div[2]/div/div/div[2]/div/div/div/div/input")).sendKeys(timestamp+postFix);
+		driver.findElement(By.xpath("//div[4]/div/div[2]/div/div/div/div/div/div/div/div/div/div/div/input")).sendKeys(timestamp+"CRT");
+		driver.findElement(By.xpath("//div[4]/div/div[2]/div/div/div/div/div/div/div/div/div/div/div/input")).sendKeys(Keys.ARROW_DOWN);
+		driver.findElement(By.xpath("//div[4]/div/div[2]/div/div/div/div/div/div/div/div/div/div/div/input")).sendKeys(Keys.ENTER);
+		driver.findElement(By.xpath("//fieldset/div/div[2]/div/div/div/div/div/div/a")).click();
+		driver.findElement(By.xpath("//a[@title='United Kingdom']")).click();
+		driver.findElement(By.xpath("//div/button[3]")).click();
+	}
+	public static void saveLeadWOAccount(String postFix, String timestamp) throws InterruptedException {
+		driver.findElement(By.xpath("//fieldset/div/div/div/div/div/div/a")).click();
+		driver.findElement(By.xpath("//a[contains(text(),'Mr.')]")).click();
+		driver.findElement(By.xpath("//div[4]/input")).sendKeys(timestamp+"LC"+postFix);
+		driver.findElement(By.xpath("//div/div/div/div/div/div/fieldset/div/div[2]/input")).sendKeys("test");
+		driver.findElement(By.xpath("//div/div/div/div/div[2]/div/div/div/div/input")).sendKeys(timestamp+postFix);
+		driver.findElement(By.xpath("//div[3]/div/div/div/div/input")).sendKeys(timestamp+"@gmail.com");
+		driver.findElement(By.xpath("//div[5]/div/div/div/div/input")).sendKeys("1234567890");
+		driver.findElement(By.xpath("//div[5]/div[2]/div/div/div/div/div/div/div/a")).click();
+		driver.findElement(By.xpath("//a[contains(text(),'SQL')]")).click();
+		driver.findElement(By.xpath("//div[7]/div[2]/div/div/div/div/div/div/div/a")).click();
+		driver.findElement(By.xpath("//div[11]/div/ul/li[3]/a")).click();
+		driver.findElement(By.xpath("//div/div[2]/div/div/div[2]/div/div/div/div/input")).sendKeys(timestamp+postFix);
+		driver.findElement(By.xpath("//fieldset/div/div[2]/div/div/div/div/div/div/a")).click();
+		driver.findElement(By.xpath("//a[@title='United Kingdom']")).click();
+		driver.findElement(By.xpath("//div/button[3]")).click();
+	}
+	public static void verifyTestRecordChecbox() throws InterruptedException {
+		Thread.sleep(8000);	
+		((JavascriptExecutor)driver).executeScript("scroll(0,1000)");
+		Thread.sleep(8000);	
+		driver.findElement(By.xpath("//div[4]/div/div/div[3]/div/div/div/section/div/div/div[3]/div/div[11]/div/div/div[11]/div/div/div[2]/button")).click();
+		boolean testVerified = driver.findElement(By.xpath("//div[11]/div/div/div/div/input")).isSelected();
+		driver.findElement(By.xpath("//div[4]/div/div[2]/div/div/button")).click();
+		Assert.assertTrue(testVerified);
+	}
+	public static String getGenericError() {
+		String errormsg = driver.findElement(By.xpath("//div[2]/div/div[3]/div/div/span")).getText();
+		return errormsg;
+	}
+	public static String getSpecificError() {
+		String errormsg = driver.findElement(By.xpath("//div[2]/div/div[3]/div/ul/li")).getText();
+		return errormsg;
+	}
+	public static void saveLeadWIncrtStage(String postFix, String timestamp) throws InterruptedException {
+		driver.findElement(By.xpath("//fieldset/div/div/div/div/div/div/a")).click();
+		driver.findElement(By.xpath("//a[contains(text(),'Mr.')]")).click();
+		driver.findElement(By.xpath("//div[4]/input")).sendKeys(timestamp+"LC"+postFix);
+		driver.findElement(By.xpath("//div/div/div/div/div/div/fieldset/div/div[2]/input")).sendKeys("test");
+		driver.findElement(By.xpath("//div/div/div/div/div[2]/div/div/div/div/input")).sendKeys(timestamp+postFix);
+		driver.findElement(By.xpath("//div[3]/div/div/div/div/input")).sendKeys(timestamp+"@gmail.com");
+		driver.findElement(By.xpath("//div[5]/div/div/div/div/input")).sendKeys("1234567890");
+		driver.findElement(By.xpath("//div[5]/div[2]/div/div/div/div/div/div/div/a")).click();
+		driver.findElement(By.xpath("//a[contains(text(),'SQL')]")).click();
+		driver.findElement(By.xpath("//div[7]/div[2]/div/div/div/div/div/div/div/a")).click();
+		driver.findElement(By.xpath("//div[11]/div/ul/li[3]/a")).click();
+		driver.findElement(By.xpath("//div/div[2]/div/div/div[2]/div/div/div/div/input")).sendKeys(timestamp+postFix);
+		driver.findElement(By.xpath("//div[4]/div/div[2]/div/div/div/div/div/div/div/div/div/div/div/input")).sendKeys(timestamp+"CRT");
+		driver.findElement(By.xpath("//div[4]/div/div[2]/div/div/div/div/div/div/div/div/div/div/div/input")).sendKeys(Keys.ARROW_DOWN);
+		driver.findElement(By.xpath("//div[4]/div/div[2]/div/div/div/div/div/div/div/div/div/div/div/input")).sendKeys(Keys.ENTER);
+		driver.findElement(By.xpath("//fieldset/div/div[2]/div/div/div/div/div/div/a")).click();
+		driver.findElement(By.xpath("//a[@title='United Kingdom']")).click();
+		driver.findElement(By.xpath("//div/button[3]")).click();
+	}
+	public static void saveLeadWOCntry(String postFix, String timestamp) throws InterruptedException {
+		driver.findElement(By.xpath("//fieldset/div/div/div/div/div/div/a")).click();
+		driver.findElement(By.xpath("//a[contains(text(),'Mr.')]")).click();
+		driver.findElement(By.xpath("//div[4]/input")).sendKeys(timestamp+"LC"+postFix);
+		driver.findElement(By.xpath("//div/div/div/div/div/div/fieldset/div/div[2]/input")).sendKeys("test");
+		driver.findElement(By.xpath("//div/div/div/div/div[2]/div/div/div/div/input")).sendKeys(timestamp+postFix);
+		driver.findElement(By.xpath("//div[3]/div/div/div/div/input")).sendKeys(timestamp+"@gmail.com");
+		driver.findElement(By.xpath("//div[5]/div/div/div/div/input")).sendKeys("1234567890");
+		driver.findElement(By.xpath("//div[5]/div[2]/div/div/div/div/div/div/div/a")).click();
+		driver.findElement(By.xpath("//a[contains(text(),'SAL')]")).click();
+		driver.findElement(By.xpath("//div[7]/div[2]/div/div/div/div/div/div/div/a")).click();
+		driver.findElement(By.xpath("//div[11]/div/ul/li[3]/a")).click();
+		driver.findElement(By.xpath("//div/div[2]/div/div/div[2]/div/div/div/div/input")).sendKeys(timestamp+postFix);
+		driver.findElement(By.xpath("//div[4]/div/div[2]/div/div/div/div/div/div/div/div/div/div/div/input")).sendKeys(timestamp+"CRT");
+		driver.findElement(By.xpath("//div[4]/div/div[2]/div/div/div/div/div/div/div/div/div/div/div/input")).sendKeys(Keys.ARROW_DOWN);
+		driver.findElement(By.xpath("//div[4]/div/div[2]/div/div/div/div/div/div/div/div/div/div/div/input")).sendKeys(Keys.ENTER);
+		driver.findElement(By.xpath("//div/button[3]")).click();
+	}
+	public static void saveLeadWStatusDisqlfd(String postFix, String timestamp) throws InterruptedException {
+		driver.findElement(By.xpath("//fieldset/div/div/div/div/div/div/a")).click();
+		driver.findElement(By.xpath("//a[contains(text(),'Mr.')]")).click();
+		driver.findElement(By.xpath("//div[4]/input")).sendKeys(timestamp+"LC"+postFix);
+		driver.findElement(By.xpath("//div/div/div/div/div/div/fieldset/div/div[2]/input")).sendKeys("test");
+		driver.findElement(By.xpath("//div/div/div/div/div[2]/div/div/div/div/input")).sendKeys(timestamp+postFix);
+		driver.findElement(By.xpath("//div[3]/div/div/div/div/input")).sendKeys(timestamp+"@gmail.com");
+		driver.findElement(By.xpath("//div[5]/div/div/div/div/input")).sendKeys("1234567890");
+		driver.findElement(By.xpath("//div[3]/div[2]/div/div/div/div/div/div/div/a")).click();
+		driver.findElement(By.xpath("//a[contains(text(),'Disqualified')]")).click();
+		driver.findElement(By.xpath("//div[5]/div[2]/div/div/div/div/div/div/div/a")).click();
+		driver.findElement(By.xpath("//a[contains(text(),'SAL')]")).click();
+		driver.findElement(By.xpath("//div[7]/div[2]/div/div/div/div/div/div/div/a")).click();
+		driver.findElement(By.xpath("//div[12]/div/ul/li[3]/a")).click();
+		driver.findElement(By.xpath("//div/div[2]/div/div/div[2]/div/div/div/div/input")).sendKeys(timestamp+postFix);
+		driver.findElement(By.xpath("//div[4]/div/div[2]/div/div/div/div/div/div/div/div/div/div/div/input")).sendKeys(timestamp+"CRT");
+		driver.findElement(By.xpath("//div[4]/div/div[2]/div/div/div/div/div/div/div/div/div/div/div/input")).sendKeys(Keys.ARROW_DOWN);
+		driver.findElement(By.xpath("//div[4]/div/div[2]/div/div/div/div/div/div/div/div/div/div/div/input")).sendKeys(Keys.ENTER);
+		driver.findElement(By.xpath("//fieldset/div/div[2]/div/div/div/div/div/div/a")).click();
+		driver.findElement(By.xpath("//a[@title='United Kingdom']")).click();
+		driver.findElement(By.xpath("//div/button[3]")).click();
+	}
+	
+}
 	

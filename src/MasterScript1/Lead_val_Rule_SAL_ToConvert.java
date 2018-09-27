@@ -3,6 +3,7 @@ package MasterScript1;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -46,7 +47,7 @@ public class Lead_val_Rule_SAL_ToConvert {
 		ObjectRepositoryMain.createNewContact();
 		ObjectRepositoryMain.selectContactRecordType();
 		todayDate = new Date();
-		ObjectRepositoryMain.fillContactFormAndSave(sdf.format(todayDate));
+		ObjectRepositoryMain.fillContactFormAndSave(sdf.format(todayDate), "CCRT");
 		ObjectRepositoryMain.fillNewOpportunityFormAndSave(sdf.format(todayDate));
 		ObjectRepositoryMain.fillNewProductAndSave(sdf.format(todayDate));
 	}
@@ -78,13 +79,112 @@ public class Lead_val_Rule_SAL_ToConvert {
 		ObjectRepositoryMain.fillAccountsFormAndSave("PRT", sdf.format(todayDate));
 	}
 	
-	/*@Test
-	public void TESTUATAccountCreation() throws Exception {
+	@Test
+	public void ContactCreation_CustomerRT() throws Exception {
 		ObjectRepositoryMain.launchChrome();
 		ObjectRepositoryMain.loginQA();
-		ObjectRepositoryMain.scrollTest();
-	}*/
-	
+		ObjectRepositoryMain.clickAccountsTab();
+		ObjectRepositoryMain.selectCustomerRecord();
+		todayDate = new Date();
+		ObjectRepositoryMain.fillAccountsFormAndSave("CCRT", sdf.format(todayDate));
+		ObjectRepositoryMain.createNewContact();
+		ObjectRepositoryMain.selectContactRecordType();
+		todayDate = new Date();
+		ObjectRepositoryMain.fillContactFormAndSave(sdf.format(todayDate), "CCRT");
+	}
+	@Test
+	public void LeadCreation_LG_CustomerRT() throws Exception {
+		ObjectRepositoryMain.launchChrome();
+		ObjectRepositoryMain.loginQA();
+		ObjectRepositoryMain.clickAccountsTab();
+		ObjectRepositoryMain.selectCustomerRecord();
+		ObjectRepositoryMain.fillAccountsFormAndSave("CRT", sdf.format(todayDate));
+		ObjectRepositoryMain.clickLeadsTab();
+		ObjectRepositoryMain.leadGenerationLeadGenType();
+		ObjectRepositoryMain.fillFormAndSaveLead("LGRT", sdf.format(todayDate));
+		ObjectRepositoryMain.verifyTestRecordChecbox();
+	}
+	@Test
+	public void LeadCreation_AM_CustomerRT() throws Exception {
+		ObjectRepositoryMain.launchChrome();
+		ObjectRepositoryMain.loginQA();
+		ObjectRepositoryMain.clickAccountsTab();
+		ObjectRepositoryMain.selectCustomerRecord();
+		ObjectRepositoryMain.fillAccountsFormAndSave("CRT", sdf.format(todayDate));
+		ObjectRepositoryMain.clickLeadsTab();
+		ObjectRepositoryMain.actMgmtLeadGenType();
+		ObjectRepositoryMain.fillFormAndSaveLead("AMRT", sdf.format(todayDate));
+	}
+	@Test
+	public void LeadCreatio_SDRG_CustomerRT() throws Exception {
+		ObjectRepositoryMain.launchChrome();
+		ObjectRepositoryMain.loginQA();
+		ObjectRepositoryMain.clickAccountsTab();
+		ObjectRepositoryMain.selectCustomerRecord();
+		ObjectRepositoryMain.fillAccountsFormAndSave("CRT", sdf.format(todayDate));
+		ObjectRepositoryMain.clickLeadsTab();
+		ObjectRepositoryMain.sdrGenLeadGenType();
+		ObjectRepositoryMain.fillFormAndSaveLead("SDRGRT", sdf.format(todayDate));
+	}
+	@Test
+	public void LeadCreation_SRT_CustomerRT() throws Exception {
+		ObjectRepositoryMain.launchChrome();
+		ObjectRepositoryMain.loginQA();
+		ObjectRepositoryMain.clickAccountsTab();
+		ObjectRepositoryMain.selectCustomerRecord();
+		ObjectRepositoryMain.fillAccountsFormAndSave("CRT", sdf.format(todayDate));
+		ObjectRepositoryMain.clickLeadsTab();
+		ObjectRepositoryMain.salesRTtLeadGenType();
+		ObjectRepositoryMain.fillFormAndSaveLead("SRTRT", sdf.format(todayDate));
+	}
+	@Test
+	public void LeadCrtn_ActMndtry() throws Exception {
+		ObjectRepositoryMain.launchChrome();
+		ObjectRepositoryMain.loginQA();
+		ObjectRepositoryMain.clickAccountsTab();
+		ObjectRepositoryMain.selectCustomerRecord();
+		ObjectRepositoryMain.fillAccountsFormAndSave("CRT", sdf.format(todayDate));
+		ObjectRepositoryMain.clickLeadsTab();
+		ObjectRepositoryMain.leadGenerationLeadGenType();
+		ObjectRepositoryMain.saveLeadWOAccount("LGRT", sdf.format(todayDate));
+		Assert.assertEquals("Review the errors on this page.", ObjectRepositoryMain.getGenericError());
+	}
+	@Test
+	public void LeadCrtn_StageIncrt() throws Exception {
+		ObjectRepositoryMain.launchChrome();
+		ObjectRepositoryMain.loginQA();
+		ObjectRepositoryMain.clickAccountsTab();
+		ObjectRepositoryMain.selectCustomerRecord();
+		ObjectRepositoryMain.fillAccountsFormAndSave("CRT", sdf.format(todayDate));
+		ObjectRepositoryMain.clickLeadsTab();
+		ObjectRepositoryMain.leadGenerationLeadGenType();
+		ObjectRepositoryMain.saveLeadWIncrtStage("LGRT", sdf.format(todayDate));
+		Assert.assertEquals("Review the errors on this page.", ObjectRepositoryMain.getGenericError());
+	}
+	@Test
+	public void LeadCrtn_CntryMndtry() throws Exception {
+		ObjectRepositoryMain.launchChrome();
+		ObjectRepositoryMain.loginQA();
+		ObjectRepositoryMain.clickAccountsTab();
+		ObjectRepositoryMain.selectCustomerRecord();
+		ObjectRepositoryMain.fillAccountsFormAndSave("CRT", sdf.format(todayDate));
+		ObjectRepositoryMain.clickLeadsTab();
+		ObjectRepositoryMain.leadGenerationLeadGenType();
+		ObjectRepositoryMain.saveLeadWOCntry("LGRT", sdf.format(todayDate));
+		Assert.assertEquals("Review the errors on this page.", ObjectRepositoryMain.getGenericError());
+	}
+	@Test
+	public void LeadCrtn_StatusDisqualified() throws Exception {
+		ObjectRepositoryMain.launchChrome();
+		ObjectRepositoryMain.loginQA();
+		ObjectRepositoryMain.clickAccountsTab();
+		ObjectRepositoryMain.selectCustomerRecord();
+		ObjectRepositoryMain.fillAccountsFormAndSave("CRT", sdf.format(todayDate));
+		ObjectRepositoryMain.clickLeadsTab();
+		ObjectRepositoryMain.leadGenerationLeadGenType();
+		ObjectRepositoryMain.saveLeadWStatusDisqlfd("LGRT", sdf.format(todayDate));
+		Assert.assertEquals("Review the errors on this page.", ObjectRepositoryMain.getGenericError());
+	}
 }
 	
 
