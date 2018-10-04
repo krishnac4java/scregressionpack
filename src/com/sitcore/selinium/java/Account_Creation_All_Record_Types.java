@@ -15,7 +15,6 @@ public class Account_Creation_All_Record_Types {
 	@Before
 	public void Initial_Steps_To_Login() throws Exception {
 		ObjectRepositoryMain.launchChrome();
-		ObjectRepositoryMain.loginQA();
 	}
 	@After
 	public void Final_Steps_To_Close() throws Exception {
@@ -24,43 +23,51 @@ public class Account_Creation_All_Record_Types {
 	}
 	@Test
 	public void AccountCreation_CustomerRT_SalesOpsUser() throws Exception {
-		user = "Automation_SalesOps";
-		AccountCreation_CustomerRT();
-	}
-	@Test
-	public void AccountCreation_CustomerRT_SDRUser() throws Exception {
-		user = "automation_SDR";
-		AccountCreation_CustomerRT();
-	}
-	@Test
-	public void AccountCreation_CustomerRT_SalesUser() throws Exception {
-		user = "automation_sales";
-		AccountCreation_CustomerRT();
-	}
-	@Test
-	public void AccountCreation_CustomerRT_PamUSer() throws Exception {
-		user = "automation_pam";
-		AccountCreation_CustomerRT();
-	}
-	@Test
-	public void AccountCreation_CustomerRT_MopsUSer() throws Exception {
-		user = "automation_mops";
-		AccountCreation_CustomerRT();
-	}
-	@Test
-	public void AccountCreation_CustomerRT() throws Exception {
-		ObjectRepositoryMain.proxySalesOpsUser(user);
+		ObjectRepositoryMain.loginAccountCrtnUser("Automation_SalesOps@sitecore.net.finaluat");
+		//ObjectRepositoryMain.proxySalesOpsUser("Automation_SalesOps");
 		ObjectRepositoryMain.clickAccountsTab();
-		if(user.equals("Automation_SalesOps"))
-			ObjectRepositoryMain.selectCustomerRecord();
+		ObjectRepositoryMain.selectCustomerRecord();
 		todayDate = new Date();
 		ObjectRepositoryMain.fillAccountsFormAndSave("CRT", sdf.format(todayDate));
 	}
-	
+	@Test
+	public void AccountCreation_CustomerRT_SDRUser() throws Exception {
+		ObjectRepositoryMain.loginAccountCrtnUser("automation_sdr@sitecore.com.finaluat");
+		//ObjectRepositoryMain.proxySalesOpsUser("automation_SDR");
+		ObjectRepositoryMain.clickAccountsTab();
+		todayDate = new Date();
+		ObjectRepositoryMain.fillAccountsFormAndSaveSDRUser("CRT", sdf.format(todayDate));
+		
+	}
+	@Test
+	public void AccountCreation_CustomerRT_SalesUser() throws Exception {
+		ObjectRepositoryMain.loginAccountCrtnUser("automation_sales@sitecore.com.finaluat");
+		//ObjectRepositoryMain.proxySalesOpsUser("automation_sales");
+		ObjectRepositoryMain.clickAccountsTab();
+		todayDate = new Date();
+		ObjectRepositoryMain.fillAccountsFormAndSaveSDRUser("CRT", sdf.format(todayDate));
+	}
+	@Test
+	public void AccountCreation_CustomerRT_PamUSer() throws Exception {
+		ObjectRepositoryMain.loginAccountCrtnUser("automation_pam@sitecore.com.finaluat");
+		//ObjectRepositoryMain.proxySalesOpsUser("automation_pam");
+		ObjectRepositoryMain.clickAccountsTab();
+		todayDate = new Date();
+		ObjectRepositoryMain.fillAccountsFormAndSaveSDRUser("CRT", sdf.format(todayDate));
+	}
+	@Test
+	public void AccountCreation_CustomerRT_MopsUSer() throws Exception {
+		ObjectRepositoryMain.loginAccountCrtnUser("automation_mops@sitecore.com.finaluat");
+		//ObjectRepositoryMain.proxySalesOpsUser("automation_mops");
+		ObjectRepositoryMain.clickAccountsTab();
+		todayDate = new Date();
+		ObjectRepositoryMain.fillAccountsFormAndSaveSDRUser("CRT", sdf.format(todayDate));
+	}
+		
 	@Test
 	public void AccountCreation_AccRqstRcrd() throws Exception {
 		ObjectRepositoryMain.launchChrome();
-		ObjectRepositoryMain.loginQA();
+		ObjectRepositoryMain.loginUser();
 		ObjectRepositoryMain.clickAccountsTab();
 		ObjectRepositoryMain.selectAccRqstRT();
 		todayDate = new Date();
@@ -71,7 +78,7 @@ public class Account_Creation_All_Record_Types {
 	@Test
 	public void AccountCreation_Competitor() throws Exception {
 		ObjectRepositoryMain.launchChrome();
-		ObjectRepositoryMain.loginQA();
+		ObjectRepositoryMain.loginUser();
 		ObjectRepositoryMain.clickAccountsTab();
 		ObjectRepositoryMain.selectCompetitorRT();
 		todayDate = new Date();
@@ -81,7 +88,7 @@ public class Account_Creation_All_Record_Types {
 	@Test
 	public void AccountCreation_Program() throws Exception {
 		ObjectRepositoryMain.launchChrome();
-		ObjectRepositoryMain.loginQA();
+		ObjectRepositoryMain.loginUser();
 		ObjectRepositoryMain.clickAccountsTab();
 		ObjectRepositoryMain.selectProgramRT();
 		todayDate = new Date();

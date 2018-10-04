@@ -37,7 +37,7 @@ public class Lead_Validation_Rules {
 	@Test
 	public void LeadValidationRule_Account_Mandatory_SQL_Stage() throws Exception {
 		ObjectRepositoryMain.launchChrome();
-		ObjectRepositoryMain.loginQA();
+		ObjectRepositoryMain.loginUser();
 		ObjectRepositoryMain.clickAccountsTab();
 		ObjectRepositoryMain.selectCustomerRecord();
 		todayDate = new Date();
@@ -52,7 +52,7 @@ public class Lead_Validation_Rules {
 	@Test
 	public void LeadValidationRule_Covert_With_Funnel_Stage_SQL() throws Exception {
 		ObjectRepositoryMain.launchChrome();
-		ObjectRepositoryMain.loginQA();
+		ObjectRepositoryMain.loginUser();
 		ObjectRepositoryMain.clickAccountsTab();
 		ObjectRepositoryMain.selectCustomerRecord();
 		todayDate = new Date();
@@ -67,7 +67,7 @@ public class Lead_Validation_Rules {
 	@Test
 	public void LeadValidationRule_CountryMandatory() throws Exception {
 		ObjectRepositoryMain.launchChrome();
-		ObjectRepositoryMain.loginQA();
+		ObjectRepositoryMain.loginUser();
 		ObjectRepositoryMain.clickAccountsTab();
 		ObjectRepositoryMain.selectCustomerRecord();
 		todayDate = new Date();
@@ -82,7 +82,7 @@ public class Lead_Validation_Rules {
 	@Test
 	public void LeadValidationRule_Disqualification_Reason_Mandatory() throws Exception {
 		ObjectRepositoryMain.launchChrome();
-		ObjectRepositoryMain.loginQA();
+		ObjectRepositoryMain.loginUser();
 		ObjectRepositoryMain.clickAccountsTab();
 		ObjectRepositoryMain.selectCustomerRecord();
 		todayDate = new Date();

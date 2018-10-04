@@ -14,7 +14,7 @@ public class Sprint1_US_0696 {
 	@Test
 	public void sprint1_US_0696() throws Exception {
 		ObjectRepositoryMain.launchChrome();
-		ObjectRepositoryMain.loginQA();
+		ObjectRepositoryMain.loginUser();
 		ObjectRepositoryMain.clickAccountsTab();
 		ObjectRepositoryMain.selectCompetitorRT();
 		todayDate = new Date();

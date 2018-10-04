@@ -71,7 +71,7 @@ public class ObjectRepositoryMain {
 	    Thread.sleep(2000);
 	}	
 		
-	public static void loginQA() throws InterruptedException {
+	public static void loginUser() throws InterruptedException {
 		
 		driver.findElement(By.id("username")).clear();
 	    driver.findElement(By.id("username")).sendKeys("vima@sitecore.net.finaluat");
@@ -79,7 +79,17 @@ public class ObjectRepositoryMain {
 	    driver.findElement(By.id("password")).sendKeys("Ovj4519oe26");	   
 	    driver.findElement(By.id("Login")).click();
 	    Thread.sleep(2000);
-	}	
+	}
+	
+	public static void loginAccountCrtnUser(String userName) throws InterruptedException {
+		
+		driver.findElement(By.id("username")).clear();
+	    driver.findElement(By.id("username")).sendKeys(userName);
+	    driver.findElement(By.id("password")).clear();
+	    driver.findElement(By.id("password")).sendKeys("Ovj4519oe26");	   
+	    driver.findElement(By.id("Login")).click();
+	    Thread.sleep(2000);
+	}
 		
 	public static void clickLeadsTab() throws InterruptedException {
 		Thread.sleep(5000);
@@ -171,6 +181,18 @@ public class ObjectRepositoryMain {
 		driver.findElement(By.xpath("//a[contains(text(),'England')]")).click();
 		driver.findElement(By.xpath("//div/div/div/div/fieldset/div/div[5]/div/div/input")).sendKeys(timestamp);
 		driver.findElement(By.xpath("//div[@class='slds-form-element__control']/div/input")).sendKeys("1234567890");
+		driver.findElement(By.xpath("//button[@title='Save']")).click();
+	}
+	
+	public static void fillAccountsFormAndSaveSDRUser(String postfix, String timestamp) {
+		driver.findElement(By.xpath("//div[@class='autocompleteWrapper slds-grow']//input[1]")).sendKeys(timestamp+postfix);
+		driver.findElement(By.xpath("//fieldset/div/div[2]/div/div/div/div/div/div/a")).click();
+		driver.findElement(By.xpath("//a[contains(text(),'United Kingdom')]")).click();
+		driver.findElement(By.xpath("//div/div/div/div/fieldset/div/div[3]/div/div/textarea")).sendKeys(timestamp);
+		driver.findElement(By.xpath("//div/div/div/div/fieldset/div/div[4]/div/div/input")).sendKeys(timestamp);
+		driver.findElement(By.xpath("//div/div/div/div/fieldset/div/div[4]/div[2]/div/div/div/div/div/a")).click();
+		driver.findElement(By.xpath("//a[contains(text(),'England')]")).click();
+		driver.findElement(By.xpath("//div/div/div/div/fieldset/div/div[5]/div/div/input")).sendKeys(timestamp);
 		driver.findElement(By.xpath("//button[@title='Save']")).click();
 	}
 	

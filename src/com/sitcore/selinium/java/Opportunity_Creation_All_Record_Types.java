@@ -13,7 +13,7 @@ public class Opportunity_Creation_All_Record_Types {
 	@Test
 	public void opportunityCreation_CustomerRT() throws Exception {
 		ObjectRepositoryMain.launchChrome();
-		ObjectRepositoryMain.loginQA();
+		ObjectRepositoryMain.loginUser();
 		ObjectRepositoryMain.clickAccountsTab();
 		ObjectRepositoryMain.selectCustomerRecord();
 		todayDate = new Date();
