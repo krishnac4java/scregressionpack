@@ -7,6 +7,8 @@ import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 import org.junit.Before;
@@ -17,7 +19,9 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import  org.junit.Test;
 import org.openqa.selenium.support.ui.Select;
@@ -32,9 +36,13 @@ public class ObjectRepositoryMain {
 	
 	@Before
 	  public static void launchChrome() throws Exception {
-		
+		  ChromeOptions options=new ChromeOptions();
+		  Map<String, Object> prefs=new HashMap<String,Object>();
+		  prefs.put("profile.default_content_setting_values.notifications", 1);
+		  //1-Allow, 2-Block, 0-default
+		  options.setExperimentalOption("prefs",prefs);
 		  System.setProperty("webdriver.chrome.driver","D:\\VijayWorkSpace\\chromedriver.exe");
-		  driver = new ChromeDriver();   
+		  driver = new ChromeDriver(options);   
 		  driver.get("https://test.salesforce.com");
 		  driver.manage().window().maximize();
 	      driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);      
@@ -406,7 +414,19 @@ public class ObjectRepositoryMain {
 		String errormsg = driver.findElement(By.xpath(xpath)).getText();
 		return errormsg;
 	}
-	
+	public static void proxySalesOpsUser(String user) throws Exception {
+		driver.findElement(By.xpath("//html/body/div[5]/div/section/header/div[2]/div[2]/div/div[2]/div/div[2]/div[2]/div/input")).sendKeys(user);
+		Thread.sleep(5000);
+		driver.findElement(By.xpath("//html/body/div[5]/div/section/header/div[2]/div[2]/div/div[2]/div/div[2]/div[2]/div/input")).sendKeys(Keys.ARROW_DOWN);
+		//driver.findElement(By.xpath("//html/body/div[5]/div/section/header/div[2]/div[2]/div/div[2]/div/div[2]/div[2]/div/input")).sendKeys(Keys.ARROW_DOWN);
+		driver.findElement(By.xpath("//html/body/div[5]/div/section/header/div[2]/div[2]/div/div[2]/div/div[2]/div[2]/div/input")).sendKeys(Keys.ENTER);
+		driver.findElement(By.xpath("//div[@title='User Detail']")).click();
+		Thread.sleep(10000);
+		WebElement iFrame= driver.findElement(By.tagName("iframe"));
+		driver.switchTo().frame(iFrame);
+		driver.findElement(By.xpath("//input[4]")).click();
+
+	}
 		
 }
 	
