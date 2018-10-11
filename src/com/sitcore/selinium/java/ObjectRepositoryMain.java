@@ -135,7 +135,7 @@ public class ObjectRepositoryMain {
 	 static String Account_CompetitorRT_SalesOps_Type_DropDown = "";
 	//Options: --None--, Customer, Prospect	
 	 static String Account_CompetitorRT_SalesOps_ParentAccount_Lookup = "";	
-	 static String Account_CompetitorRT_SalesOps_RecordStatus_DropDown = "//div[4]/div[1]/div[1]/div[1]/div[1]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]";
+	 static String Account_CompetitorRT_SalesOps_RecordStatus_DropDown = "//div[4]/div[1]/div[1]/div[1]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]";
 	//Options: --None--, Unverified, Verified
 	 static String Account_CompetitorRT_SalesOps_RecordStatus_DropDown_Verified ="//a[contains(text(),'Verified')]";	
 	 static String Account_CompetitorRT_SalesOps_LatticeAccountRanking_EditBox = "";
@@ -167,7 +167,7 @@ public class ObjectRepositoryMain {
 	 static String Account_ProgramRT_SalesOps_Type_DropDown = "";
 	//Options: --None--, Customer, Prospect	
 	 static String Account_ProgramRT_SalesOps_ParentAccount_Lookup = "";	
-	 static String Account_ProgramRT_SalesOps_RecordStatus_DropDown = "//div[4]/div[1]/div[1]/div[1]/div[1]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]";
+	 static String Account_ProgramRT_SalesOps_RecordStatus_DropDown = "//div[4]/div[1]/div[1]/div[1]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]";
 	//Options: --None--, Unverified, Verified
 	 static String Account_ProgramRT_SalesOps_RecordStatus_DropDown_Verified ="//a[contains(text(),'Verified')]";	
 	 static String Account_ProgramRT_SalesOps_LatticeAccountRanking_EditBox = "";
@@ -360,7 +360,7 @@ public static void loginUser_SalesOps() throws InterruptedException {
 		Thread.sleep(3000);
 	}
 	
-	public static void selectAccRqstRT() throws InterruptedException {
+	public static void selectAccountRequestRT() throws InterruptedException {
 		driver.findElement(By.xpath("//span[contains(text(),'Account Request Record')]")).click();
 		driver.findElement(By.xpath("//div[@class='forceChangeRecordTypeFooter']//button[2]")).click();
 		Thread.sleep(3000);
@@ -412,7 +412,50 @@ public static void loginUser_SalesOps() throws InterruptedException {
 		//driver.findElement(By.xpath("//div[@class='slds-form-element__control']/div/input")).sendKeys("1234567890");		
 	}
 	
+	public static void SalesOps_AccountRequestRT_Creation() {
 		
+		driver.findElement(By.xpath(ObjectRepositoryMain.Account_AccRequestRT_SalesOps_AccountName_EditBox)).sendKeys(sdf.format(todayDate));		
+		driver.findElement(By.xpath(ObjectRepositoryMain.Account_AccRequestRT_SalesOps_RecordStatus_DropDown)).click();
+		driver.findElement(By.xpath(ObjectRepositoryMain.Account_AccRequestRT_SalesOps_RecordStatus_DropDown_Verified)).click();		
+		driver.findElement(By.xpath(ObjectRepositoryMain.Account_AccRequestRT_SalesOps_BillingCountry_DropDown)).click();
+		driver.findElement(By.xpath(ObjectRepositoryMain.Account_AccRequestRT_SalesOps_BillingCountry_DropDown_UK)).click();
+		driver.findElement(By.xpath(ObjectRepositoryMain.Account_AccRequestRT_SalesOps_BillingSt_EditBox)).sendKeys(sdf.format(todayDate));
+		driver.findElement(By.xpath(ObjectRepositoryMain.Account_AccRequestRT_SalesOps_BillingCity_EditBox)).sendKeys(sdf.format(todayDate));
+		driver.findElement(By.xpath(ObjectRepositoryMain.Account_AccRequestRT_SalesOps_BillingState_DropDown)).click();
+		driver.findElement(By.xpath(ObjectRepositoryMain.Account_AccRequestRT_SalesOps_BillingState_DropDown_England)).click();
+		driver.findElement(By.xpath(ObjectRepositoryMain.Account_AccRequestRT_SalesOps_BillingPostCode_EditBox)).sendKeys(sdf.format(todayDate));
+		//driver.findElement(By.xpath("//div[@class='slds-form-element__control']/div/input")).sendKeys("1234567890");		
+	}	
+	
+	public static void SalesOps_AccountCompetitorRT_Creation() {
+		
+		driver.findElement(By.xpath(ObjectRepositoryMain.Account_CompetitorRT_SalesOps_AccountName_EditBox)).sendKeys(sdf.format(todayDate));		
+		driver.findElement(By.xpath(ObjectRepositoryMain.Account_CompetitorRT_SalesOps_RecordStatus_DropDown)).click();
+		driver.findElement(By.xpath(ObjectRepositoryMain.Account_CompetitorRT_SalesOps_RecordStatus_DropDown_Verified)).click();		
+		driver.findElement(By.xpath(ObjectRepositoryMain.Account_CompetitorRT_SalesOps_BillingCountry_DropDown)).click();
+		driver.findElement(By.xpath(ObjectRepositoryMain.Account_CompetitorRT_SalesOps_BillingCountry_DropDown_UK)).click();
+		driver.findElement(By.xpath(ObjectRepositoryMain.Account_CompetitorRT_SalesOps_BillingSt_EditBox)).sendKeys(sdf.format(todayDate));
+		driver.findElement(By.xpath(ObjectRepositoryMain.Account_CompetitorRT_SalesOps_BillingCity_EditBox)).sendKeys(sdf.format(todayDate));
+		driver.findElement(By.xpath(ObjectRepositoryMain.Account_CompetitorRT_SalesOps_BillingState_DropDown)).click();
+		driver.findElement(By.xpath(ObjectRepositoryMain.Account_CompetitorRT_SalesOps_BillingState_DropDown_England)).click();
+		driver.findElement(By.xpath(ObjectRepositoryMain.Account_CompetitorRT_SalesOps_BillingPostCode_EditBox)).sendKeys(sdf.format(todayDate));
+		//driver.findElement(By.xpath("//div[@class='slds-form-element__control']/div/input")).sendKeys("1234567890");		
+	}
+	
+public static void SalesOps_AccountProgramRT_Creation() {
+		
+		driver.findElement(By.xpath(ObjectRepositoryMain.Account_ProgramRT_SalesOps_AccountName_EditBox)).sendKeys(sdf.format(todayDate));		
+		driver.findElement(By.xpath(ObjectRepositoryMain.Account_ProgramRT_SalesOps_RecordStatus_DropDown)).click();
+		driver.findElement(By.xpath(ObjectRepositoryMain.Account_ProgramRT_SalesOps_RecordStatus_DropDown_Verified)).click();		
+		driver.findElement(By.xpath(ObjectRepositoryMain.Account_ProgramRT_SalesOps_BillingCountry_DropDown)).click();
+		driver.findElement(By.xpath(ObjectRepositoryMain.Account_ProgramRT_SalesOps_BillingCountry_DropDown_UK)).click();
+		driver.findElement(By.xpath(ObjectRepositoryMain.Account_ProgramRT_SalesOps_BillingSt_EditBox)).sendKeys(sdf.format(todayDate));
+		driver.findElement(By.xpath(ObjectRepositoryMain.Account_ProgramRT_SalesOps_BillingCity_EditBox)).sendKeys(sdf.format(todayDate));
+		driver.findElement(By.xpath(ObjectRepositoryMain.Account_ProgramRT_SalesOps_BillingState_DropDown)).click();
+		driver.findElement(By.xpath(ObjectRepositoryMain.Account_ProgramRT_SalesOps_BillingState_DropDown_England)).click();
+		driver.findElement(By.xpath(ObjectRepositoryMain.Account_ProgramRT_SalesOps_BillingPostCode_EditBox)).sendKeys(sdf.format(todayDate));
+		//driver.findElement(By.xpath("//div[@class='slds-form-element__control']/div/input")).sendKeys("1234567890");		
+	}
 	
 	public static void click_Save_Button() {
 		
@@ -430,16 +473,59 @@ public static void loginUser_SalesOps() throws InterruptedException {
 		driver.findElement(By.xpath(ObjectRepositoryMain.Account_AccountRequestRT_SDR_BillingPostCode_EditBox)).sendKeys(timestamp);
 		//driver.findElement(By.xpath("//button[@title='Save']")).click();
 	}
+	public static void Sales_AccounCustomerRT_Creation() {
+		
+		driver.findElement(By.xpath(ObjectRepositoryMain.Account_CustomerRT_SalesOps_AccountName_EditBox)).sendKeys(sdf.format(todayDate));		
+		driver.findElement(By.xpath(ObjectRepositoryMain.Account_CustomerRT_SalesOps_RecordStatus_DropDown)).click();
+		driver.findElement(By.xpath(ObjectRepositoryMain.Account_CustomerRT_SalesOps_RecordStatus_DropDown_Verified)).click();		
+		driver.findElement(By.xpath(ObjectRepositoryMain.Account_CustomerRT_SalesOps_BillingCountry_DropDown)).click();
+		driver.findElement(By.xpath(ObjectRepositoryMain.Account_CustomerRT_SalesOps_BillingCountry_DropDown_UK)).click();
+		driver.findElement(By.xpath(ObjectRepositoryMain.Account_CustomerRT_SalesOps_BillingSt_EditBox)).sendKeys(sdf.format(todayDate));
+		driver.findElement(By.xpath(ObjectRepositoryMain.Account_CustomerRT_SalesOps_BillingCity_EditBox)).sendKeys(sdf.format(todayDate));
+		driver.findElement(By.xpath(ObjectRepositoryMain.Account_CustomerRT_SalesOps_BillingState_DropDown)).click();
+		driver.findElement(By.xpath(ObjectRepositoryMain.Account_CustomerRT_SalesOps_BillingState_DropDown_England)).click();
+		driver.findElement(By.xpath(ObjectRepositoryMain.Account_CustomerRT_SalesOps_BillingPostCode_EditBox)).sendKeys(sdf.format(todayDate));
+		//driver.findElement(By.xpath("//div[@class='slds-form-element__control']/div/input")).sendKeys("1234567890");		
+	}
 	
-	public static void Sales_AccountRequestRT_Creation(String timestamp) {
-		driver.findElement(By.xpath(ObjectRepositoryMain.Account_AccountRequestRT_SDR_AccountName_EditBox)).sendKeys(timestamp);
+	public static void Sales_AccountCompetitorRT_Creation() {
+		
+		driver.findElement(By.xpath(ObjectRepositoryMain.Account_CompetitorRT_SalesOps_AccountName_EditBox)).sendKeys(sdf.format(todayDate));		
+		driver.findElement(By.xpath(ObjectRepositoryMain.Account_CompetitorRT_SalesOps_RecordStatus_DropDown)).click();
+		driver.findElement(By.xpath(ObjectRepositoryMain.Account_CompetitorRT_SalesOps_RecordStatus_DropDown_Verified)).click();		
+		driver.findElement(By.xpath(ObjectRepositoryMain.Account_CompetitorRT_SalesOps_BillingCountry_DropDown)).click();
+		driver.findElement(By.xpath(ObjectRepositoryMain.Account_CompetitorRT_SalesOps_BillingCountry_DropDown_UK)).click();
+		driver.findElement(By.xpath(ObjectRepositoryMain.Account_CompetitorRT_SalesOps_BillingSt_EditBox)).sendKeys(sdf.format(todayDate));
+		driver.findElement(By.xpath(ObjectRepositoryMain.Account_CompetitorRT_SalesOps_BillingCity_EditBox)).sendKeys(sdf.format(todayDate));
+		driver.findElement(By.xpath(ObjectRepositoryMain.Account_CompetitorRT_SalesOps_BillingState_DropDown)).click();
+		driver.findElement(By.xpath(ObjectRepositoryMain.Account_CompetitorRT_SalesOps_BillingState_DropDown_England)).click();
+		driver.findElement(By.xpath(ObjectRepositoryMain.Account_CompetitorRT_SalesOps_BillingPostCode_EditBox)).sendKeys(sdf.format(todayDate));
+		//driver.findElement(By.xpath("//div[@class='slds-form-element__control']/div/input")).sendKeys("1234567890");		
+	}
+	
+	public static void Sales_AccountProgramRT_Creation() {
+		
+		driver.findElement(By.xpath(ObjectRepositoryMain.Account_ProgramRT_SalesOps_AccountName_EditBox)).sendKeys(sdf.format(todayDate));		
+		driver.findElement(By.xpath(ObjectRepositoryMain.Account_ProgramRT_SalesOps_RecordStatus_DropDown)).click();
+		driver.findElement(By.xpath(ObjectRepositoryMain.Account_ProgramRT_SalesOps_RecordStatus_DropDown_Verified)).click();		
+		driver.findElement(By.xpath(ObjectRepositoryMain.Account_ProgramRT_SalesOps_BillingCountry_DropDown)).click();
+		driver.findElement(By.xpath(ObjectRepositoryMain.Account_ProgramRT_SalesOps_BillingCountry_DropDown_UK)).click();
+		driver.findElement(By.xpath(ObjectRepositoryMain.Account_ProgramRT_SalesOps_BillingSt_EditBox)).sendKeys(sdf.format(todayDate));
+		driver.findElement(By.xpath(ObjectRepositoryMain.Account_ProgramRT_SalesOps_BillingCity_EditBox)).sendKeys(sdf.format(todayDate));
+		driver.findElement(By.xpath(ObjectRepositoryMain.Account_ProgramRT_SalesOps_BillingState_DropDown)).click();
+		driver.findElement(By.xpath(ObjectRepositoryMain.Account_ProgramRT_SalesOps_BillingState_DropDown_England)).click();
+		driver.findElement(By.xpath(ObjectRepositoryMain.Account_ProgramRT_SalesOps_BillingPostCode_EditBox)).sendKeys(sdf.format(todayDate));
+		//driver.findElement(By.xpath("//div[@class='slds-form-element__control']/div/input")).sendKeys("1234567890");		
+	}
+	public static void Sales_AccountRequestRT_Creation() {
+		driver.findElement(By.xpath(ObjectRepositoryMain.Account_AccountRequestRT_SDR_AccountName_EditBox)).sendKeys(sdf.format(todayDate));
 		driver.findElement(By.xpath(ObjectRepositoryMain.Account_AccountRequestRT_SDR_BillingCountry_DropDown)).click();
 		driver.findElement(By.xpath(ObjectRepositoryMain.Account_AccountRequestRT_SDR_BillingCountry_DropDown_UK)).click();
-		driver.findElement(By.xpath(ObjectRepositoryMain.Account_AccountRequestRT_SDR_BillingSt_EditBox)).sendKeys(timestamp);
-		driver.findElement(By.xpath(ObjectRepositoryMain.Account_AccountRequestRT_SDR_BillingCity_EditBox)).sendKeys(timestamp);
+		driver.findElement(By.xpath(ObjectRepositoryMain.Account_AccountRequestRT_SDR_BillingSt_EditBox)).sendKeys(sdf.format(todayDate));
+		driver.findElement(By.xpath(ObjectRepositoryMain.Account_AccountRequestRT_SDR_BillingCity_EditBox)).sendKeys(sdf.format(todayDate));
 		driver.findElement(By.xpath(ObjectRepositoryMain.Account_AccountRequestRT_SDR_BillingState_DropDown)).click();
 		driver.findElement(By.xpath(ObjectRepositoryMain.Account_AccountRequestRT_SDR_BillingState_DropDown_England)).click();
-		driver.findElement(By.xpath(ObjectRepositoryMain.Account_AccountRequestRT_SDR_BillingPostCode_EditBox)).sendKeys(timestamp);
+		driver.findElement(By.xpath(ObjectRepositoryMain.Account_AccountRequestRT_SDR_BillingPostCode_EditBox)).sendKeys(sdf.format(todayDate));
 		//driver.findElement(By.xpath("//button[@title='Save']")).click();
 	}
 	
@@ -461,8 +547,32 @@ public static void loginUser_SalesOps() throws InterruptedException {
 		Thread.sleep(3000);
 		
 	}
+	public static void SalesOps_AccountCompetitor_createNewContact() throws InterruptedException {
+		driver.findElement(By.xpath("//span[@class='title'][contains(text(),'Related')]")).click();
+		driver.findElement(By.xpath("//article/div/div/div/ul/li/a/div")).click();
+		Thread.sleep(3000);
+		
+	}
+	public static void Sales_AccountCompetitor_createNewContact() throws InterruptedException {
+		driver.findElement(By.xpath("//span[@class='title'][contains(text(),'Related')]")).click();
+		driver.findElement(By.xpath("//article/div/div/div/ul/li/a/div")).click();
+		Thread.sleep(3000);
+		
+	}
 	public static void selectContactRecordType() throws InterruptedException {
 		driver.findElement(By.xpath("//span[contains(text(),'Contact Record Type')]")).click();
+		driver.findElement(By.xpath("//div[@class='forceChangeRecordTypeFooter']//button[2]")).click();
+		
+	}
+	
+	public static void selectSDRRecordType() throws InterruptedException {
+		driver.findElement(By.xpath("//span[contains(text(),'SDR Record Types')]")).click();
+		driver.findElement(By.xpath("//div[@class='forceChangeRecordTypeFooter']//button[2]")).click();
+		
+	}
+	
+	public static void selectSalesRecordType() throws InterruptedException {
+		driver.findElement(By.xpath("//span[contains(text(),'Sales Record Type')]")).click();
 		driver.findElement(By.xpath("//div[@class='forceChangeRecordTypeFooter']//button[2]")).click();
 		
 	}
@@ -500,7 +610,7 @@ public static void loginUser_SalesOps() throws InterruptedException {
 		Thread.sleep(2000);
 	}
 
-	public static void SDR_ContactRT_Creation(String timestamp) throws InterruptedException {
+	public static void SalesOps_SDRRT_Creation(String timestamp) throws InterruptedException {
 		driver.findElement(By.xpath("//div/div/div/div/div/fieldset/div/div[4]/input")).sendKeys(timestamp);
 		driver.findElement(By.xpath("//div/div/div/div/div[2]/div/div/div/div/input")).sendKeys(timestamp);
 		//driver.findElement(By.xpath("//div/div/div[3]/div/div/div[2]/span/div/div/input")).sendKeys(timestamp+postName+"@gmail.com");
@@ -509,53 +619,52 @@ public static void loginUser_SalesOps() throws InterruptedException {
 		driver.findElement(By.xpath("//div[5]/div[2]/div/div/div/input")).sendKeys(timestamp);
 		
 		// Funnel Stage
+		driver.findElement(By.xpath("//div[4]/div/div/div[5]/div/div/div/div/input")).click();
 		driver.findElement(By.xpath("//div[4]/div[2]/div/div/div/div/div/div/div/a")).click();
-		driver.findElement(By.xpath("//a[contains(text(),'SQL')]")).click();
+		driver.findElement(By.xpath("//div/ul/li[5]/a")).click();
 		Thread.sleep(2000);
 		
 		// Funnel Status
 		//driver.findElement(By.xpath("//div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a")).click();
 		Thread.sleep(1000);
-		driver.findElement(By.xpath("//div[2]/div[2]/div/div/div/div/div/div/div/a")).click();
-		Thread.sleep(2000);
+		driver.findElement(By.xpath("//div[2]/div[2]/div/div/div/div/div/div/div/a")).click();		
 		driver.findElement(By.xpath("//a[contains(text(),'Engaged')]")).click();
 		//driver.findElement(By.xpath("//div[9]/div/ul/li[3]/a")).click();
 		//driver.findElement(By.xpath("/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]")).click();
 		Thread.sleep(2000);
 		
-		// BudgetAllocated
-		Thread.sleep(1000);
-		driver.findElement(By.xpath("//div[4]/div/div/div/div/div/div/div/div/div/div/div/a")).click();
-		Thread.sleep(2000);
-		driver.findElement(By.xpath("//div/ul/li[6]/a")).click();
 		
-		// Buying Influence Role
-		Thread.sleep(1000);
-		driver.findElement(By.xpath("//div[4]/div/div/div[2]/div/div/div/div/div/div/div/div/a")).click();
+		//driver.findElement(By.xpath("//div[4]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]")).click();
+		//driver.findElement(By.xpath("//div/ul/li[4]/a")).click();
+		///html[1]/body[1]/div[5]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[4]/div[1]/div[3]/div[1]/div[1]
+		///html[1]/body[1]/div[5]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[4]/div[1]/div[3]/div[1]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]
+		driver.findElement(By.xpath("//button[@title='Save']")).click();
 		Thread.sleep(2000);
-		driver.findElement(By.xpath("//div[10]/div/ul/li[6]/a")).click();
+	}
+	
+	public static void SalesOps_SalesRT_Creation(String timestamp) throws InterruptedException {
+		driver.findElement(By.xpath("//div/div/div/div/div/fieldset/div/div[4]/input")).sendKeys(timestamp);
+		driver.findElement(By.xpath("//div/div/div/div/div[2]/div/div/div/div/input")).sendKeys(timestamp);
+		//driver.findElement(By.xpath("//div/div/div[3]/div/div/div[2]/span/div/div/input")).sendKeys(timestamp+postName+"@gmail.com");
+		driver.findElement(By.xpath("//div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/input[1]")).sendKeys(timestamp+"@gmail.com");
 		
-		// Needs
-		Thread.sleep(1000);
-		driver.findElement(By.xpath("//div[4]/div/div/div[3]/div/div/div/div/div/div/div/div/a")).click();
+		driver.findElement(By.xpath("//div[5]/div[2]/div/div/div/input")).sendKeys(timestamp);
+		
+		// Funnel Stage
+		driver.findElement(By.xpath("//div[4]/div/div/div[5]/div/div/div/div/input")).click();
+		driver.findElement(By.xpath("//div[4]/div[2]/div/div/div/div/div/div/div/a")).click();
+		driver.findElement(By.xpath("//div/ul/li[5]/a")).click();
 		Thread.sleep(2000);
-		driver.findElement(By.xpath("//div[11]/div/ul/li[3]/a")).click();
 		
-		// Project Status
+		// Funnel Status
+		//driver.findElement(By.xpath("//div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a")).click();
 		Thread.sleep(1000);
-		driver.findElement(By.xpath("//div[4]/div/div/div[4]/div/div/div/div/div/div/div/div/a")).click();
+		driver.findElement(By.xpath("//div[2]/div[2]/div/div/div/div/div/div/div/a")).click();		
+		driver.findElement(By.xpath("//a[contains(text(),'Engaged')]")).click();
+		//driver.findElement(By.xpath("//div[9]/div/ul/li[3]/a")).click();
+		//driver.findElement(By.xpath("/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]")).click();
 		Thread.sleep(2000);
-		driver.findElement(By.xpath("//div[12]/div/ul/li[2]/a")).click();
 		
-		// Degree Of Influence
-		Thread.sleep(1000);
-		driver.findElement(By.xpath("//div[4]/div/div/div[2]/div[2]/div/div/div/div/div/div/div/a")).click();
-		Thread.sleep(2000);
-		driver.findElement(By.xpath("//div[13]/div/ul/li[2]/a")).click();
-		
-		// Degree Of Influence
-		Thread.sleep(1000);
-		driver.findElement(By.xpath("//div[4]/div/div/div[4]/div[2]/div/div/div/input")).sendKeys("NextSteps");
 		
 		//driver.findElement(By.xpath("//div[4]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]")).click();
 		//driver.findElement(By.xpath("//div/ul/li[4]/a")).click();
@@ -596,6 +705,57 @@ public static void loginUser_SalesOps() throws InterruptedException {
 		driver.findElement(By.xpath("//button[@title='Save']")).click();
 		Thread.sleep(2000);
 	}
+
+	public static void Sales_SDRRT_Creation(String timestamp) throws InterruptedException {
+		driver.findElement(By.xpath("//div/div/div/div/div/fieldset/div/div[4]/input")).sendKeys(timestamp);
+		driver.findElement(By.xpath("//div/div/div/div/div[2]/div/div/div/div/input")).sendKeys(timestamp);
+		//driver.findElement(By.xpath("//div/div/div[3]/div/div/div[2]/span/div/div/input")).sendKeys(timestamp+postName+"@gmail.com");
+		driver.findElement(By.xpath("//div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/input[1]")).sendKeys(timestamp+"@gmail.com");
+		
+		driver.findElement(By.xpath("//div[5]/div[2]/div/div/div/input")).sendKeys(timestamp);
+		
+		// Funnel Stage
+		driver.findElement(By.xpath("//div[4]/div/div/div[5]/div/div/div/div/input")).click();
+		driver.findElement(By.xpath("//div[4]/div[2]/div/div/div/div/div/div/div/a")).click();
+		driver.findElement(By.xpath("//div/ul/li[5]/a")).click();
+		Thread.sleep(2000);
+		
+		// Funnel Status
+		//driver.findElement(By.xpath("//div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("//div[2]/div[2]/div/div/div/div/div/div/div/a")).click();		
+		driver.findElement(By.xpath("//a[contains(text(),'Engaged')]")).click();
+		Thread.sleep(2000);
+		
+		driver.findElement(By.xpath("//button[@title='Save']")).click();
+		Thread.sleep(2000);
+	}
+	
+	public static void Sales_SalesRT_Creation(String timestamp) throws InterruptedException {
+		driver.findElement(By.xpath("//div/div/div/div/div/fieldset/div/div[4]/input")).sendKeys(timestamp);
+		driver.findElement(By.xpath("//div/div/div/div/div[2]/div/div/div/div/input")).sendKeys(timestamp);
+		//driver.findElement(By.xpath("//div/div/div[3]/div/div/div[2]/span/div/div/input")).sendKeys(timestamp+postName+"@gmail.com");
+		driver.findElement(By.xpath("//div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/input[1]")).sendKeys(timestamp+"@gmail.com");
+		
+		driver.findElement(By.xpath("//div[5]/div[2]/div/div/div/input")).sendKeys(timestamp);
+		
+		// Funnel Stage
+		driver.findElement(By.xpath("//div[4]/div/div/div[5]/div/div/div/div/input")).click();
+		driver.findElement(By.xpath("//div[4]/div[2]/div/div/div/div/div/div/div/a")).click();
+		driver.findElement(By.xpath("//div/ul/li[5]/a")).click();
+		Thread.sleep(2000);
+		
+		// Funnel Status
+		//driver.findElement(By.xpath("//div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("//div[2]/div[2]/div/div/div/div/div/div/div/a")).click();		
+		driver.findElement(By.xpath("//a[contains(text(),'Engaged')]")).click();
+		Thread.sleep(2000);
+		
+		driver.findElement(By.xpath("//button[@title='Save']")).click();
+		Thread.sleep(2000);
+	}
+
 	
 	public static void MarketOps_ContactRT_Creation(String timestamp) throws InterruptedException {
 		driver.findElement(By.xpath("//div/div/div/div/div/fieldset/div/div[4]/input")).sendKeys(timestamp);
@@ -644,7 +804,7 @@ public static void loginUser_SalesOps() throws InterruptedException {
 		
 		driver.findElement(By.xpath("//a[@title='Add Products']")).click();
 		driver.findElement(By.xpath("//span/span/label/span")).click();			
-		
+		driver.findElement(By.xpath("//tr[2]/td[2]/span/span/label/span")).click();
 		driver.findElement(By.xpath("//button[contains(@title,'Next')]")).click();
 		Thread.sleep(5000);
 		driver.findElement(By.xpath("//span/span[2]/button")).click();
@@ -652,6 +812,11 @@ public static void loginUser_SalesOps() throws InterruptedException {
 		driver.findElement(By.xpath("//td[3]/span/span[2]/button")).click();
 		driver.findElement(By.xpath("//tr/td[3]/div/div/div/div/div/div/input")).clear();
 		driver.findElement(By.xpath("//tr/td[3]/div/div/div/div/div/div/input")).sendKeys("500");
+		driver.findElement(By.xpath("//tr[2]/td[2]/span/span[2]/button")).click();
+		driver.findElement(By.xpath("//tr[2]/td[2]/div/div/div/div/div/div/input")).sendKeys("115");
+		driver.findElement(By.xpath("//tr[2]/td[3]/span/span[2]/button")).click();
+		driver.findElement(By.xpath("//tr[2]/td[3]/div/div/div/div/div/div/input")).clear();
+		driver.findElement(By.xpath("//tr[2]/td[3]/div/div/div/div/div/div/input")).sendKeys("600");
 		driver.findElement(By.xpath("//button[contains(@title,'Save')]")).click();
 		Thread.sleep(2000);
 	}
