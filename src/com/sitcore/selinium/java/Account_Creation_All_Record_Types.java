@@ -69,7 +69,7 @@ public class Account_Creation_All_Record_Types {
 		ObjectRepositoryMain.launchChrome();
 		ObjectRepositoryMain.loginUser();
 		ObjectRepositoryMain.clickAccountsTab();
-		ObjectRepositoryMain.selectAccRqstRT();
+		ObjectRepositoryMain.selectAccountRequestRT();
 		todayDate = new Date();
 		ObjectRepositoryMain.fillAccountsFormAndSave("AccRT", sdf.format(todayDate));
 		ObjectRepositoryMain.closeChrome();

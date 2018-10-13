@@ -1,7 +1,9 @@
 package com.sitcore.selinium.java;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import org.junit.FixMethodOrder;
 import org.junit.Rule;
@@ -18,12 +20,17 @@ public class Opportunity_Creation_All_Record_Types {
 	private static Date todayDate = new Date();
 	private static String emailbody = "", opportunityName="";
 	private static SimpleDateFormat sdf = new SimpleDateFormat("SSSssmmHHyyyMMdd");
+	private static List<TestResultModel> resultList = new ArrayList<TestResultModel>();
+	public TestResultModel resultModel = new TestResultModel();
 	@Rule
     public TestRule watcher = new TestWatcher() {
         @Override
         protected void succeeded(Description description) {
         	if(!description.getMethodName().equals("sendEmail")) {
-        		emailbody += description.getMethodName()+":			Pass!			OpportunityName: "+opportunityName+"\n";
+        		resultModel.setTestResult("Success");
+        		resultList.add(resultModel);
+        		resultModel = new TestResultModel();
+        		//emailbody += description.getMethodName()+":			Pass!			OpportunityName: "+opportunityName+"\n";
         		
         	}
         }
@@ -31,21 +38,33 @@ public class Opportunity_Creation_All_Record_Types {
         @Override
         protected void failed(Throwable e, Description description) {
         	if(!description.getMethodName().equals("sendEmail"))
-        		emailbody += description.getMethodName()+":			Fail! \n";
+        		resultModel.setTestResult("Fail");
+		    	resultList.add(resultModel);
+				resultModel = new TestResultModel();
+        		//emailbody += description.getMethodName()+":			Fail! \n";
+				try {
+					ObjectRepositoryMain.closeChrome();
+				} catch (Exception e1) {
+					
+				}
         }
     };
 	@Test
 	public void SalesOps_CustomerAccountRT_ContactRT_Opp_Product_Creation() throws Exception {
-
+		resultModel.setLoginName("Sales Operations");
+		resultModel.setMethodName("");
 		ObjectRepositoryMain.launchChrome();
 		Thread.sleep(1000);
-		ObjectRepositoryMain.loginUser_SalesOps();
+		ObjectRepositoryMain.loginUser_SDR();
 		Thread.sleep(3000);
 		ObjectRepositoryMain.clickAccountsTabAndNew();
 		Thread.sleep(1000);
 		ObjectRepositoryMain.selectCustomerRecord();
 		Thread.sleep(2000);
-		ObjectRepositoryMain.SalesOps_AccounCustomerRT_Creation();
+		todayDate = new Date();
+		ObjectRepositoryMain.SalesOps_AccounCustomerRT_Creation(sdf.format(todayDate));
+		resultModel.setAccountName(sdf.format(todayDate));
+		resultModel.setAccountType("- Customer Record Type");
 		Thread.sleep(1000);
 		ObjectRepositoryMain.click_Save_Button();
 		Thread.sleep(1000);
@@ -53,23 +72,30 @@ public class Opportunity_Creation_All_Record_Types {
 		ObjectRepositoryMain.selectContactRecordType();
 		todayDate = new Date();
 		ObjectRepositoryMain.SalesOps_ContactRT_Creation(sdf.format(todayDate));
+		resultModel.setContactName(sdf.format(todayDate));
+		resultModel.setContactType("- Contact Record Type");
 		ObjectRepositoryMain.fillNewOpportunityFormAndSave(sdf.format(todayDate));
-		opportunityName = sdf.format(todayDate);
+		resultModel.setOpportunityName(sdf.format(todayDate));
 		ObjectRepositoryMain.fillNewProductAndSave(sdf.format(todayDate));
 		ObjectRepositoryMain.closeChrome();
+		
 	}
 	@Test
 	public void SalesOps_CustomerAccountRT_SDRRT_Opp_Product_Creation() throws Exception {
-
+		resultModel.setLoginName("Sales Operations");
+		resultModel.setMethodName("SalesOps_CustomerAccountRT_SDRRT_Opp_Product_Creation");
 		ObjectRepositoryMain.launchChrome();
 		Thread.sleep(1000);
-		ObjectRepositoryMain.loginUser_SalesOps();
+		ObjectRepositoryMain.loginUser_SDR();
 		Thread.sleep(3000);
 		ObjectRepositoryMain.clickAccountsTabAndNew();
 		Thread.sleep(1000);
 		ObjectRepositoryMain.selectCustomerRecord();
 		Thread.sleep(2000);
-		ObjectRepositoryMain.SalesOps_AccounCustomerRT_Creation();
+		todayDate = new Date();
+		ObjectRepositoryMain.SalesOps_AccounCustomerRT_Creation(sdf.format(todayDate));
+		resultModel.setAccountName(sdf.format(todayDate));
+		resultModel.setAccountType("- Customer Record Type");
 		Thread.sleep(1000);
 		ObjectRepositoryMain.click_Save_Button();
 		Thread.sleep(1000);
@@ -77,24 +103,31 @@ public class Opportunity_Creation_All_Record_Types {
 		ObjectRepositoryMain.selectSDRRecordType();
 		todayDate = new Date();
 		ObjectRepositoryMain.SalesOps_SDRRT_Creation(sdf.format(todayDate));
+		resultModel.setContactName(sdf.format(todayDate));
+		resultModel.setContactType("- SDR Record Type");
+		todayDate = new Date();
 		ObjectRepositoryMain.fillNewOpportunityFormAndSave(sdf.format(todayDate));
-		opportunityName = sdf.format(todayDate);
+		resultModel.setOpportunityName(sdf.format(todayDate));
 		ObjectRepositoryMain.fillNewProductAndSave(sdf.format(todayDate));
 		ObjectRepositoryMain.closeChrome();
 	}
 	
 	@Test
 	public void SalesOps_CustomerAccountRT_SalesRT_Opp_Product_Creation() throws Exception {
-
+		resultModel.setLoginName("Sales Operations");
+		resultModel.setMethodName("SalesOps_CustomerAccountRT_SalesRT_Opp_Product_Creation");
 		ObjectRepositoryMain.launchChrome();
 		Thread.sleep(1000);
-		ObjectRepositoryMain.loginUser_SalesOps();
+		ObjectRepositoryMain.loginUser_SDR();
 		Thread.sleep(3000);
 		ObjectRepositoryMain.clickAccountsTabAndNew();
 		Thread.sleep(1000);
 		ObjectRepositoryMain.selectCustomerRecord();
 		Thread.sleep(2000);
-		ObjectRepositoryMain.SalesOps_AccounCustomerRT_Creation();
+		todayDate = new Date();
+		ObjectRepositoryMain.SalesOps_AccounCustomerRT_Creation(sdf.format(todayDate));
+		resultModel.setAccountName(sdf.format(todayDate));
+		resultModel.setAccountType("- Customer Record Type");
 		Thread.sleep(1000);
 		ObjectRepositoryMain.click_Save_Button();
 		Thread.sleep(1000);
@@ -102,23 +135,29 @@ public class Opportunity_Creation_All_Record_Types {
 		ObjectRepositoryMain.selectSalesRecordType();
 		todayDate = new Date();
 		ObjectRepositoryMain.SalesOps_SalesRT_Creation(sdf.format(todayDate));
+		resultModel.setContactName(sdf.format(todayDate));
+		resultModel.setContactType("- Sales Record Type");
 		ObjectRepositoryMain.fillNewOpportunityFormAndSave(sdf.format(todayDate));
-		opportunityName = sdf.format(todayDate);
+		resultModel.setOpportunityName(sdf.format(todayDate));
 		ObjectRepositoryMain.fillNewProductAndSave(sdf.format(todayDate));
 		ObjectRepositoryMain.closeChrome();
 	}
 	@Test
 	public void SalesOps_AccountRequestRT_ContactRT_Opp_Product_Creation() throws Exception {
-
+		resultModel.setLoginName("Sales Operations");
+		resultModel.setMethodName("SalesOps_CustomerAccountRT_SalesRT_Opp_Product_Creation");
 		ObjectRepositoryMain.launchChrome();
 		Thread.sleep(1000);
-		ObjectRepositoryMain.loginUser_SalesOps();
+		ObjectRepositoryMain.loginUser_SDR();
 		Thread.sleep(3000);
 		ObjectRepositoryMain.clickAccountsTabAndNew();
 		Thread.sleep(1000);
 		ObjectRepositoryMain.selectAccountRequestRT();
 		Thread.sleep(2000);
-		ObjectRepositoryMain.SalesOps_AccountRequestRT_Creation();
+		todayDate = new Date();
+		ObjectRepositoryMain.SalesOps_AccountRequestRT_Creation(sdf.format(todayDate));
+		resultModel.setAccountName(sdf.format(todayDate));
+		resultModel.setAccountType("- Account Request Record Type");
 		Thread.sleep(1000);
 		ObjectRepositoryMain.click_Save_Button();
 		Thread.sleep(1000);
@@ -126,24 +165,30 @@ public class Opportunity_Creation_All_Record_Types {
 		ObjectRepositoryMain.selectContactRecordType();
 		todayDate = new Date();
 		ObjectRepositoryMain.SalesOps_ContactRT_Creation(sdf.format(todayDate));
+		resultModel.setContactName(sdf.format(todayDate));
+		resultModel.setContactType("- Contact Record Type");
 		ObjectRepositoryMain.fillNewOpportunityFormAndSave(sdf.format(todayDate));
-		opportunityName = sdf.format(todayDate);
+		resultModel.setOpportunityName(sdf.format(todayDate));
 		ObjectRepositoryMain.fillNewProductAndSave(sdf.format(todayDate));
 		ObjectRepositoryMain.closeChrome();
 	}
 	
 	@Test
 	public void SalesOps_AccountRequestRT_SDRRT_Opp_Product_Creation() throws Exception {
-
+		resultModel.setLoginName("Sales Operations");
+		resultModel.setMethodName("SalesOps_CustomerAccountRT_SalesRT_Opp_Product_Creation");
 		ObjectRepositoryMain.launchChrome();
 		Thread.sleep(1000);
-		ObjectRepositoryMain.loginUser_SalesOps();
+		ObjectRepositoryMain.loginUser_PAM();
 		Thread.sleep(3000);
 		ObjectRepositoryMain.clickAccountsTabAndNew();
 		Thread.sleep(1000);
 		ObjectRepositoryMain.selectAccountRequestRT();
 		Thread.sleep(2000);
-		ObjectRepositoryMain.SalesOps_AccountRequestRT_Creation();
+		todayDate = new Date();
+		ObjectRepositoryMain.SalesOps_AccountRequestRT_Creation(sdf.format(todayDate));
+		resultModel.setAccountName(sdf.format(todayDate));
+		resultModel.setAccountType("- Account Request Record Type");
 		Thread.sleep(1000);
 		ObjectRepositoryMain.click_Save_Button();
 		Thread.sleep(1000);
@@ -151,24 +196,30 @@ public class Opportunity_Creation_All_Record_Types {
 		ObjectRepositoryMain.selectSDRRecordType();
 		todayDate = new Date();
 		ObjectRepositoryMain.SalesOps_SDRRT_Creation(sdf.format(todayDate));
+		resultModel.setContactName(sdf.format(todayDate));
+		resultModel.setContactType("- SDR Record Type");
 		ObjectRepositoryMain.fillNewOpportunityFormAndSave(sdf.format(todayDate));
-		opportunityName = sdf.format(todayDate);
+		resultModel.setOpportunityName(sdf.format(todayDate));
 		ObjectRepositoryMain.fillNewProductAndSave(sdf.format(todayDate));
 		ObjectRepositoryMain.closeChrome();
 	}
 	
 	@Test
 	public void SalesOps_AccountRequestRT_SalesRT_Opp_Product_Creation() throws Exception {
-
+		resultModel.setLoginName("Sales Operations");
+		resultModel.setMethodName("SalesOps_CustomerAccountRT_SalesRT_Opp_Product_Creation");
 		ObjectRepositoryMain.launchChrome();
 		Thread.sleep(1000);
-		ObjectRepositoryMain.loginUser_SalesOps();
+		ObjectRepositoryMain.loginUser_PAM();
 		Thread.sleep(3000);
 		ObjectRepositoryMain.clickAccountsTabAndNew();
 		Thread.sleep(1000);
 		ObjectRepositoryMain.selectAccountRequestRT();
 		Thread.sleep(2000);
-		ObjectRepositoryMain.SalesOps_AccountRequestRT_Creation();
+		todayDate = new Date();
+		ObjectRepositoryMain.SalesOps_AccountRequestRT_Creation(sdf.format(todayDate));
+		resultModel.setAccountName(sdf.format(todayDate));
+		resultModel.setAccountType("- Account Request Record Type");
 		Thread.sleep(1000);
 		ObjectRepositoryMain.click_Save_Button();
 		Thread.sleep(1000);
@@ -176,8 +227,10 @@ public class Opportunity_Creation_All_Record_Types {
 		ObjectRepositoryMain.selectSalesRecordType();
 		todayDate = new Date();
 		ObjectRepositoryMain.SalesOps_SalesRT_Creation(sdf.format(todayDate));
+		resultModel.setContactName(sdf.format(todayDate));
+		resultModel.setContactType("- Sales Record Type");
 		ObjectRepositoryMain.fillNewOpportunityFormAndSave(sdf.format(todayDate));
-		opportunityName = sdf.format(todayDate);
+		resultModel.setOpportunityName(sdf.format(todayDate));
 		ObjectRepositoryMain.fillNewProductAndSave(sdf.format(todayDate));
 		ObjectRepositoryMain.closeChrome();
 	}
@@ -185,16 +238,20 @@ public class Opportunity_Creation_All_Record_Types {
 	//Cannot create opportunity for competitor is the error
 	@Test
 	public void SalesOps_CompetitortRT_ContactRT_Opp_Product_Creation() throws Exception {
-
+		resultModel.setLoginName("Sales Operations");
+		resultModel.setMethodName("SalesOps_CustomerAccountRT_SalesRT_Opp_Product_Creation");
 		ObjectRepositoryMain.launchChrome();
 		Thread.sleep(1000);
-		ObjectRepositoryMain.loginUser_SalesOps();
+		ObjectRepositoryMain.loginUser_PAM();
 		Thread.sleep(3000);
 		ObjectRepositoryMain.clickAccountsTabAndNew();
 		Thread.sleep(1000);
 		ObjectRepositoryMain.selectCompetitorRT();
 		Thread.sleep(2000);
-		ObjectRepositoryMain.SalesOps_AccountCompetitorRT_Creation();
+		todayDate = new Date();
+		ObjectRepositoryMain.SalesOps_AccountCompetitorRT_Creation(sdf.format(todayDate));
+		resultModel.setAccountName(sdf.format(todayDate));
+		resultModel.setAccountType("- Competitor Record Type");
 		Thread.sleep(1000);
 		ObjectRepositoryMain.click_Save_Button();
 		Thread.sleep(1000);
@@ -202,24 +259,30 @@ public class Opportunity_Creation_All_Record_Types {
 		ObjectRepositoryMain.selectContactRecordType();
 		todayDate = new Date();
 		ObjectRepositoryMain.SalesOps_ContactRT_Creation(sdf.format(todayDate));
+		resultModel.setContactName(sdf.format(todayDate));
+		resultModel.setContactType("- Contact Record Type");
 		ObjectRepositoryMain.fillNewOpportunityFormAndSave(sdf.format(todayDate));
-		opportunityName = sdf.format(todayDate);
+		resultModel.setOpportunityName(sdf.format(todayDate));
 		ObjectRepositoryMain.fillNewProductAndSave(sdf.format(todayDate));
 		ObjectRepositoryMain.closeChrome();
 	}
 	
 	@Test
 	public void SalesOps_CompetitortRT_SDRRT_Opp_Product_Creation() throws Exception {
-
+		resultModel.setLoginName("Sales Operations");
+		resultModel.setMethodName("SalesOps_CustomerAccountRT_SalesRT_Opp_Product_Creation");
 		ObjectRepositoryMain.launchChrome();
 		Thread.sleep(1000);
-		ObjectRepositoryMain.loginUser_SalesOps();
+		ObjectRepositoryMain.loginUser_PAM();
 		Thread.sleep(3000);
 		ObjectRepositoryMain.clickAccountsTabAndNew();
 		Thread.sleep(1000);
 		ObjectRepositoryMain.selectCompetitorRT();
 		Thread.sleep(2000);
-		ObjectRepositoryMain.SalesOps_AccountCompetitorRT_Creation();
+		todayDate = new Date();
+		ObjectRepositoryMain.SalesOps_AccountCompetitorRT_Creation(sdf.format(todayDate));
+		resultModel.setAccountName(sdf.format(todayDate));
+		resultModel.setAccountType("- Competitor Record Type");
 		Thread.sleep(1000);
 		ObjectRepositoryMain.click_Save_Button();
 		Thread.sleep(1000);
@@ -227,23 +290,29 @@ public class Opportunity_Creation_All_Record_Types {
 		ObjectRepositoryMain.selectSDRRecordType();
 		todayDate = new Date();
 		ObjectRepositoryMain.SalesOps_SDRRT_Creation(sdf.format(todayDate));
+		resultModel.setContactName(sdf.format(todayDate));
+		resultModel.setContactType("- SDR Record Type");
 		ObjectRepositoryMain.fillNewOpportunityFormAndSave(sdf.format(todayDate));
-		opportunityName = sdf.format(todayDate);
+		resultModel.setOpportunityName(sdf.format(todayDate));
 		ObjectRepositoryMain.fillNewProductAndSave(sdf.format(todayDate));
 		ObjectRepositoryMain.closeChrome();
 	}
 	@Test
 	public void SalesOps_CompetitortRT_SalesRT_Opp_Product_Creation() throws Exception {
-
+		resultModel.setLoginName("Sales Operations");
+		resultModel.setMethodName("SalesOps_CompetitortRT_SalesRT_Opp_Product_Creation");
 		ObjectRepositoryMain.launchChrome();
 		Thread.sleep(1000);
-		ObjectRepositoryMain.loginUser_SalesOps();
+		ObjectRepositoryMain.loginUser_MarketOps();
 		Thread.sleep(3000);
 		ObjectRepositoryMain.clickAccountsTabAndNew();
 		Thread.sleep(1000);
 		ObjectRepositoryMain.selectCompetitorRT();
 		Thread.sleep(2000);
-		ObjectRepositoryMain.SalesOps_AccountCompetitorRT_Creation();
+		todayDate = new Date();
+		ObjectRepositoryMain.SalesOps_AccountCompetitorRT_Creation(sdf.format(todayDate));
+		resultModel.setAccountName(sdf.format(todayDate));
+		resultModel.setAccountType("- Competitor Record Type");
 		Thread.sleep(1000);
 		ObjectRepositoryMain.click_Save_Button();
 		Thread.sleep(1000);
@@ -251,23 +320,29 @@ public class Opportunity_Creation_All_Record_Types {
 		ObjectRepositoryMain.selectSalesRecordType();
 		todayDate = new Date();
 		ObjectRepositoryMain.SalesOps_SalesRT_Creation(sdf.format(todayDate));
+		resultModel.setContactName(sdf.format(todayDate));
+		resultModel.setContactType("- Sales Record Type");
 		ObjectRepositoryMain.fillNewOpportunityFormAndSave(sdf.format(todayDate));
-		opportunityName = sdf.format(todayDate);
+		resultModel.setOpportunityName(sdf.format(todayDate));
 		ObjectRepositoryMain.fillNewProductAndSave(sdf.format(todayDate));
 		ObjectRepositoryMain.closeChrome();
 	}
 	@Test
 	public void SalesOps_ProgramRecordRT_ContactRT_Opp_Product_Creation() throws Exception {
-
+		resultModel.setLoginName("Sales Operations");
+		resultModel.setMethodName("SalesOps_ProgramRecordRT_ContactRT_Opp_Product_Creation");
 		ObjectRepositoryMain.launchChrome();
 		Thread.sleep(1000);
-		ObjectRepositoryMain.loginUser_SalesOps();
+		ObjectRepositoryMain.loginUser_MarketOps();
 		Thread.sleep(3000);
 		ObjectRepositoryMain.clickAccountsTabAndNew();
 		Thread.sleep(1000);
 		ObjectRepositoryMain.selectProgramRT();
 		Thread.sleep(2000);
-		ObjectRepositoryMain.SalesOps_AccountProgramRT_Creation();
+		todayDate = new Date();
+		ObjectRepositoryMain.SalesOps_AccountProgramRT_Creation(sdf.format(todayDate));
+		resultModel.setAccountName(sdf.format(todayDate));
+		resultModel.setAccountType("- Program Record Type");
 		Thread.sleep(1000);
 		ObjectRepositoryMain.click_Save_Button();
 		Thread.sleep(1000);
@@ -275,24 +350,30 @@ public class Opportunity_Creation_All_Record_Types {
 		ObjectRepositoryMain.selectContactRecordType();
 		todayDate = new Date();
 		ObjectRepositoryMain.SalesOps_ContactRT_Creation(sdf.format(todayDate));
+		resultModel.setContactName(sdf.format(todayDate));
+		resultModel.setContactType("- Contact Record Type");
 		ObjectRepositoryMain.fillNewOpportunityFormAndSave(sdf.format(todayDate));
-		opportunityName = sdf.format(todayDate);
+		resultModel.setOpportunityName(sdf.format(todayDate));
 		ObjectRepositoryMain.fillNewProductAndSave(sdf.format(todayDate));
 		ObjectRepositoryMain.closeChrome();
 	}
 	
 	@Test
 	public void SalesOps_ProgramRecordRT_SDRRT_Opp_Product_Creation() throws Exception {
-
+		resultModel.setLoginName("Sales Operations");
+		resultModel.setMethodName("SalesOps_ProgramRecordRT_ContactRT_Opp_Product_Creation");
 		ObjectRepositoryMain.launchChrome();
 		Thread.sleep(1000);
-		ObjectRepositoryMain.loginUser_SalesOps();
+		ObjectRepositoryMain.loginUser_MarketOps();
 		Thread.sleep(3000);
 		ObjectRepositoryMain.clickAccountsTabAndNew();
 		Thread.sleep(1000);
 		ObjectRepositoryMain.selectProgramRT();
 		Thread.sleep(2000);
-		ObjectRepositoryMain.SalesOps_AccountProgramRT_Creation();
+		todayDate = new Date();
+		ObjectRepositoryMain.SalesOps_AccountProgramRT_Creation(sdf.format(todayDate));
+		resultModel.setAccountName(sdf.format(todayDate));
+		resultModel.setAccountType("- Program Record Type");
 		Thread.sleep(1000);
 		ObjectRepositoryMain.click_Save_Button();
 		Thread.sleep(1000);
@@ -300,23 +381,29 @@ public class Opportunity_Creation_All_Record_Types {
 		ObjectRepositoryMain.selectSDRRecordType();
 		todayDate = new Date();
 		ObjectRepositoryMain.SalesOps_SDRRT_Creation(sdf.format(todayDate));
+		resultModel.setContactName(sdf.format(todayDate));
+		resultModel.setContactType("- SDR Record Type");
 		ObjectRepositoryMain.fillNewOpportunityFormAndSave(sdf.format(todayDate));
-		opportunityName = sdf.format(todayDate);
+		resultModel.setOpportunityName(sdf.format(todayDate));
 		ObjectRepositoryMain.fillNewProductAndSave(sdf.format(todayDate));
 		ObjectRepositoryMain.closeChrome();
 	}
 	@Test
 	public void SalesOps_ProgramRecordRT_SalesRT_Opp_Product_Creation() throws Exception {
-
+		resultModel.setLoginName("Sales Operations");
+		resultModel.setMethodName("SalesOps_ProgramRecordRT_SalesRT_Opp_Product_Creation");
 		ObjectRepositoryMain.launchChrome();
 		Thread.sleep(1000);
-		ObjectRepositoryMain.loginUser_SalesOps();
+		ObjectRepositoryMain.loginUser_MarketOps();
 		Thread.sleep(3000);
 		ObjectRepositoryMain.clickAccountsTabAndNew();
 		Thread.sleep(1000);
 		ObjectRepositoryMain.selectProgramRT();
 		Thread.sleep(2000);
-		ObjectRepositoryMain.SalesOps_AccountProgramRT_Creation();
+		todayDate = new Date();
+		ObjectRepositoryMain.SalesOps_AccountProgramRT_Creation(sdf.format(todayDate));
+		resultModel.setAccountName(sdf.format(todayDate));
+		resultModel.setAccountType("- Program Record Type");
 		Thread.sleep(1000);
 		ObjectRepositoryMain.click_Save_Button();
 		Thread.sleep(1000);
@@ -324,8 +411,10 @@ public class Opportunity_Creation_All_Record_Types {
 		ObjectRepositoryMain.selectSalesRecordType();
 		todayDate = new Date();
 		ObjectRepositoryMain.SalesOps_SalesRT_Creation(sdf.format(todayDate));
+		resultModel.setContactName(sdf.format(todayDate));
+		resultModel.setContactType("- Sales Record Type");
 		ObjectRepositoryMain.fillNewOpportunityFormAndSave(sdf.format(todayDate));
-		opportunityName = sdf.format(todayDate);
+		resultModel.setOpportunityName(sdf.format(todayDate));
 		ObjectRepositoryMain.fillNewProductAndSave(sdf.format(todayDate));
 		ObjectRepositoryMain.closeChrome();
 	}
@@ -359,23 +448,28 @@ public class Opportunity_Creation_All_Record_Types {
 
 	@Test
 	public void Sales_CustomerAccountRT_ContactRT_Opp_Product_Creation() throws Exception {
-
+		resultModel.setLoginName("Sales");
+		resultModel.setMethodName("SalesOps_ProgramRecordRT_SalesRT_Opp_Product_Creation");
 		ObjectRepositoryMain.launchChrome();
 		Thread.sleep(1000);
 		ObjectRepositoryMain.loginUser_Sales();
 		Thread.sleep(3000);
 		ObjectRepositoryMain.clickAccountsTabAndNew();
 		Thread.sleep(2000);
-		
-		ObjectRepositoryMain.Sales_AccountRequestRT_Creation();
+		todayDate = new Date();
+		ObjectRepositoryMain.Sales_AccountRequestRT_Creation(sdf.format(todayDate));
+		resultModel.setAccountName(sdf.format(todayDate));
+		resultModel.setAccountType("");
 		Thread.sleep(1000);
 		ObjectRepositoryMain.click_Save_Button();
 		Thread.sleep(1000);
 		ObjectRepositoryMain.createNewContact();
 		todayDate = new Date();
 		ObjectRepositoryMain.Sales_ContactRT_Creation(sdf.format(todayDate));
+		resultModel.setContactName(sdf.format(todayDate));
+		resultModel.setContactType("");
 		ObjectRepositoryMain.fillNewOpportunityFormAndSave(sdf.format(todayDate));
-		opportunityName = sdf.format(todayDate);
+		resultModel.setOpportunityName(sdf.format(todayDate));
 		ObjectRepositoryMain.fillNewProductAndSave(sdf.format(todayDate));
 		ObjectRepositoryMain.closeChrome();
 	}
@@ -391,7 +485,8 @@ public class Opportunity_Creation_All_Record_Types {
 		Thread.sleep(1000);
 		ObjectRepositoryMain.selectCustomerRecord();
 		Thread.sleep(2000);
-		ObjectRepositoryMain.SalesOps_AccounCustomerRT_Creation();
+		todayDate = new Date();
+		ObjectRepositoryMain.SalesOps_AccounCustomerRT_Creation(sdf.format(todayDate));
 		Thread.sleep(1000);
 		ObjectRepositoryMain.click_Save_Button();
 		Thread.sleep(1000);
@@ -440,9 +535,9 @@ public class Opportunity_Creation_All_Record_Types {
 	 * ObjectRepositoryMain.fillNewOpportunityFormAndSave(sdf.format(todayDate)+
 	 * "CCRT"); ObjectRepositoryMain.fillNewProductAndSave(sdf.format(todayDate)); }
 	 */
-	//@Test
+	@Test
 	public void zSendEmail() {
-		SendEmail.sendEMail(emailbody, "Automated_Regression_Pack");
+		SendEmail.sendEMail(emailbody, "Automated_Regression_Pack", resultList);
 	}
 
 }
