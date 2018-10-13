@@ -869,6 +869,7 @@ public static void loginUser_SalesOps() throws InterruptedException {
 		driver.findElement(By.xpath("//div[2]/table/tbody/tr[6]/td/span")).click();
 		driver.findElement(By.xpath("//button[@title='Save']")).click();*/
 		driver.findElement(By.xpath(Submit_Button)).click();
+		driver.findElement(By.xpath("//div[2]/force-list-view-manager-search-bar/div/lightning-input/div/input")).sendKeys(timestamp);
 		Thread.sleep(1000);
 	}
 	public static void scrollTest() throws InterruptedException {
