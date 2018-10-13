@@ -213,6 +213,7 @@ public class ObjectRepositoryMain {
 		  //1-Allow, 2-Block, 0-default
 		  options.setExperimentalOption("prefs",prefs);
 		  System.setProperty("webdriver.chrome.driver","D:\\VijayWorkSpace\\chromedriver.exe");
+		  //System.setProperty("webdriver.chrome.driver","C:\\Users\\SC\\Desktop\\eclipse\\eclipse\\chromedriver.exe");
 		  driver = new ChromeDriver(options);   
 		  driver.get("https://test.salesforce.com");
 		  driver.manage().window().maximize();
