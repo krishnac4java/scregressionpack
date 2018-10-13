@@ -263,7 +263,7 @@ public class Opportunity_Creation_All_Record_Types {
 		resultModel.setContactType("- Contact Record Type");
 		ObjectRepositoryMain.fillNewOpportunityFormAndSave(sdf.format(todayDate));
 		ObjectRepositoryMain.takeScreenShot("SalesOps_CompetitortRT_ContactRT_Opp_Product_Creation");
-		Assert.assertEquals("Review the errors on this page.", ObjectRepositoryMain.getGenericError());
+		Assert.assertEquals("An error occurred while trying to update the record. Please try again.", ObjectRepositoryMain.getGenericError());
 		resultModel.setOpportunityName(sdf.format(todayDate));
 		ObjectRepositoryMain.fillNewProductAndSave(sdf.format(todayDate));
 		ObjectRepositoryMain.closeChrome();
@@ -296,7 +296,7 @@ public class Opportunity_Creation_All_Record_Types {
 		resultModel.setContactType("- SDR Record Type");
 		ObjectRepositoryMain.fillNewOpportunityFormAndSave(sdf.format(todayDate));
 		ObjectRepositoryMain.takeScreenShot("SalesOps_CompetitortRT_ContactRT_Opp_Product_Creation");
-		Assert.assertEquals("Review the errors on this page.", ObjectRepositoryMain.getGenericError());
+		Assert.assertEquals("An error occurred while trying to update the record. Please try again.", ObjectRepositoryMain.getGenericError());
 		resultModel.setOpportunityName(sdf.format(todayDate));
 		ObjectRepositoryMain.fillNewProductAndSave(sdf.format(todayDate));
 		ObjectRepositoryMain.closeChrome();
@@ -328,7 +328,7 @@ public class Opportunity_Creation_All_Record_Types {
 		resultModel.setContactType("- Sales Record Type");
 		ObjectRepositoryMain.fillNewOpportunityFormAndSave(sdf.format(todayDate));
 		ObjectRepositoryMain.takeScreenShot("SalesOps_CompetitortRT_SalesRT_Opp_Product_Creation");
-		Assert.assertEquals("Review the errors on this page.", ObjectRepositoryMain.getGenericError());
+		Assert.assertEquals("An error occurred while trying to update the record. Please try again.", ObjectRepositoryMain.getGenericError());
 		resultModel.setOpportunityName(sdf.format(todayDate));
 		ObjectRepositoryMain.fillNewProductAndSave(sdf.format(todayDate));
 		ObjectRepositoryMain.closeChrome();
