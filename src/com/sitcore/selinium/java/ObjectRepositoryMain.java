@@ -247,7 +247,7 @@ public class ObjectRepositoryMain {
 		
 		driver.findElement(By.id("username")).clear();
 	    //driver.findElement(By.id("username")).sendKeys("automation_salesops@sitecore.net.finaluat");
-	    driver.findElement(By.id("username")).sendKeys("automation_sdr1@sitecore.com.finaluat");
+	    driver.findElement(By.id("username")).sendKeys("automation_sdr@sitecore.com.finaluat");
 	    driver.findElement(By.id("password")).clear();
 	    driver.findElement(By.id("password")).sendKeys("Ovj4519oe26");	
 	    driver.findElement(By.id("Login")).click();
@@ -812,7 +812,7 @@ public static void loginUser_SalesOps() throws InterruptedException {
 		driver.findElement(By.xpath("//tr[2]/td[3]/div/div/div/div/div/div/input")).clear();
 		driver.findElement(By.xpath("//tr[2]/td[3]/div/div/div/div/div/div/input")).sendKeys("600");
 		driver.findElement(By.xpath("//button[contains(@title,'Save')]")).click();
-		Thread.sleep(2000);
+		Thread.sleep(5000);
 	}
 
 	public static void fillNewOpportunityFormAndSave(String timestamp) throws InterruptedException {

@@ -105,7 +105,6 @@ public class Opportunity_Creation_All_Record_Types {
 		ObjectRepositoryMain.SalesOps_SDRRT_Creation(sdf.format(todayDate));
 		resultModel.setContactName(sdf.format(todayDate));
 		resultModel.setContactType("- SDR Record Type");
-		todayDate = new Date();
 		ObjectRepositoryMain.fillNewOpportunityFormAndSave(sdf.format(todayDate));
 		resultModel.setOpportunityName(sdf.format(todayDate));
 		ObjectRepositoryMain.fillNewProductAndSave(sdf.format(todayDate));
