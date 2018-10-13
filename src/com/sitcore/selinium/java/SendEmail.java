@@ -58,7 +58,7 @@ public class SendEmail {
 			private String product1;
 			private String product2;
 			private String testResult;*/
-			bodyBuilder.append("<tr><td>Test Description</td><td>SDFC Id</td><td>Test Result</td></tr>");
+			bodyBuilder.append("<tr><td> Test Description</td><td> SDFC Object Name</td><td> Test Result</td></tr>");
 			for(TestResultModel resultEachModel : resultList)
 			{
 				String color = "";
@@ -67,26 +67,26 @@ public class SendEmail {
 				else
 					color = "FF0000";
 					//FF0000"
-				bodyBuilder.append("<tr><td>Verify "+resultEachModel.getLoginName()+" user can create an Account "+(resultEachModel.getAccountType()==null? "":resultEachModel.getAccountType())+" </td>"
-						+ "<td>"+(resultEachModel.getAccountName()==null? "":resultEachModel.getAccountName())+"</td>"
-						+ "<td bgcolor=\"#"+color+"\">"+(resultEachModel.getTestResult()==null? "":resultEachModel.getTestResult())+"</td></tr>"
+				bodyBuilder.append("<tr><td> Verify "+resultEachModel.getLoginName()+" user can create an Account "+(resultEachModel.getAccountType()==null? "":resultEachModel.getAccountType())+" </td>"
+						+ "<td> "+(resultEachModel.getAccountName()==null? "":resultEachModel.getAccountName())+"</td>"
+						+ "<td bgcolor=\"#"+color+"\"> "+(resultEachModel.getTestResult()==null? "":resultEachModel.getTestResult())+"</td></tr>"
 						
-						+"<tr><td>Verify "+resultEachModel.getLoginName()+" user can create a Contact "+(resultEachModel.getContactType()==null? "":resultEachModel.getContactType())+" </td>"
-						+ "<td>"+(resultEachModel.getContactName()==null? "":resultEachModel.getContactName())+"</td>"
-						+ "<td bgcolor=\"#"+color+"\">"+(resultEachModel.getTestResult()==null? "":resultEachModel.getTestResult())+"</td></tr>"
+						+"<tr><td> Verify "+resultEachModel.getLoginName()+" user can create a Contact "+(resultEachModel.getContactType()==null? "":resultEachModel.getContactType())+" </td>"
+						+ "<td> "+(resultEachModel.getContactName()==null? "":resultEachModel.getContactName())+"</td>"
+						+ "<td bgcolor=\"#"+color+"\"> "+(resultEachModel.getTestResult()==null? "":resultEachModel.getTestResult())+"</td></tr>"
 						
-						+"<tr><td>Verify "+resultEachModel.getLoginName()+" user can create an Opportunity </td>"
-						+ "<td>"+(resultEachModel.getOpportunityName()==null? "":resultEachModel.getOpportunityName())+"</td>"
-						+ "<td bgcolor=\"#"+color+"\">"+(resultEachModel.getTestResult()==null? "":resultEachModel.getTestResult())+"</td></tr>"
+						+"<tr><td> Verify "+resultEachModel.getLoginName()+" user can create an Opportunity </td>"
+						+ "<td> "+(resultEachModel.getOpportunityName()==null? "":resultEachModel.getOpportunityName())+"</td>"
+						+ "<td bgcolor=\"#"+color+"\"> "+(resultEachModel.getTestResult()==null? "":resultEachModel.getTestResult())+"</td></tr>"
 						
-						+"<tr><td>Verify "+resultEachModel.getLoginName()+" user can create a Product </td>"
+						+"<tr><td> Verify "+resultEachModel.getLoginName()+" user can create a Product </td>"
 						+ "<td></td>"
-						+ "<td bgcolor=\"#"+color+"\">"+(resultEachModel.getTestResult()==null? "":resultEachModel.getTestResult())+"</td></tr>");
+						+ "<td bgcolor=\"#"+color+"\"> "+(resultEachModel.getTestResult()==null? "":resultEachModel.getTestResult())+"</td></tr>");
 			}
 			for(String userStory : userStories) {
-				bodyBuilder.append("<tr><td>Verify "+userStory+" </td>"
+				bodyBuilder.append("<tr><td> Verify "+userStory+" </td>"
 						+ "<td></td>"
-						+ "<td>No Run</td></tr>");
+						+ "<td> No Run</td></tr>");
 			}
 			bodyBuilder.append("</table></body></html>");
 			message.setContent(bodyBuilder.toString(), "text/html; charset=utf-8");

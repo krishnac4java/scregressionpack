@@ -1025,6 +1025,7 @@ public static void loginUser_SalesOps() throws InterruptedException {
 		Thread.sleep(8000);
 		File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 		File destFile=new File("D:\\VijayWorkSpace\\ScreenShots\\"+fileName+".png");
+		//File destFile=new File("C:\\Users\\SC\\Desktop\\eclipse\\ScreenShots\\"+fileName+".png");
 		FileUtils.copyFile(scrFile, destFile);
 	}
 	public static String getXpath(String xpath) {

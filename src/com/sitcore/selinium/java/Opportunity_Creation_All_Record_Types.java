@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import org.junit.Assert;
 import org.junit.FixMethodOrder;
 import org.junit.Rule;
 import org.junit.Test;
@@ -50,7 +51,7 @@ public class Opportunity_Creation_All_Record_Types {
         }
     };
 	@Test
-	public void SalesOps_CustomerAccountRT_ContactRT_Opp_Product_Creation() throws Exception {
+	public void A_SalesOps_CustomerAccountRT_ContactRT_Opp_Product_Creation() throws Exception {
 		resultModel.setLoginName("Sales Operations");
 		resultModel.setMethodName("");
 		ObjectRepositoryMain.launchChrome();
@@ -81,7 +82,7 @@ public class Opportunity_Creation_All_Record_Types {
 		
 	}
 	@Test
-	public void SalesOps_CustomerAccountRT_SDRRT_Opp_Product_Creation() throws Exception {
+	public void B_SalesOps_CustomerAccountRT_SDRRT_Opp_Product_Creation() throws Exception {
 		resultModel.setLoginName("Sales Operations");
 		resultModel.setMethodName("SalesOps_CustomerAccountRT_SDRRT_Opp_Product_Creation");
 		ObjectRepositoryMain.launchChrome();
@@ -112,7 +113,7 @@ public class Opportunity_Creation_All_Record_Types {
 	}
 	
 	@Test
-	public void SalesOps_CustomerAccountRT_SalesRT_Opp_Product_Creation() throws Exception {
+	public void C_SalesOps_CustomerAccountRT_SalesRT_Opp_Product_Creation() throws Exception {
 		resultModel.setLoginName("Sales Operations");
 		resultModel.setMethodName("SalesOps_CustomerAccountRT_SalesRT_Opp_Product_Creation");
 		ObjectRepositoryMain.launchChrome();
@@ -142,7 +143,7 @@ public class Opportunity_Creation_All_Record_Types {
 		ObjectRepositoryMain.closeChrome();
 	}
 	@Test
-	public void SalesOps_AccountRequestRT_ContactRT_Opp_Product_Creation() throws Exception {
+	public void D_SalesOps_AccountRequestRT_ContactRT_Opp_Product_Creation() throws Exception {
 		resultModel.setLoginName("Sales Operations");
 		resultModel.setMethodName("SalesOps_CustomerAccountRT_SalesRT_Opp_Product_Creation");
 		ObjectRepositoryMain.launchChrome();
@@ -173,7 +174,7 @@ public class Opportunity_Creation_All_Record_Types {
 	}
 	
 	@Test
-	public void SalesOps_AccountRequestRT_SDRRT_Opp_Product_Creation() throws Exception {
+	public void E_SalesOps_AccountRequestRT_SDRRT_Opp_Product_Creation() throws Exception {
 		resultModel.setLoginName("Sales Operations");
 		resultModel.setMethodName("SalesOps_CustomerAccountRT_SalesRT_Opp_Product_Creation");
 		ObjectRepositoryMain.launchChrome();
@@ -204,7 +205,7 @@ public class Opportunity_Creation_All_Record_Types {
 	}
 	
 	@Test
-	public void SalesOps_AccountRequestRT_SalesRT_Opp_Product_Creation() throws Exception {
+	public void F_SalesOps_AccountRequestRT_SalesRT_Opp_Product_Creation() throws Exception {
 		resultModel.setLoginName("Sales Operations");
 		resultModel.setMethodName("SalesOps_CustomerAccountRT_SalesRT_Opp_Product_Creation");
 		ObjectRepositoryMain.launchChrome();
@@ -236,7 +237,7 @@ public class Opportunity_Creation_All_Record_Types {
 	
 	//Cannot create opportunity for competitor is the error
 	@Test
-	public void SalesOps_CompetitortRT_ContactRT_Opp_Product_Creation() throws Exception {
+	public void G_SalesOps_CompetitortRT_ContactRT_Opp_Product_Creation() throws Exception {
 		resultModel.setLoginName("Sales Operations");
 		resultModel.setMethodName("SalesOps_CustomerAccountRT_SalesRT_Opp_Product_Creation");
 		ObjectRepositoryMain.launchChrome();
@@ -261,13 +262,15 @@ public class Opportunity_Creation_All_Record_Types {
 		resultModel.setContactName(sdf.format(todayDate));
 		resultModel.setContactType("- Contact Record Type");
 		ObjectRepositoryMain.fillNewOpportunityFormAndSave(sdf.format(todayDate));
+		ObjectRepositoryMain.takeScreenShot("SalesOps_CompetitortRT_ContactRT_Opp_Product_Creation");
+		Assert.assertEquals("Review the errors on this page.", ObjectRepositoryMain.getGenericError());
 		resultModel.setOpportunityName(sdf.format(todayDate));
 		ObjectRepositoryMain.fillNewProductAndSave(sdf.format(todayDate));
 		ObjectRepositoryMain.closeChrome();
 	}
 	
 	@Test
-	public void SalesOps_CompetitortRT_SDRRT_Opp_Product_Creation() throws Exception {
+	public void H_SalesOps_CompetitortRT_SDRRT_Opp_Product_Creation() throws Exception {
 		resultModel.setLoginName("Sales Operations");
 		resultModel.setMethodName("SalesOps_CustomerAccountRT_SalesRT_Opp_Product_Creation");
 		ObjectRepositoryMain.launchChrome();
@@ -292,12 +295,14 @@ public class Opportunity_Creation_All_Record_Types {
 		resultModel.setContactName(sdf.format(todayDate));
 		resultModel.setContactType("- SDR Record Type");
 		ObjectRepositoryMain.fillNewOpportunityFormAndSave(sdf.format(todayDate));
+		ObjectRepositoryMain.takeScreenShot("SalesOps_CompetitortRT_ContactRT_Opp_Product_Creation");
+		Assert.assertEquals("Review the errors on this page.", ObjectRepositoryMain.getGenericError());
 		resultModel.setOpportunityName(sdf.format(todayDate));
 		ObjectRepositoryMain.fillNewProductAndSave(sdf.format(todayDate));
 		ObjectRepositoryMain.closeChrome();
 	}
 	@Test
-	public void SalesOps_CompetitortRT_SalesRT_Opp_Product_Creation() throws Exception {
+	public void I_SalesOps_CompetitortRT_SalesRT_Opp_Product_Creation() throws Exception {
 		resultModel.setLoginName("Sales Operations");
 		resultModel.setMethodName("SalesOps_CompetitortRT_SalesRT_Opp_Product_Creation");
 		ObjectRepositoryMain.launchChrome();
@@ -322,12 +327,14 @@ public class Opportunity_Creation_All_Record_Types {
 		resultModel.setContactName(sdf.format(todayDate));
 		resultModel.setContactType("- Sales Record Type");
 		ObjectRepositoryMain.fillNewOpportunityFormAndSave(sdf.format(todayDate));
+		ObjectRepositoryMain.takeScreenShot("SalesOps_CompetitortRT_SalesRT_Opp_Product_Creation");
+		Assert.assertEquals("Review the errors on this page.", ObjectRepositoryMain.getGenericError());
 		resultModel.setOpportunityName(sdf.format(todayDate));
 		ObjectRepositoryMain.fillNewProductAndSave(sdf.format(todayDate));
 		ObjectRepositoryMain.closeChrome();
 	}
 	@Test
-	public void SalesOps_ProgramRecordRT_ContactRT_Opp_Product_Creation() throws Exception {
+	public void J_SalesOps_ProgramRecordRT_ContactRT_Opp_Product_Creation() throws Exception {
 		resultModel.setLoginName("Sales Operations");
 		resultModel.setMethodName("SalesOps_ProgramRecordRT_ContactRT_Opp_Product_Creation");
 		ObjectRepositoryMain.launchChrome();
@@ -358,7 +365,7 @@ public class Opportunity_Creation_All_Record_Types {
 	}
 	
 	@Test
-	public void SalesOps_ProgramRecordRT_SDRRT_Opp_Product_Creation() throws Exception {
+	public void K_SalesOps_ProgramRecordRT_SDRRT_Opp_Product_Creation() throws Exception {
 		resultModel.setLoginName("Sales Operations");
 		resultModel.setMethodName("SalesOps_ProgramRecordRT_ContactRT_Opp_Product_Creation");
 		ObjectRepositoryMain.launchChrome();
@@ -388,7 +395,7 @@ public class Opportunity_Creation_All_Record_Types {
 		ObjectRepositoryMain.closeChrome();
 	}
 	@Test
-	public void SalesOps_ProgramRecordRT_SalesRT_Opp_Product_Creation() throws Exception {
+	public void L_SalesOps_ProgramRecordRT_SalesRT_Opp_Product_Creation() throws Exception {
 		resultModel.setLoginName("Sales Operations");
 		resultModel.setMethodName("SalesOps_ProgramRecordRT_SalesRT_Opp_Product_Creation");
 		ObjectRepositoryMain.launchChrome();
@@ -446,7 +453,7 @@ public class Opportunity_Creation_All_Record_Types {
 	}
 
 	@Test
-	public void Sales_CustomerAccountRT_ContactRT_Opp_Product_Creation() throws Exception {
+	public void M_Sales_CustomerAccountRT_ContactRT_Opp_Product_Creation() throws Exception {
 		resultModel.setLoginName("Sales");
 		resultModel.setMethodName("SalesOps_ProgramRecordRT_SalesRT_Opp_Product_Creation");
 		ObjectRepositoryMain.launchChrome();
