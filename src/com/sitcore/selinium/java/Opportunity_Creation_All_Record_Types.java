@@ -63,7 +63,7 @@ public class Opportunity_Creation_All_Record_Types {
 		ObjectRepositoryMain.selectCustomerRecord();
 		Thread.sleep(2000);
 		todayDate = new Date();
-		ObjectRepositoryMain.SalesOps_AccounCustomerRT_Creation(sdf.format(todayDate));
+		ObjectRepositoryMain.SalesOps_AccountCustomerRT_Creation(sdf.format(todayDate));
 		resultModel.setAccountName(sdf.format(todayDate));
 		resultModel.setAccountType("- Customer Record Type");
 		Thread.sleep(1000);
@@ -94,7 +94,7 @@ public class Opportunity_Creation_All_Record_Types {
 		ObjectRepositoryMain.selectCustomerRecord();
 		Thread.sleep(2000);
 		todayDate = new Date();
-		ObjectRepositoryMain.SalesOps_AccounCustomerRT_Creation(sdf.format(todayDate));
+		ObjectRepositoryMain.SalesOps_AccountCustomerRT_Creation(sdf.format(todayDate));
 		resultModel.setAccountName(sdf.format(todayDate));
 		resultModel.setAccountType("- Customer Record Type");
 		Thread.sleep(1000);
@@ -125,7 +125,7 @@ public class Opportunity_Creation_All_Record_Types {
 		ObjectRepositoryMain.selectCustomerRecord();
 		Thread.sleep(2000);
 		todayDate = new Date();
-		ObjectRepositoryMain.SalesOps_AccounCustomerRT_Creation(sdf.format(todayDate));
+		ObjectRepositoryMain.SalesOps_AccountCustomerRT_Creation(sdf.format(todayDate));
 		resultModel.setAccountName(sdf.format(todayDate));
 		resultModel.setAccountType("- Customer Record Type");
 		Thread.sleep(1000);
@@ -492,7 +492,7 @@ public class Opportunity_Creation_All_Record_Types {
 		ObjectRepositoryMain.selectCustomerRecord();
 		Thread.sleep(2000);
 		todayDate = new Date();
-		ObjectRepositoryMain.SalesOps_AccounCustomerRT_Creation(sdf.format(todayDate));
+		ObjectRepositoryMain.SalesOps_AccountCustomerRT_Creation(sdf.format(todayDate));
 		Thread.sleep(1000);
 		ObjectRepositoryMain.click_Save_Button();
 		Thread.sleep(1000);

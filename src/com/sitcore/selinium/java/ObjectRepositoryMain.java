@@ -398,7 +398,7 @@ public static void loginUser_SalesOps() throws InterruptedException {
 	
 	
 	
-	public static void SalesOps_AccounCustomerRT_Creation(String timestamp) {
+	public static void SalesOps_AccountCustomerRT_Creation(String timestamp) {
 		driver.findElement(By.xpath(ObjectRepositoryMain.Account_CustomerRT_SalesOps_AccountName_EditBox)).sendKeys(timestamp);		
 		driver.findElement(By.xpath(ObjectRepositoryMain.Account_CustomerRT_SalesOps_RecordStatus_DropDown)).click();
 		driver.findElement(By.xpath(ObjectRepositoryMain.Account_CustomerRT_SalesOps_RecordStatus_DropDown_Verified)).click();		
@@ -900,20 +900,20 @@ public static void loginUser_SalesOps() throws InterruptedException {
 		driver.findElement(By.xpath("//div[7]/label/div/span")).click();
 		driver.findElement(By.xpath("//div[2]/div/div[3]/div/button[2]")).click();
 	}
-	public static void fillFormAndSaveLead(String postFix, String timestamp) throws InterruptedException {
+	public static void salesOps_LeadGeneration_Lead_Creation(String accountName, String timestamp) throws InterruptedException {
 		driver.findElement(By.xpath("//fieldset/div/div/div/div/div/div/a")).click();
 		driver.findElement(By.xpath("//a[contains(text(),'Mr.')]")).click();
-		driver.findElement(By.xpath("//div[4]/input")).sendKeys(timestamp+"LC"+postFix);
-		driver.findElement(By.xpath("//div/div/div/div/div/div/fieldset/div/div[2]/input")).sendKeys("test");
-		driver.findElement(By.xpath("//div/div/div/div/div[2]/div/div/div/div/input")).sendKeys(timestamp+postFix);
-		driver.findElement(By.xpath("//div[3]/div/div/div/div/input")).sendKeys(timestamp+"@gmail.com");
+		driver.findElement(By.xpath("//div[4]/input")).sendKeys(timestamp);
+		driver.findElement(By.xpath("//div/div/div/div/div/div/fieldset/div/div[2]/input")).sendKeys(timestamp);
+		driver.findElement(By.xpath("//div/div/div/div/div[2]/div/div/div/div/input")).sendKeys(timestamp);
+		driver.findElement(By.xpath("//div[3]/div/div/div/div/div/div/input")).sendKeys(timestamp+"@gmail.com");
 		driver.findElement(By.xpath("//div[5]/div/div/div/div/input")).sendKeys("1234567890");
 		driver.findElement(By.xpath("//div[5]/div[2]/div/div/div/div/div/div/div/a")).click();
 		driver.findElement(By.xpath("//a[contains(text(),'SAL')]")).click();
 		driver.findElement(By.xpath("//div[7]/div[2]/div/div/div/div/div/div/div/a")).click();
 		driver.findElement(By.xpath("//div[11]/div/ul/li[3]/a")).click();
-		driver.findElement(By.xpath("//div/div[2]/div/div/div[2]/div/div/div/div/input")).sendKeys(timestamp+postFix);
-		driver.findElement(By.xpath("//div[4]/div/div[2]/div/div/div/div/div/div/div/div/div/div/div/input")).sendKeys(timestamp+"CRT");
+		driver.findElement(By.xpath("//div/div[2]/div/div/div[2]/div/div/div/div/input")).sendKeys(timestamp);
+		driver.findElement(By.xpath("//div[4]/div/div[2]/div/div/div/div/div/div/div/div/div/div/div/input")).sendKeys(accountName);
 		driver.findElement(By.xpath("//div[4]/div/div[2]/div/div/div/div/div/div/div/div/div/div/div/input")).sendKeys(Keys.ARROW_DOWN);
 		driver.findElement(By.xpath("//div[4]/div/div[2]/div/div/div/div/div/div/div/div/div/div/div/input")).sendKeys(Keys.ENTER);
 		driver.findElement(By.xpath("//fieldset/div/div[2]/div/div/div/div/div/div/a")).click();
@@ -1045,6 +1045,47 @@ public static void loginUser_SalesOps() throws InterruptedException {
 		driver.switchTo().frame(iFrame);
 		driver.findElement(By.xpath("//input[4]")).click();
 
+	}
+	
+	public static void clickOnContacts_Related_Tab (String timestamp) throws Exception {
+		driver.findElement(By.xpath("//span[@class='slds-truncate'][contains(text(),'Contacts')]")).click();
+		driver.findElement(By.xpath("//div[2]/force-list-view-manager-search-bar/div/lightning-input/div/input")).sendKeys(timestamp);
+		driver.findElement(By.xpath("//a[@title='"+timestamp+"']")).click();
+	}
+	
+	public static void clickOnAddToCampaign () throws Exception {
+		Thread.sleep(3000);
+		driver.findElement(By.xpath("//div[@class='windowViewMode-normal oneContent active lafPageHost']//span[@class='title'][contains(text(),'Related')]")).click();
+		Thread.sleep(3000);
+		((JavascriptExecutor)driver).executeScript("scroll(0,1000)");
+		Thread.sleep(3000);	
+		driver.findElement(By.xpath("//ul[@class='branding-actions slds-button-group slds-m-left--xx-small small oneActionsRibbon forceActionsContainer']//div[@title='Add to Campaign'][contains(text(),'Add to Campaign')]")).click();
+		Thread.sleep(2000);
+	}
+	
+	public static void contact_newCampaign (String campaignName) throws Exception {
+		driver.findElement(By.xpath("//span[@title='New Campaign']")).click();
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("//div[4]/div/div/div/div/div/div/div/div/div/input")).sendKeys(campaignName);
+		driver.findElement(By.xpath("//div[2]/div/div/div/div/div/div/div/div/div/div/div/a")).click();
+		driver.findElement(By.xpath("//a[@title='Other']")).click();
+		driver.findElement(By.xpath("//div[2]/div/div/div[2]/div[2]/div/div/div/div/div/div/div/a")).click();
+		driver.findElement(By.xpath("//a[@title='Sales']")).click();
+		driver.findElement(By.xpath("//div[2]/div/div/div[3]/div[2]/div/div/div/div/div/div/div/a")).click();
+		driver.findElement(By.xpath("//a[@title='Global']")).click();
+		driver.findElement(By.xpath("//button[@title='Save']//span[contains(@class,'label bBody')][contains(text(),'Save')]")).click();
+		Thread.sleep(3000);
+	}
+	public static void contact_chooseCampaign () throws Exception {
+		driver.findElement(By.xpath("//span[contains(@class,'label bBody')][contains(text(),'Next')]")).click();
+		driver.findElement(By.xpath("//div[6]/div/div/div/div/div/input")).sendKeys("09/30/2019");
+		driver.findElement(By.xpath("//button[@title='Save']//span[contains(@class,'label bBody')][contains(text(),'Save')]")).click();
+	}
+	public static void contact_selectCampaign (String timestamp) throws Exception {
+		driver.findElement(By.xpath("//div[3]/div/div/div/div/input")).sendKeys(timestamp);
+		driver.findElement(By.xpath("//div[3]/div/div/div/div/input")).sendKeys(Keys.ARROW_DOWN);
+		driver.findElement(By.xpath("//div[3]/div/div/div/div/input")).sendKeys(Keys.ENTER);
+		
 	}
 		
 }
