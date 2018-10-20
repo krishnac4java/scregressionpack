@@ -261,11 +261,11 @@ public class Opportunity_Creation_All_Record_Types {
 		ObjectRepositoryMain.SalesOps_ContactRT_Creation(sdf.format(todayDate));
 		resultModel.setContactName(sdf.format(todayDate));
 		resultModel.setContactType("- Contact Record Type");
-		ObjectRepositoryMain.fillNewOpportunityFormAndSave(sdf.format(todayDate));
+		ObjectRepositoryMain.fillNewOpportunityFormAndSaveWOCloseDate(sdf.format(todayDate));
 		ObjectRepositoryMain.takeScreenShot("SalesOps_CompetitortRT_ContactRT_Opp_Product_Creation");
-		Assert.assertEquals("An error occurred while trying to update the record. Please try again.", ObjectRepositoryMain.getGenericError());
-		resultModel.setOpportunityName(sdf.format(todayDate));
-		ObjectRepositoryMain.fillNewProductAndSave(sdf.format(todayDate));
+		Assert.assertEquals("You can't add an Opportunity to a Competitor", ObjectRepositoryMain.getXpath("//lightning-messages/div/div/div/p"));
+		/*resultModel.setOpportunityName(sdf.format(todayDate));
+		ObjectRepositoryMain.fillNewProductAndSave(sdf.format(todayDate));*/
 		ObjectRepositoryMain.closeChrome();
 	}
 	
@@ -294,11 +294,11 @@ public class Opportunity_Creation_All_Record_Types {
 		ObjectRepositoryMain.SalesOps_SDRRT_Creation(sdf.format(todayDate));
 		resultModel.setContactName(sdf.format(todayDate));
 		resultModel.setContactType("- SDR Record Type");
-		ObjectRepositoryMain.fillNewOpportunityFormAndSave(sdf.format(todayDate));
+		ObjectRepositoryMain.fillNewOpportunityFormAndSaveWOCloseDate(sdf.format(todayDate));
 		ObjectRepositoryMain.takeScreenShot("SalesOps_CompetitortRT_ContactRT_Opp_Product_Creation");
-		Assert.assertEquals("An error occurred while trying to update the record. Please try again.", ObjectRepositoryMain.getGenericError());
-		resultModel.setOpportunityName(sdf.format(todayDate));
-		ObjectRepositoryMain.fillNewProductAndSave(sdf.format(todayDate));
+		Assert.assertEquals("You can't add an Opportunity to a Competitor", ObjectRepositoryMain.getXpath("//lightning-messages/div/div/div/p"));
+		/*resultModel.setOpportunityName(sdf.format(todayDate));
+		ObjectRepositoryMain.fillNewProductAndSave(sdf.format(todayDate));*/
 		ObjectRepositoryMain.closeChrome();
 	}
 	@Test
@@ -326,11 +326,11 @@ public class Opportunity_Creation_All_Record_Types {
 		ObjectRepositoryMain.SalesOps_SalesRT_Creation(sdf.format(todayDate));
 		resultModel.setContactName(sdf.format(todayDate));
 		resultModel.setContactType("- Sales Record Type");
-		ObjectRepositoryMain.fillNewOpportunityFormAndSave(sdf.format(todayDate));
-		ObjectRepositoryMain.takeScreenShot("SalesOps_CompetitortRT_SalesRT_Opp_Product_Creation");
-		Assert.assertEquals("An error occurred while trying to update the record. Please try again.", ObjectRepositoryMain.getGenericError());
-		resultModel.setOpportunityName(sdf.format(todayDate));
-		ObjectRepositoryMain.fillNewProductAndSave(sdf.format(todayDate));
+		ObjectRepositoryMain.fillNewOpportunityFormAndSaveWOCloseDate(sdf.format(todayDate));
+		ObjectRepositoryMain.takeScreenShot("SalesOps_CompetitortRT_ContactRT_Opp_Product_Creation");
+		Assert.assertEquals("You can't add an Opportunity to a Competitor", ObjectRepositoryMain.getXpath("//lightning-messages/div/div/div/p"));
+		/*resultModel.setOpportunityName(sdf.format(todayDate));
+		ObjectRepositoryMain.fillNewProductAndSave(sdf.format(todayDate));*/
 		ObjectRepositoryMain.closeChrome();
 	}
 	@Test

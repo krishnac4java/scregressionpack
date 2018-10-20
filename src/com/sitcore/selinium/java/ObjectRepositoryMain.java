@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
@@ -869,9 +870,44 @@ public static void loginUser_SalesOps() throws InterruptedException {
 		driver.findElement(By.xpath("//div[2]/table/tbody/tr[6]/td/span")).click();
 		driver.findElement(By.xpath("//button[@title='Save']")).click();*/
 		driver.findElement(By.xpath(Submit_Button)).click();
-		driver.findElement(By.xpath("//div[2]/force-list-view-manager-search-bar/div/lightning-input/div/input")).sendKeys(timestamp);
+		//driver.findElement(By.xpath("//div[2]/force-list-view-manager-search-bar/div/lightning-input/div/input")).sendKeys(timestamp);
 		Thread.sleep(1000);
 	}
+	
+	public static void fillNewOpportunityFormAndSaveWOCloseDate(String timestamp) throws InterruptedException {
+		Thread.sleep(5000);
+		driver.findElement(By.xpath("//span[@class='slds-truncate'][contains(text(),'Contacts')]")).click();
+		driver.findElement(By.xpath("//div[2]/force-list-view-manager-search-bar/div/lightning-input/div/input")).sendKeys(timestamp);
+		driver.findElement(By.xpath("//a[@title='"+timestamp+"']")).click();
+		driver.findElement(By.xpath("//div[@title='New Opportunity']")).click();
+		driver.findElement(By.name("Name")).sendKeys(timestamp);
+		//Opportunity Type
+		Thread.sleep(1000);
+		driver.findElement(By.name("Type")).sendKeys(Keys.ARROW_DOWN);
+		driver.findElement(By.name("Type")).sendKeys(Keys.ARROW_DOWN);
+		driver.findElement(By.name("Type")).sendKeys(Keys.ARROW_DOWN);
+		driver.findElement(By.name("Type")).sendKeys(Keys.ENTER);
+		Thread.sleep(1000);
+		//driver.findElement(By.xpath("//a[contains(text(),'License')]")).click();
+		Thread.sleep(1000);
+		
+		driver.findElement(By.name("MD_Opportunity_Type__c")).sendKeys(Keys.ARROW_DOWN);	
+		driver.findElement(By.name("MD_Opportunity_Type__c")).sendKeys(Keys.ARROW_DOWN);
+		driver.findElement(By.name("MD_Opportunity_Type__c")).sendKeys(Keys.ENTER);
+		Thread.sleep(1000);
+		//driver.findElement(By.xpath("//a[contains(text(),'New')]")).click();
+		Thread.sleep(1000);
+		
+		driver.findElement(By.name("License_Type__c")).sendKeys(Keys.ARROW_DOWN);
+		driver.findElement(By.name("License_Type__c")).sendKeys(Keys.ARROW_DOWN);
+		driver.findElement(By.name("License_Type__c")).sendKeys(Keys.ARROW_DOWN);
+		driver.findElement(By.name("License_Type__c")).sendKeys(Keys.ENTER);
+		Thread.sleep(1000);
+		driver.findElement(By.xpath(Submit_Button)).click();
+		//driver.findElement(By.xpath("//div[2]/force-list-view-manager-search-bar/div/lightning-input/div/input")).sendKeys(timestamp);
+		Thread.sleep(1000);
+	}
+	
 	public static void scrollTest() throws InterruptedException {
 		((JavascriptExecutor)driver).executeScript("scroll(0,100)");
 		Thread.sleep(8000);
@@ -917,6 +953,27 @@ public static void loginUser_SalesOps() throws InterruptedException {
 		driver.findElement(By.xpath("//div[4]/div/div[2]/div/div/div/div/div/div/div/div/div/div/div/input")).sendKeys(Keys.ARROW_DOWN);
 		driver.findElement(By.xpath("//div[4]/div/div[2]/div/div/div/div/div/div/div/div/div/div/div/input")).sendKeys(Keys.ENTER);
 		driver.findElement(By.xpath("//fieldset/div/div[2]/div/div/div/div/div/div/a")).click();
+		driver.findElement(By.xpath("//a[@title='United Kingdom']")).click();
+		driver.findElement(By.xpath("//div/button[3]")).click();
+	}
+	public static void salesOps_LeadGeneration_Lead_Creation_WO_Account(String timestamp) throws InterruptedException {
+		driver.findElement(By.xpath("//fieldset/div/div/div/div/div/div/a")).click();
+		driver.findElement(By.xpath("//a[contains(text(),'Mr.')]")).click();
+		driver.findElement(By.xpath("//div[4]/input")).sendKeys(timestamp);
+		driver.findElement(By.xpath("//div/div/div/div/div/div/fieldset/div/div[2]/input")).sendKeys(timestamp);
+		driver.findElement(By.xpath("//div/div/div/div/div[2]/div/div/div/div/input")).sendKeys(timestamp);
+		driver.findElement(By.xpath("//div[3]/div/div/div/div/div/div/input")).sendKeys(timestamp+"@gmail.com");
+		driver.findElement(By.xpath("//div[5]/div/div/div/div/input")).sendKeys("1234567890");
+		driver.findElement(By.xpath("//div[5]/div[2]/div/div/div/div/div/div/div/a")).click();
+		driver.findElement(By.xpath("//a[contains(text(),'SAL')]")).click();
+		driver.findElement(By.xpath("//div[7]/div/div/div/div/textarea")).sendKeys("ContactUsComment");
+		driver.findElement(By.xpath("//div[7]/div[2]/div/div/div/div/div/div/div/a")).click();
+		driver.findElement(By.xpath("//div[11]/div/ul/li[3]/a")).click();
+		driver.findElement(By.xpath("//div/div[2]/div/div/div[2]/div/div/div/div/input")).sendKeys(timestamp);
+		/*driver.findElement(By.xpath("//div[4]/div/div[2]/div/div/div/div/div/div/div/div/div/div/div/input")).sendKeys(accountName);
+		driver.findElement(By.xpath("//div[4]/div/div[2]/div/div/div/div/div/div/div/div/div/div/div/input")).sendKeys(Keys.ARROW_DOWN);
+		driver.findElement(By.xpath("//div[4]/div/div[2]/div/div/div/div/div/div/div/div/div/div/div/input")).sendKeys(Keys.ENTER);
+		*/driver.findElement(By.xpath("//fieldset/div/div[2]/div/div/div/div/div/div/a")).click();
 		driver.findElement(By.xpath("//a[@title='United Kingdom']")).click();
 		driver.findElement(By.xpath("//div/button[3]")).click();
 	}
@@ -1076,6 +1133,19 @@ public static void loginUser_SalesOps() throws InterruptedException {
 		driver.findElement(By.xpath("//button[@title='Save']//span[contains(@class,'label bBody')][contains(text(),'Save')]")).click();
 		Thread.sleep(3000);
 	}
+	public static void mops_newCampaign (String campaignName) throws Exception {
+		driver.findElement(By.xpath("//div[@title='New']")).click();
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("//div[4]/div/div/div/div/div/div/div/div/div/input")).sendKeys(campaignName);
+		driver.findElement(By.xpath("//div[2]/div/div/div/div/div/div/div/div/div/div/div/a")).click();
+		driver.findElement(By.xpath("//a[@title='Other']")).click();
+		driver.findElement(By.xpath("//div[2]/div/div/div[2]/div[2]/div/div/div/div/div/div/div/a")).click();
+		driver.findElement(By.xpath("//a[@title='Sales']")).click();
+		driver.findElement(By.xpath("//div[2]/div/div/div[3]/div[2]/div/div/div/div/div/div/div/a")).click();
+		driver.findElement(By.xpath("//a[@title='Global']")).click();
+		driver.findElement(By.xpath("//button[@title='Save']//span[contains(@class,'label bBody')][contains(text(),'Save')]")).click();
+		Thread.sleep(3000);
+	}
 	public static void contact_chooseCampaign () throws Exception {
 		driver.findElement(By.xpath("//span[contains(@class,'label bBody')][contains(text(),'Next')]")).click();
 		driver.findElement(By.xpath("//div[6]/div/div/div/div/div/input")).sendKeys("09/30/2019");
@@ -1087,6 +1157,70 @@ public static void loginUser_SalesOps() throws InterruptedException {
 		driver.findElement(By.xpath("//div[3]/div/div/div/div/input")).sendKeys(Keys.ENTER);
 		
 	}
+	public static void convert_Lead (String timestamp) throws Exception {
+		driver.findElement(By.xpath("//div[@title='Convert']")).click();
+		Thread.sleep(5000);
+		driver.findElement(By.xpath("//span[contains(@class,'label bBody')][contains(text(),'Convert')]")).click();
+		Thread.sleep(5000);
+	}
+	public static void convert_Lead_clickOpportunity (String timestamp) throws Exception {
+		driver.findElement(By.xpath("//a[@title='"+timestamp+"-']")).click();
+		Thread.sleep(5000);
+	}
+	public static void convert_Lead_clickContact (String timestamp) throws Exception {
+		driver.findElement(By.xpath("//a[@title='"+timestamp+" "+timestamp+"']")).click();
+		Thread.sleep(5000);
+	}
+	public static String verifyDate_ConvertedLead () throws Exception {
+		driver.findElement(By.xpath("//div[@class='windowViewMode-normal oneContent active lafPageHost']//div[@title='Edit'][contains(text(),'Edit')]")).click();
+		driver.findElement(By.xpath("//div[2]/div/div/div/div[2]/div/div/div/div/input")).click();
+		String closeDate = driver.findElement(By.xpath("//div[2]/div/div/div/div[2]/div/div/div/div/input")).getAttribute("value");
+		driver.findElement(By.xpath("//button[@title='Cancel']//span[contains(@class,'label bBody')][contains(text(),'Cancel')]")).click();
+		/*String closeDate = driver.findElement(By.xpath("//div[5]/div/div/div[3]/div/div/div/section/div/div/div[3]/div/div[2]/div/div/div/div[2]/div/div[2]/span/span")).getText();*/
+		return closeDate;
+	}
+	public static String verify_ContactUsComment (String timestamp) throws Exception {
+		/*driver.findElement(By.xpath("//span[@class='slds-truncate'][contains(text(),'Contacts')]")).click();
+		driver.findElement(By.xpath("//div[2]/force-list-view-manager-search-bar/div/lightning-input/div/input")).sendKeys(timestamp+" "+timestamp);
+		driver.findElement(By.xpath("//a[@title='"+timestamp+" "+timestamp+"']")).click();*/
+		Thread.sleep(5000);
+		driver.findElement(By.xpath("//div[@class='windowViewMode-normal oneContent active lafPageHost']//a[@title='Edit']")).click();
+		driver.findElement(By.xpath("//div[5]/div/div/div/div/textarea")).click();
+		String contactUsComment = driver.findElement(By.xpath("//div[5]/div/div/div/div/textarea")).getAttribute("value");
+		driver.findElement(By.xpath("//div[@class='forceModalActionContainer--footerAction forceModalActionContainer']//span[contains(@class,'label bBody')][contains(text(),'Cancel')]")).click();
+		return contactUsComment;
+	}
+	
+	public static String verifyFunnelStatus () throws Exception {
+		Thread.sleep(10000);
+		driver.navigate().refresh();
+		driver.findElement(By.xpath("//li[3]/a/div")).click();
+		WebElement element = driver.findElement(By.xpath("//div[2]/div[2]/div/div/div/div/div/div/div/a"));
+		String defaultItem = element.getText();
+		return defaultItem;
+	}
+	
+	public static void clickCampaignTab () throws Exception {
+		driver.findElement(By.xpath("//span[@class='slds-truncate'][contains(text(),'Campaigns')]")).click();
 		
+	}
+	public static void mops_create_Edit_Campaign (String campaignName) throws Exception {
+		driver.navigate().refresh();
+		driver.findElement(By.xpath("//a[@title='Edit']")).click();
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("//div[4]/div/div/div/div/div/div/div/div/div/input")).clear();
+		driver.findElement(By.xpath("//div[4]/div/div/div/div/div/div/div/div/div/input")).sendKeys(campaignName+"Edit");
+		driver.findElement(By.xpath("//button[@title='Save']//span[contains(@class,'label bBody')][contains(text(),'Save')]")).click();
+		Thread.sleep(3000);
+	}
+	public static void salesops_verifyAccountField_CompositRiskScore() throws Exception {
+		driver.findElement(By.xpath("//div[4]/div/div/div/div/input")).sendKeys("Test");
+	}
+	public static void salesops_verifyAccountField_PaymentDefaultRisk() throws Exception {
+		driver.findElement(By.xpath("//div[5]/div/div/div/div/input")).sendKeys("Test");
+	}
+	public static void salesops_competitor_cursorMovementForScreenShot() {
+		driver.findElement(By.name("//lightning-input-field/lightning-input/div/input")).click();
+	}
 }
 	
