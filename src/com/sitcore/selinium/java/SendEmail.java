@@ -19,7 +19,7 @@ public class SendEmail {
 	private final static String username = "AutomationVJ@outlook.com";
 	private final static String password = "Ovj4519oe26";
 	private static List<String> userStories = new ArrayList<String>();
-	
+	private static List<String> inProgressuserStories = new ArrayList<String>();
 	
 	public static void main(String[] args) {
 
@@ -100,6 +100,11 @@ public class SendEmail {
 						+ "<td></td>"
 						+ "<td bgcolor=\"#"+color+"\"> "+testResultModelResult.getTestResult()+" </td></tr>");
 			}
+			for(String userStory : inProgressuserStories) {
+				bodyBuilder.append("<tr><td> Verify "+userStory+" </td>"
+						+ "<td></td>"
+						+ "<td> In Progress</td></tr>");
+			}
 			for(String userStory : userStories) {
 				bodyBuilder.append("<tr><td> Verify "+userStory+" </td>"
 						+ "<td></td>"
@@ -117,10 +122,10 @@ public class SendEmail {
 	}
 	private static void userStoriesAddition() {
 		userStories.add("MVP-Sprint1 - US-1169");
+		userStories.add("MVP-Sprint1 - US-1169");
 		userStories.add("MVP-Sprint1 - US-0699");
 		userStories.add("MVP-Sprint1 - US-0677");
 		userStories.add("MVP-Sprint1 - US-0948");
-		userStories.add("MVP-Sprint1 - US-0512");
 		userStories.add("MVP-Sprint1 - US-0478");
 		userStories.add("MVP-Sprint1 - US-0634");
 		userStories.add("MVP-Sprint1 - US-1102");
@@ -154,7 +159,7 @@ public class SendEmail {
 		userStories.add("MVP-Sprint2 - US-1081");
 		userStories.add("MVP-Sprint2 - US-0563");
 		userStories.add("MVP-Sprint2 - US-0566");
-		userStories.add("MVP-Sprint2 - US-0567");
+		inProgressuserStories.add("MVP-Sprint2 - US-0567");
 		userStories.add("MVP-Sprint2 - US-0569");
 		userStories.add("MVP-Sprint2 - US-0571");
 		userStories.add("MVP-Sprint2 - US-0586");
@@ -180,7 +185,10 @@ public class SendEmail {
 		userStories.add("MVP-Sprint2 - US-0678");
 		userStories.add("MVP-Sprint2 - US-0679");
 		userStories.add("MVP-Sprint2 - US-0681");
-		userStories.add("MVP-Sprint2 - US-0691");
+		inProgressuserStories.add("MVP-Sprint2 - US-0691");
+		inProgressuserStories.add("MVP-Sprint2 - US-1249");
+		inProgressuserStories.add("MVP-Sprint2 - US-1283");
+		inProgressuserStories.add("MVP-Sprint2 - US-1282");
 		userStories.add("MVP-Sprint2 - US-0700");
 		userStories.add("MVP-Sprint2 - US-0902");
 		userStories.add("MVP-Sprint2 - US-0909");
@@ -190,11 +198,7 @@ public class SendEmail {
 		userStories.add("MVP-Sprint2 - US-1162");
 		userStories.add("MVP-Sprint2 - US-1160");
 		userStories.add("MVP-Sprint2 - US-1166");
-		userStories.add("MVP-Sprint2 - US-1293");
-		userStories.add("MVP-Sprint2 - US-1292");
 		userStories.add("MVP-Sprint2 - US-1291");
-		userStories.add("MVP-Sprint2 - US-1295");
-		userStories.add("MVP-Sprint2 - US-1294");
 		userStories.add("MVP-Sprint2 - US-1299");
 		userStories.add("MVP-Sprint2 - US-1302");
 		userStories.add("MVP-Sprint2 - US-1307");
@@ -204,7 +208,7 @@ public class SendEmail {
 		userStories.add("MVP-Sprint2 - US-1261");
 		userStories.add("MVP-Sprint2 - US-1318");
 		userStories.add("MVP-Sprint3 - US-1290");
-		userStories.add("MVP-Sprint3 - US-1595");
+		inProgressuserStories.add("MVP-Sprint3 - US-1595");
 		userStories.add("MVP-Sprint3 - US-1351");
 		userStories.add("MVP-Sprint3 - US-1286");
 		userStories.add("MVP-Sprint3 - US-1344");
@@ -213,7 +217,6 @@ public class SendEmail {
 		userStories.add("MVP-Sprint3 - US-1238");
 		userStories.add("MVP-Sprint3 - US-1239");
 		userStories.add("MVP-Sprint3 - US-1257");
-		userStories.add("MVP-Sprint3 - US-1258");
 		userStories.add("MVP-Sprint3 - US-1269");
 		userStories.add("MVP-Sprint3 - US-1274");
 		userStories.add("MVP-Sprint3 - US-1245");

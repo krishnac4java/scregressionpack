@@ -47,7 +47,7 @@ public class US_1246 {
 	@Test
 	public void testMethod() throws Exception {
 		resultModel.setLoginName("Sales Operations");
-		resultModel.setMethodName("User Story - 1258");
+		resultModel.setMethodName("User Story - 1246");
 		ObjectRepositoryMain.launchChrome();
 		ObjectRepositoryMain.loginUser_Sales();
 		ObjectRepositoryMain.clickOpportunityTab();

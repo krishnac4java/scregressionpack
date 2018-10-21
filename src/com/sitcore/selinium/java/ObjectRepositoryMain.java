@@ -435,6 +435,20 @@ public static void loginUser_SalesOps() throws InterruptedException {
 		//driver.findElement(By.xpath("//div[@class='slds-form-element__control']/div/input")).sendKeys("1234567890");		
 	}
 	
+	public static void SalesOps_AccountCustomerRT_Creation_US779(String timestamp) {
+		driver.findElement(By.xpath(ObjectRepositoryMain.Account_CustomerRT_SalesOps_AccountName_EditBox)).sendKeys(timestamp);		
+		driver.findElement(By.xpath(ObjectRepositoryMain.Account_CustomerRT_SalesOps_RecordStatus_DropDown)).click();
+		driver.findElement(By.xpath("//a[contains(text(),'Unverified')]")).click();		
+		driver.findElement(By.xpath(ObjectRepositoryMain.Account_CustomerRT_SalesOps_BillingCountry_DropDown)).click();
+		driver.findElement(By.xpath(ObjectRepositoryMain.Account_CustomerRT_SalesOps_BillingCountry_DropDown_UK)).click();
+		driver.findElement(By.xpath(ObjectRepositoryMain.Account_CustomerRT_SalesOps_BillingSt_EditBox)).sendKeys(sdf.format(todayDate));
+		driver.findElement(By.xpath(ObjectRepositoryMain.Account_CustomerRT_SalesOps_BillingCity_EditBox)).sendKeys(sdf.format(todayDate));
+		driver.findElement(By.xpath(ObjectRepositoryMain.Account_CustomerRT_SalesOps_BillingState_DropDown)).click();
+		driver.findElement(By.xpath(ObjectRepositoryMain.Account_CustomerRT_SalesOps_BillingState_DropDown_England)).click();
+		driver.findElement(By.xpath(ObjectRepositoryMain.Account_CustomerRT_SalesOps_BillingPostCode_EditBox)).sendKeys(sdf.format(todayDate));
+		//driver.findElement(By.xpath("//div[@class='slds-form-element__control']/div/input")).sendKeys("1234567890");		
+	}
+	
 	public static void SalesOps_AccountRequestRT_Creation(String timestamp) {
 		driver.findElement(By.xpath(ObjectRepositoryMain.Account_AccRequestRT_SalesOps_AccountName_EditBox)).sendKeys(timestamp);		
 		driver.findElement(By.xpath(ObjectRepositoryMain.Account_AccRequestRT_SalesOps_RecordStatus_DropDown)).click();
@@ -896,6 +910,45 @@ public static void loginUser_SalesOps() throws InterruptedException {
 		Thread.sleep(1000);
 	}
 	
+	public static void fillNewOpportunityFormAndSaveWithStage(String timestamp) throws InterruptedException {
+		Thread.sleep(5000);
+		driver.findElement(By.xpath("//span[@class='slds-truncate'][contains(text(),'Contacts')]")).click();
+		driver.findElement(By.xpath("//div[2]/force-list-view-manager-search-bar/div/lightning-input/div/input")).sendKeys(timestamp);
+		driver.findElement(By.xpath("//a[@title='"+timestamp+"']")).click();
+		driver.findElement(By.xpath("//div[@title='New Opportunity']")).click();
+		driver.findElement(By.name("Name")).sendKeys(timestamp);
+		//driver.findElement(By.name("CloseDate")).sendKeys("Sep 30, 2019");
+		//Opportunity Type
+		Thread.sleep(1000);
+		driver.findElement(By.name("Type")).sendKeys(Keys.ARROW_DOWN);
+		driver.findElement(By.name("Type")).sendKeys(Keys.ARROW_DOWN);
+		driver.findElement(By.name("Type")).sendKeys(Keys.ARROW_DOWN);
+		driver.findElement(By.name("Type")).sendKeys(Keys.ENTER);
+		Thread.sleep(1000);
+		//driver.findElement(By.xpath("//a[contains(text(),'License')]")).click();
+		Thread.sleep(1000);
+		
+		driver.findElement(By.name("MD_Opportunity_Type__c")).sendKeys(Keys.ARROW_DOWN);	
+		driver.findElement(By.name("MD_Opportunity_Type__c")).sendKeys(Keys.ARROW_DOWN);
+		driver.findElement(By.name("MD_Opportunity_Type__c")).sendKeys(Keys.ENTER);
+		Thread.sleep(1000);
+		//driver.findElement(By.xpath("//a[contains(text(),'New')]")).click();
+		Thread.sleep(1000);
+		
+		driver.findElement(By.name("License_Type__c")).sendKeys(Keys.ARROW_DOWN);
+		driver.findElement(By.name("License_Type__c")).sendKeys(Keys.ARROW_DOWN);
+		driver.findElement(By.name("License_Type__c")).sendKeys(Keys.ARROW_DOWN);
+		driver.findElement(By.name("License_Type__c")).sendKeys(Keys.ENTER);
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("//div[8]/lightning-input-field/lightning-picklist/lightning-combobox/div/lightning-base-combobox/div/div/input")).click();
+		driver.findElement(By.xpath("//lightning-base-combobox-item[10]/span[2]/lightning-base-combobox-formatted-text")).click();
+		//driver.findElement(By.xpath("//a[contains(text(),'Subscription')]")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath(Submit_Button)).click();
+		//driver.findElement(By.xpath("//div[2]/force-list-view-manager-search-bar/div/lightning-input/div/input")).sendKeys(timestamp);
+		Thread.sleep(1000);
+	}
+	
 	public static void fillNewOpportunityFormAndSaveWOCloseDate(String timestamp) throws InterruptedException {
 		Thread.sleep(5000);
 		driver.findElement(By.xpath("//span[@class='slds-truncate'][contains(text(),'Contacts')]")).click();
@@ -1259,7 +1312,7 @@ public static void loginUser_SalesOps() throws InterruptedException {
 		return defaultItem;
 	}
 	public static void verifyOpportunity_HostingPreferenceValues ( ) throws Exception {
-		Thread.sleep(10000);
+		Thread.sleep(5000);
 		driver.findElement(By.xpath("//div[8]/div/div/div/div/div/div/div/div/a")).click();
 		driver.findElement(By.xpath("//a[contains(@title,'Azure PaaS')]")).click();
 		driver.findElement(By.xpath("//div[8]/div/div/div/div/div/div/div/div/a")).click();
@@ -1274,6 +1327,16 @@ public static void loginUser_SalesOps() throws InterruptedException {
 		driver.findElement(By.xpath("//a[contains(@title,'Other')]")).click();
 		driver.findElement(By.xpath("//div[8]/div/div/div/div/div/div/div/div/a")).click();
 		driver.findElement(By.xpath("//a[contains(@title,'Unknown')]")).click();
+	}
+	public static void verifyOpportunity_ImplementationDeliveryType ( ) throws Exception {
+		Thread.sleep(3000);
+		driver.findElement(By.xpath("//div[2]/div/div[3]/div/button[2]")).click();
+		driver.findElement(By.xpath("//div[5]/div/div/div/div/div/div/div/div/div/div/div/a")).click();
+		driver.findElement(By.xpath("//a[contains(@title,'Affiliate/Partner')]")).click();
+		driver.findElement(By.xpath("//div[5]/div/div/div/div/div/div/div/div/div/div/div/a")).click();
+		driver.findElement(By.xpath("//a[contains(@title,'3rd Party Vendor')]")).click();
+		driver.findElement(By.xpath("//div[5]/div/div/div/div/div/div/div/div/div/div/div/a")).click();
+		driver.findElement(By.xpath("//a[contains(@title,'Customer')]")).click();
 	}
 	public static void clickOpportunityTab ( ) throws Exception {
 		Thread.sleep(2000);
