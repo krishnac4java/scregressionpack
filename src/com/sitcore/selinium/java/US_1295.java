@@ -11,7 +11,7 @@ import org.junit.rules.TestWatcher;
 import org.junit.runner.Description;
 
 
-public class US_1246 {
+public class US_1295 {
 	private static Date todayDate = new Date();
 	private static SimpleDateFormat sdf = new SimpleDateFormat("SSSssmmHHyyyMMdd");
 	public TestResultModel resultModel = new TestResultModel();
@@ -49,10 +49,10 @@ public class US_1246 {
 		resultModel.setLoginName("Sales Operations");
 		resultModel.setMethodName("User Story - 1258");
 		ObjectRepositoryMain.launchChrome();
-		ObjectRepositoryMain.loginUser_Sales();
-		ObjectRepositoryMain.clickOpportunityTab();
+		ObjectRepositoryMain.loginUser_SalesOps();
+		ObjectRepositoryMain.clickLeadsTab();
 		ObjectRepositoryMain.clickNew();
-		ObjectRepositoryMain.verifyOpportunity_HostingPreferenceValues();
+		ObjectRepositoryMain.verifyLeads_TentativeRelationTypeValues();
 		ObjectRepositoryMain.closeChrome();
 	}
 

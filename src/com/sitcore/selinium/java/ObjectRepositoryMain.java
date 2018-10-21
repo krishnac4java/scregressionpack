@@ -230,7 +230,20 @@ public class ObjectRepositoryMain {
 	      driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);      
 	
 	    }
+	public static void launchChromeWithSpecificURL(String url) throws Exception {
+		  ChromeOptions options=new ChromeOptions();
+		  Map<String, Object> prefs=new HashMap<String,Object>();
+		  prefs.put("profile.default_content_setting_values.notifications", 1);
+		  //1-Allow, 2-Block, 0-default
+		  options.setExperimentalOption("prefs",prefs);
+		  System.setProperty("webdriver.chrome.driver","D:\\VijayWorkSpace\\chromedriver.exe");
+		  //System.setProperty("webdriver.chrome.driver","C:\\Users\\SC\\Desktop\\eclipse\\eclipse\\chromedriver.exe");
+		  driver = new ChromeDriver(options);   
+		  driver.get(url);
+		  driver.manage().window().maximize();
+	      driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);      
 	
+	    }
 	public static void launchChrome_Dynamics() throws Exception {
 		
 		  System.setProperty("webdriver.chrome.driver","C:\\Users\\SC\\Desktop\\eclipse\\eclipse\\chromedriver.exe");
@@ -1230,6 +1243,97 @@ public static void loginUser_SalesOps() throws InterruptedException {
 	}
 	public static void salesops_competitor_cursorMovementForScreenShot() {
 		driver.findElement(By.name("//lightning-input-field/lightning-input/div/input")).click();
+	}
+	public static String verifyLeaderShipForecast_AreaField () throws Exception {
+		Thread.sleep(10000);
+		driver.findElement(By.xpath("//select")).click();
+		WebElement element = driver.findElement(By.xpath("//select"));
+		String defaultItem = element.getAttribute("value");
+		return defaultItem;
+	}
+	public static String verifyLeaderShipForecast_RegionField () throws Exception {
+		Thread.sleep(10000);
+		driver.findElement(By.xpath("//div[2]/div/div/div/select")).click();
+		WebElement element = driver.findElement(By.xpath("//div[2]/div/div/div/select"));
+		String defaultItem = element.getAttribute("value");
+		return defaultItem;
+	}
+	public static void verifyOpportunity_HostingPreferenceValues ( ) throws Exception {
+		Thread.sleep(10000);
+		driver.findElement(By.xpath("//div[8]/div/div/div/div/div/div/div/div/a")).click();
+		driver.findElement(By.xpath("//a[contains(@title,'Azure PaaS')]")).click();
+		driver.findElement(By.xpath("//div[8]/div/div/div/div/div/div/div/div/a")).click();
+		driver.findElement(By.xpath("//a[contains(@title,'Azure IaaS')]")).click();
+		driver.findElement(By.xpath("//div[8]/div/div/div/div/div/div/div/div/a")).click();
+		driver.findElement(By.xpath("//a[contains(@title,'AWS')]")).click();
+		driver.findElement(By.xpath("//div[8]/div/div/div/div/div/div/div/div/a")).click();
+		driver.findElement(By.xpath("//a[contains(@title,'Rackspace')]")).click();
+		driver.findElement(By.xpath("//div[8]/div/div/div/div/div/div/div/div/a")).click();
+		driver.findElement(By.xpath("//a[contains(@title,'Savvis')]")).click();
+		driver.findElement(By.xpath("//div[8]/div/div/div/div/div/div/div/div/a")).click();
+		driver.findElement(By.xpath("//a[contains(@title,'Other')]")).click();
+		driver.findElement(By.xpath("//div[8]/div/div/div/div/div/div/div/div/a")).click();
+		driver.findElement(By.xpath("//a[contains(@title,'Unknown')]")).click();
+	}
+	public static void clickOpportunityTab ( ) throws Exception {
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("//span[@class='slds-truncate'][contains(text(),'Opportunities')]")).click();
+	}
+	public static void clickLeadTab ( ) throws Exception {
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("//span[@class='slds-truncate'][contains(text(),'Leads')]")).click();
+	}
+	public static void clickContactsTab ( ) throws Exception {
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("//span[@class='slds-truncate'][contains(text(),'Contacts')]")).click();
+	}
+	public static void clickNew ( ) throws Exception {
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("//div[@title='New']")).click();
+		Thread.sleep(2000);
+	}
+	public static void verifyLeads_TentativeRelationTypeValues ( ) throws Exception {
+		Thread.sleep(10000);
+		driver.findElement(By.xpath("//span[contains(@class,'label bBody')][contains(text(),'Next')]")).click();
+
+		driver.findElement(By.xpath("//div[2]/div/div/div/div[2]/div/div/div/div/div/div/div/a")).click();
+		driver.findElement(By.xpath("//a[contains(@title,'Prospect')]")).click();
+		driver.findElement(By.xpath("//div[2]/div/div/div/div[2]/div/div/div/div/div/div/div/a")).click();
+		driver.findElement(By.xpath("//a[contains(@title,'Customer')]")).click();
+		driver.findElement(By.xpath("//div[2]/div/div/div/div[2]/div/div/div/div/div/div/div/a")).click();
+		driver.findElement(By.xpath("//a[contains(@title,'Partner')]")).click();
+		driver.findElement(By.xpath("//div[2]/div/div/div/div[2]/div/div/div/div/div/div/div/a")).click();
+		driver.findElement(By.xpath("//a[contains(@title,'Competitor')]")).click();
+		driver.findElement(By.xpath("//div[2]/div/div/div/div[2]/div/div/div/div/div/div/div/a")).click();
+		driver.findElement(By.xpath("//a[contains(@title,'Solution Partner')]")).click();
+		driver.findElement(By.xpath("//div[2]/div/div/div/div[2]/div/div/div/div/div/div/div/a")).click();
+		driver.findElement(By.xpath("//a[contains(@title,'Affiliates')]")).click();
+		driver.findElement(By.xpath("//div[2]/div/div/div/div[2]/div/div/div/div/div/div/div/a")).click();
+		driver.findElement(By.xpath("//a[contains(@title,'Technology Alliance')]")).click();
+		driver.findElement(By.xpath("//div[2]/div/div/div/div[2]/div/div/div/div/div/div/div/a")).click();
+		driver.findElement(By.xpath("//a[contains(@title,'Corporate Alliance')]")).click();
+		driver.findElement(By.xpath("//div[2]/div/div/div/div[2]/div/div/div/div/div/div/div/a")).click();
+		driver.findElement(By.xpath("//a[contains(@title,'ISV')]")).click();
+		driver.findElement(By.xpath("//div[2]/div/div/div/div[2]/div/div/div/div/div/div/div/a")).click();
+		driver.findElement(By.xpath("//a[contains(@title,'Account Hierarchy')]")).click();
+		driver.findElement(By.xpath("//div[2]/div/div/div/div[2]/div/div/div/div/div/div/div/a")).click();
+		driver.findElement(By.xpath("//a[contains(@title,'Other')]")).click();
+	}
+	
+	public static void verifyLeads_TestField ( ) throws Exception {
+		driver.findElement(By.xpath("//div[2]/div/div[3]/div/button[2]")).click();
+		driver.findElement(By.xpath("//div[12]/div/div/div/div/div/div/div/input")).click();
+		driver.findElement(By.xpath("//div[2]/div/div[3]/div/button")).click();
+	}
+	public static void verifyContacts_TestField ( ) throws Exception {
+		driver.findElement(By.xpath("//div[2]/div/div[3]/div/button[2]")).click();
+		driver.findElement(By.xpath("//div[14]/div/div/div[2]/div/div/div/div/input")).click();
+		driver.findElement(By.xpath("//div[2]/div/div[3]/div/button")).click();
+	}
+	public static void verifyOpportunities_TestField ( ) throws Exception {
+		driver.findElement(By.xpath("//div[2]/div/div[3]/div/button[2]")).click();
+		driver.findElement(By.xpath("//div[9]/div/div/div[2]/div/div/div/div/input")).click();
+		driver.findElement(By.xpath("//div[2]/div/div[3]/div/button")).click();
 	}
 }
 	
