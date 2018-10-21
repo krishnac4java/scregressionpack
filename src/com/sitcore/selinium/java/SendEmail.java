@@ -12,6 +12,8 @@ import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
+import org.junit.Test;
+
 public class SendEmail {
 
 	private final static String username = "AutomationVJ@outlook.com";
@@ -21,10 +23,15 @@ public class SendEmail {
 	
 	public static void main(String[] args) {
 
-		sendEMail("No Body", "No Subject", null);
+		sendEMail("No Subject", null);
+	}
+	
+	@Test
+	public void zSendEmail() {
+		sendEMail("Automated_Regression_Pack", ObjectRepositoryMain.resultList);
 	}
 
-	public static void sendEMail(String emailBody, String subject, List<TestResultModel> resultList) {
+	public static void sendEMail(String subject, List<TestResultModel> resultList) {
 		userStoriesAddition();
 		Properties props = new Properties();
 		props.put("mail.smtp.host", "smtp-mail.outlook.com");
@@ -82,6 +89,16 @@ public class SendEmail {
 						+"<tr><td> Verify "+resultEachModel.getLoginName()+" user can create a Product </td>"
 						+ "<td></td>"
 						+ "<td bgcolor=\"#"+color+"\"> "+(resultEachModel.getTestResult()==null? "":resultEachModel.getTestResult())+"</td></tr>");
+			}
+			for(TestResultModel testResultModelResult : ObjectRepositoryMain.userStoryresultList) {
+				String color = "";
+				if(testResultModelResult.getTestResult().equals("Success"))
+					color = "00FF00";
+				else
+					color = "FF0000";
+				bodyBuilder.append("<tr><td> Verify "+testResultModelResult.getMethodName()+" </td>"
+						+ "<td></td>"
+						+ "<td bgcolor=\"#"+color+"\"> "+testResultModelResult.getTestResult()+" </td></tr>");
 			}
 			for(String userStory : userStories) {
 				bodyBuilder.append("<tr><td> Verify "+userStory+" </td>"

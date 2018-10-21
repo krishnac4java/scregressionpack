@@ -1,9 +1,7 @@
 package com.sitcore.selinium.java;
 
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 import org.junit.Assert;
 import org.junit.FixMethodOrder;
@@ -21,7 +19,6 @@ public class Opportunity_Creation_All_Record_Types {
 	private static Date todayDate = new Date();
 	private static String emailbody = "", opportunityName="";
 	private static SimpleDateFormat sdf = new SimpleDateFormat("SSSssmmHHyyyMMdd");
-	private static List<TestResultModel> resultList = new ArrayList<TestResultModel>();
 	public TestResultModel resultModel = new TestResultModel();
 	@Rule
     public TestRule watcher = new TestWatcher() {
@@ -29,7 +26,7 @@ public class Opportunity_Creation_All_Record_Types {
         protected void succeeded(Description description) {
         	if(!description.getMethodName().equals("sendEmail")) {
         		resultModel.setTestResult("Success");
-        		resultList.add(resultModel);
+        		ObjectRepositoryMain.resultList.add(resultModel);
         		resultModel = new TestResultModel();
         		//emailbody += description.getMethodName()+":			Pass!			OpportunityName: "+opportunityName+"\n";
         		
@@ -40,7 +37,7 @@ public class Opportunity_Creation_All_Record_Types {
         protected void failed(Throwable e, Description description) {
         	if(!description.getMethodName().equals("sendEmail"))
         		resultModel.setTestResult("Fail");
-		    	resultList.add(resultModel);
+		    	ObjectRepositoryMain.resultList.add(resultModel);
 				resultModel = new TestResultModel();
         		//emailbody += description.getMethodName()+":			Fail! \n";
 				try {
@@ -541,9 +538,5 @@ public class Opportunity_Creation_All_Record_Types {
 	 * ObjectRepositoryMain.fillNewOpportunityFormAndSave(sdf.format(todayDate)+
 	 * "CCRT"); ObjectRepositoryMain.fillNewProductAndSave(sdf.format(todayDate)); }
 	 */
-	@Test
-	public void zSendEmail() {
-		SendEmail.sendEMail(emailbody, "Automated_Regression_Pack", resultList);
-	}
 
 }
