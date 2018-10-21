@@ -53,7 +53,7 @@ public class Opportunity_Creation_All_Record_Types {
 		resultModel.setMethodName("");
 		ObjectRepositoryMain.launchChrome();
 		Thread.sleep(1000);
-		ObjectRepositoryMain.loginUser_SDR();
+		ObjectRepositoryMain.loginUser_SalesOps();
 		Thread.sleep(3000);
 		ObjectRepositoryMain.clickAccountsTabAndNew();
 		Thread.sleep(1000);
@@ -84,7 +84,7 @@ public class Opportunity_Creation_All_Record_Types {
 		resultModel.setMethodName("SalesOps_CustomerAccountRT_SDRRT_Opp_Product_Creation");
 		ObjectRepositoryMain.launchChrome();
 		Thread.sleep(1000);
-		ObjectRepositoryMain.loginUser_SDR();
+		ObjectRepositoryMain.loginUser_SalesOps();
 		Thread.sleep(3000);
 		ObjectRepositoryMain.clickAccountsTabAndNew();
 		Thread.sleep(1000);
@@ -115,7 +115,7 @@ public class Opportunity_Creation_All_Record_Types {
 		resultModel.setMethodName("SalesOps_CustomerAccountRT_SalesRT_Opp_Product_Creation");
 		ObjectRepositoryMain.launchChrome();
 		Thread.sleep(1000);
-		ObjectRepositoryMain.loginUser_SDR();
+		ObjectRepositoryMain.loginUser_SalesOps();
 		Thread.sleep(3000);
 		ObjectRepositoryMain.clickAccountsTabAndNew();
 		Thread.sleep(1000);
@@ -145,7 +145,7 @@ public class Opportunity_Creation_All_Record_Types {
 		resultModel.setMethodName("SalesOps_CustomerAccountRT_SalesRT_Opp_Product_Creation");
 		ObjectRepositoryMain.launchChrome();
 		Thread.sleep(1000);
-		ObjectRepositoryMain.loginUser_SDR();
+		ObjectRepositoryMain.loginUser_SalesOps();
 		Thread.sleep(3000);
 		ObjectRepositoryMain.clickAccountsTabAndNew();
 		Thread.sleep(1000);
@@ -176,7 +176,7 @@ public class Opportunity_Creation_All_Record_Types {
 		resultModel.setMethodName("SalesOps_CustomerAccountRT_SalesRT_Opp_Product_Creation");
 		ObjectRepositoryMain.launchChrome();
 		Thread.sleep(1000);
-		ObjectRepositoryMain.loginUser_PAM();
+		ObjectRepositoryMain.loginUser_SalesOps();
 		Thread.sleep(3000);
 		ObjectRepositoryMain.clickAccountsTabAndNew();
 		Thread.sleep(1000);
@@ -207,7 +207,7 @@ public class Opportunity_Creation_All_Record_Types {
 		resultModel.setMethodName("SalesOps_CustomerAccountRT_SalesRT_Opp_Product_Creation");
 		ObjectRepositoryMain.launchChrome();
 		Thread.sleep(1000);
-		ObjectRepositoryMain.loginUser_PAM();
+		ObjectRepositoryMain.loginUser_SalesOps();
 		Thread.sleep(3000);
 		ObjectRepositoryMain.clickAccountsTabAndNew();
 		Thread.sleep(1000);
@@ -239,7 +239,7 @@ public class Opportunity_Creation_All_Record_Types {
 		resultModel.setMethodName("SalesOps_CustomerAccountRT_SalesRT_Opp_Product_Creation");
 		ObjectRepositoryMain.launchChrome();
 		Thread.sleep(1000);
-		ObjectRepositoryMain.loginUser_PAM();
+		ObjectRepositoryMain.loginUser_SalesOps();
 		Thread.sleep(3000);
 		ObjectRepositoryMain.clickAccountsTabAndNew();
 		Thread.sleep(1000);
@@ -272,7 +272,7 @@ public class Opportunity_Creation_All_Record_Types {
 		resultModel.setMethodName("SalesOps_CustomerAccountRT_SalesRT_Opp_Product_Creation");
 		ObjectRepositoryMain.launchChrome();
 		Thread.sleep(1000);
-		ObjectRepositoryMain.loginUser_PAM();
+		ObjectRepositoryMain.loginUser_SalesOps();
 		Thread.sleep(3000);
 		ObjectRepositoryMain.clickAccountsTabAndNew();
 		Thread.sleep(1000);
@@ -304,7 +304,7 @@ public class Opportunity_Creation_All_Record_Types {
 		resultModel.setMethodName("SalesOps_CompetitortRT_SalesRT_Opp_Product_Creation");
 		ObjectRepositoryMain.launchChrome();
 		Thread.sleep(1000);
-		ObjectRepositoryMain.loginUser_MarketOps();
+		ObjectRepositoryMain.loginUser_SalesOps();
 		Thread.sleep(3000);
 		ObjectRepositoryMain.clickAccountsTabAndNew();
 		Thread.sleep(1000);
@@ -336,7 +336,7 @@ public class Opportunity_Creation_All_Record_Types {
 		resultModel.setMethodName("SalesOps_ProgramRecordRT_ContactRT_Opp_Product_Creation");
 		ObjectRepositoryMain.launchChrome();
 		Thread.sleep(1000);
-		ObjectRepositoryMain.loginUser_MarketOps();
+		ObjectRepositoryMain.loginUser_SalesOps();
 		Thread.sleep(3000);
 		ObjectRepositoryMain.clickAccountsTabAndNew();
 		Thread.sleep(1000);
@@ -367,7 +367,7 @@ public class Opportunity_Creation_All_Record_Types {
 		resultModel.setMethodName("SalesOps_ProgramRecordRT_ContactRT_Opp_Product_Creation");
 		ObjectRepositoryMain.launchChrome();
 		Thread.sleep(1000);
-		ObjectRepositoryMain.loginUser_MarketOps();
+		ObjectRepositoryMain.loginUser_SalesOps();
 		Thread.sleep(3000);
 		ObjectRepositoryMain.clickAccountsTabAndNew();
 		Thread.sleep(1000);
@@ -397,7 +397,7 @@ public class Opportunity_Creation_All_Record_Types {
 		resultModel.setMethodName("SalesOps_ProgramRecordRT_SalesRT_Opp_Product_Creation");
 		ObjectRepositoryMain.launchChrome();
 		Thread.sleep(1000);
-		ObjectRepositoryMain.loginUser_MarketOps();
+		ObjectRepositoryMain.loginUser_SalesOps();
 		Thread.sleep(3000);
 		ObjectRepositoryMain.clickAccountsTabAndNew();
 		Thread.sleep(1000);
