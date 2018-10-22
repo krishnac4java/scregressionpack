@@ -56,9 +56,16 @@ public class ObjectRepositoryMain {
 	
 	
 	
+	//D:\VijayWorkSpace\ScreenShots\
+	//C:\Users\SC\Desktop\eclipse\ScreenShots\
+	static String screenShotsPath = "D:\\VijayWorkSpace\\ScreenShots\\";
 	
-	
-	
+	//D:\VijayWorkSpace\HtmlReports\
+	//C:\Users\SC\Desktop\eclipse\ScreenShots\
+	static String htmlReportPath = "D:\\VijayWorkSpace\\HtmlReports\\";
+	//D:\VijayWorkSpace\chromedriver.exe
+	//C:\Users\SC\Desktop\eclipse\eclipse\chromedriver.exe
+	static String chromeDriverPath = "D:\\VijayWorkSpace\\chromedriver.exe";
 	//**************************    COMMON    ********************************************
 	static String Save_Button = "//button[@title='Save']";
 	static String Submit_Button = "//button[contains(text(),'Submit')]";
@@ -222,8 +229,7 @@ public class ObjectRepositoryMain {
 		  prefs.put("profile.default_content_setting_values.notifications", 1);
 		  //1-Allow, 2-Block, 0-default
 		  options.setExperimentalOption("prefs",prefs);
-		  System.setProperty("webdriver.chrome.driver","D:\\VijayWorkSpace\\chromedriver.exe");
-		  //System.setProperty("webdriver.chrome.driver","C:\\Users\\SC\\Desktop\\eclipse\\eclipse\\chromedriver.exe");
+		  System.setProperty("webdriver.chrome.driver",chromeDriverPath);
 		  driver = new ChromeDriver(options);   
 		  driver.get("https://test.salesforce.com");
 		  driver.manage().window().maximize();
@@ -1157,8 +1163,7 @@ public static void loginUser_SalesOps() throws InterruptedException {
 	public static void takeScreenShot(String fileName) throws Exception {
 		Thread.sleep(8000);
 		File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-		File destFile=new File("D:\\VijayWorkSpace\\ScreenShots\\"+fileName+".png");
-		//File destFile=new File("C:\\Users\\SC\\Desktop\\eclipse\\ScreenShots\\"+fileName+".png");
+		File destFile=new File(screenShotsPath+fileName+".png");
 		FileUtils.copyFile(scrFile, destFile);
 	}
 	public static String getXpath(String xpath) {

@@ -18,7 +18,7 @@ public class Opportunity_Creation_All_Record_Types {
 
 	private static Date todayDate = new Date();
 	private static String emailbody = "", opportunityName="";
-	private static SimpleDateFormat sdf = new SimpleDateFormat("SSSssmmHHyyyMMdd");
+	private static SimpleDateFormat sdf = new SimpleDateFormat("dd_MM_yyy_HH_mm_ss");
 	public TestResultModel resultModel = new TestResultModel();
 	@Rule
     public TestRule watcher = new TestWatcher() {

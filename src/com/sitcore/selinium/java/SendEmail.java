@@ -1,6 +1,11 @@
 package com.sitcore.selinium.java;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Properties;
 
@@ -56,7 +61,7 @@ public class SendEmail {
 			StringBuilder bodyBuilder = new StringBuilder();
 			bodyBuilder.append("<html><head></head><title></title>");
 			bodyBuilder.append("<body style='font-size:12px;font-family:Trebuchet MS;'>");
-			bodyBuilder.append("<table width='600px' align='center' border='0' cellpadding='0' cellspacing='0' border='3'");
+			bodyBuilder.append("<table width='600px' align='center'cellpadding='0' cellspacing='0' border='3'");
 			/*private String loginName;
 			private String methodName;
 			private String accountName;
@@ -112,12 +117,26 @@ public class SendEmail {
 			}
 			bodyBuilder.append("</table></body></html>");
 			message.setContent(bodyBuilder.toString(), "text/html; charset=utf-8");
+			createHTMLFile(bodyBuilder.toString());
 			Transport.send(message);
-
 			System.out.println("Done");
 
 		} catch (MessagingException e) {
 			throw new RuntimeException(e);
+		}
+	}
+	private static void createHTMLFile(String htmlContent) {
+		SimpleDateFormat ssdf = new SimpleDateFormat("dd_MM_yyyy_HH_mm_ss");
+		Date fileDate = new Date();		
+		FileWriter fWriter = null;
+		BufferedWriter writer = null;
+		try {
+		    fWriter = new FileWriter(ObjectRepositoryMain.htmlReportPath+ssdf.format(fileDate)+".html");
+		    writer = new BufferedWriter(fWriter);
+		    writer.write(htmlContent);
+		    writer.close(); //make sure you close the writer object 
+		} catch (Exception e) {
+		  //catch any exceptions here
 		}
 	}
 	private static void userStoriesAddition() {
