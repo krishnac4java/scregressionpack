@@ -57,14 +57,14 @@ public class ObjectRepositoryMain {
 	
 	
 	//D:\VijayWorkSpace\ScreenShots\
-	//C:\Users\SC\Desktop\eclipse\ScreenShots\
+	//C:\\Users\\SC\\Desktop\\eclipse\\ScreenShots\\
 	static String screenShotsPath = "D:\\VijayWorkSpace\\ScreenShots\\";
 	
 	//D:\VijayWorkSpace\HtmlReports\
-	//C:\Users\SC\Desktop\eclipse\ScreenShots\
+	//C:\\Users\\SC\\Desktop\\eclipse\\HtmlReports\\
 	static String htmlReportPath = "D:\\VijayWorkSpace\\HtmlReports\\";
 	//D:\VijayWorkSpace\chromedriver.exe
-	//C:\Users\SC\Desktop\eclipse\eclipse\chromedriver.exe
+	//C:\\Users\\SC\Desktop\\eclipse\\eclipse\\chromedriver.exe
 	static String chromeDriverPath = "D:\\VijayWorkSpace\\chromedriver.exe";
 	//**************************    COMMON    ********************************************
 	static String Save_Button = "//button[@title='Save']";
