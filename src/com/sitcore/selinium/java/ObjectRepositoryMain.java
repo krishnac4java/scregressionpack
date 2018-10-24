@@ -1403,5 +1403,36 @@ public static void loginUser_SalesOps() throws InterruptedException {
 		driver.findElement(By.xpath("//div[9]/div/div/div[2]/div/div/div/div/input")).click();
 		driver.findElement(By.xpath("//div[2]/div/div[3]/div/button")).click();
 	}
+	public static void verifyFields_567 ( ) throws Exception {
+		Thread.sleep(3000);
+		driver.findElement(By.xpath("//a[@title='Select List View']")).click();
+		Thread.sleep(3000);
+		driver.findElement(By.xpath("//div[2]/div/div/div/div/div/input")).sendKeys("MEL Leads");
+		Thread.sleep(3000);
+		driver.findElement(By.xpath("//div[2]/div/div/div/div/div/input")).sendKeys(Keys.ARROW_DOWN);
+		driver.findElement(By.xpath("//div[2]/div/div/div/div/div/input")).sendKeys(Keys.ENTER);
+		driver.findElement(By.xpath("//a[@title='Select List View']")).click();
+		Thread.sleep(3000);
+		driver.findElement(By.xpath("//div[2]/div/div/div/div/div/input")).clear();
+		driver.findElement(By.xpath("//div[2]/div/div/div/div/div/input")).sendKeys("MQL Leads");
+		Thread.sleep(3000);
+		driver.findElement(By.xpath("//div[2]/div/div/div/div/div/input")).sendKeys(Keys.ARROW_DOWN);
+		driver.findElement(By.xpath("//div[2]/div/div/div/div/div/input")).sendKeys(Keys.ENTER);
+		driver.findElement(By.xpath("//a[@title='Select List View']")).click();
+		Thread.sleep(3000);
+		driver.findElement(By.xpath("//div[2]/div/div/div/div/div/input")).clear();
+		driver.findElement(By.xpath("//div[2]/div/div/div/div/div/input")).sendKeys("SQL Leads");
+		Thread.sleep(3000);
+		driver.findElement(By.xpath("//div[2]/div/div/div/div/div/input")).sendKeys(Keys.ARROW_DOWN);
+		driver.findElement(By.xpath("//div[2]/div/div/div/div/div/input")).sendKeys(Keys.ENTER);
+		driver.findElement(By.xpath("//a[@title='Select List View']")).click();
+		Thread.sleep(3000);
+		driver.findElement(By.xpath("//div[2]/div/div/div/div/div/input")).clear();
+		driver.findElement(By.xpath("//div[2]/div/div/div/div/div/input")).sendKeys("SAL Leads");
+		Thread.sleep(3000);
+		driver.findElement(By.xpath("//div[2]/div/div/div/div/div/input")).sendKeys(Keys.ARROW_DOWN);
+		driver.findElement(By.xpath("//div[2]/div/div/div/div/div/input")).sendKeys(Keys.ENTER);
+	}
+
 }
 	

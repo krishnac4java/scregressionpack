@@ -73,25 +73,35 @@ public class SendEmail {
 			bodyBuilder.append("<tr><td> Test Description</td><td> SDFC Object Name</td><td> Test Result</td></tr>");
 			for(TestResultModel resultEachModel : resultList)
 			{
-				String color = "";
+				String color = "", cannot = "";
 				if(resultEachModel.getTestResult().equals("Success"))
+				{
+					cannot = "can";
 					color = "00FF00";
+				}
 				else
+				{
+					cannot = "CANNOT";
 					color = "FF0000";
+				}
 					//FF0000"
-				bodyBuilder.append("<tr><td> Verify "+resultEachModel.getLoginName()+" user can create an Account "+(resultEachModel.getAccountType()==null? "":resultEachModel.getAccountType())+" </td>"
+				bodyBuilder.append("<tr><td> Verify "+resultEachModel.getLoginName()+" user "+cannot+" create an Account "+(resultEachModel.getAccountType()==null? "":resultEachModel.getAccountType())+" </td>"
 						+ "<td> "+(resultEachModel.getAccountName()==null? "":resultEachModel.getAccountName())+"</td>"
 						+ "<td bgcolor=\"#"+color+"\"> "+(resultEachModel.getTestResult()==null? "":resultEachModel.getTestResult())+"</td></tr>"
 						
-						+"<tr><td> Verify "+resultEachModel.getLoginName()+" user can create a Contact "+(resultEachModel.getContactType()==null? "":resultEachModel.getContactType())+" </td>"
+						+"<tr><td> Verify "+resultEachModel.getLoginName()+" user "+cannot+" create a Contact "+(resultEachModel.getContactType()==null? "":resultEachModel.getContactType())+" </td>"
 						+ "<td> "+(resultEachModel.getContactName()==null? "":resultEachModel.getContactName())+"</td>"
 						+ "<td bgcolor=\"#"+color+"\"> "+(resultEachModel.getTestResult()==null? "":resultEachModel.getTestResult())+"</td></tr>"
 						
-						+"<tr><td> Verify "+resultEachModel.getLoginName()+" user can create an Opportunity </td>"
+						+"<tr><td> Verify "+resultEachModel.getLoginName()+" user "
+						+((resultEachModel.getOpportunityName()==null || resultEachModel.getOpportunityName().equals(""))? "CANNOT" : "can" )
+						+" create an Opportunity </td>"
 						+ "<td> "+(resultEachModel.getOpportunityName()==null? "":resultEachModel.getOpportunityName())+"</td>"
 						+ "<td bgcolor=\"#"+color+"\"> "+(resultEachModel.getTestResult()==null? "":resultEachModel.getTestResult())+"</td></tr>"
 						
-						+"<tr><td> Verify "+resultEachModel.getLoginName()+" user can create a Product </td>"
+						+"<tr><td> Verify "+resultEachModel.getLoginName()+" user "
+						+((resultEachModel.getOpportunityName()==null || resultEachModel.getOpportunityName().equals(""))? "CANNOT" : "can" )
+						+" create a Product </td>"
 						+ "<td></td>"
 						+ "<td bgcolor=\"#"+color+"\"> "+(resultEachModel.getTestResult()==null? "":resultEachModel.getTestResult())+"</td></tr>");
 			}
