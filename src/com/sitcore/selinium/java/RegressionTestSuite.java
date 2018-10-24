@@ -19,8 +19,9 @@ import org.junit.runners.Suite;
    US_1295.class,
    US_1343.class,
    US_512.class,
-   US_779.class,*/
-   US_567.class,
+   US_779.class,
+   US_567.class,*/
+   US_1595.class,
    SendEmail.class
 })
 public class RegressionTestSuite {

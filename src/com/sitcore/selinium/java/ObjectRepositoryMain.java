@@ -1433,6 +1433,24 @@ public static void loginUser_SalesOps() throws InterruptedException {
 		driver.findElement(By.xpath("//div[2]/div/div/div/div/div/input")).sendKeys(Keys.ARROW_DOWN);
 		driver.findElement(By.xpath("//div[2]/div/div/div/div/div/input")).sendKeys(Keys.ENTER);
 	}
+	public static void verifyTentativeRelationshipType_Fields_1595 ( ) throws Exception {
+		Thread.sleep(3000);
+		driver.findElement(By.xpath("//div[11]/div/div/div/div/div/div/div/div/div/div/div/a")).click();
+		driver.findElement(By.xpath("//a[contains(text(),'Solution Partner')]")).click();
+		driver.findElement(By.xpath("//div[11]/div/div/div/div/div/div/div/div/div/div/div/a")).click();
+		driver.findElement(By.xpath("//a[contains(text(),'Affiliates')]")).click();
+		driver.findElement(By.xpath("//div[11]/div/div/div/div/div/div/div/div/div/div/div/a")).click();
+		driver.findElement(By.xpath("//a[contains(text(),'Technology Alliance')]")).click();
+		driver.findElement(By.xpath("//div[11]/div/div/div/div/div/div/div/div/div/div/div/a")).click();
+		driver.findElement(By.xpath("//a[contains(text(),'Corporate Alliance')]")).click();
+		driver.findElement(By.xpath("//div[11]/div/div/div/div/div/div/div/div/div/div/div/a")).click();
+		driver.findElement(By.xpath("//a[contains(text(),'ISV')]")).click();
+		driver.findElement(By.xpath("//div[11]/div/div/div/div/div/div/div/div/div/div/div/a")).click();
+		driver.findElement(By.xpath("//a[contains(text(),'Account Hierarchy')]")).click();
+		driver.findElement(By.xpath("//div[11]/div/div/div/div/div/div/div/div/div/div/div/a")).click();
+		driver.findElement(By.xpath("//a[contains(text(),'Other')]")).click();
+		driver.findElement(By.xpath("//button[@title='Cancel']//span[contains(@class,'label bBody')][contains(text(),'Cancel')]")).click();
 
+	}
 }
 	
