@@ -19,6 +19,7 @@ public class Opportunity_Creation_All_Record_Types {
 	private static Date todayDate = new Date();
 	private static String emailbody = "", opportunityName="";
 	private static SimpleDateFormat sdf = new SimpleDateFormat("SSSssmmHHddMMyyyy");
+	private RandomCharcterGenerator rchGen = new RandomCharcterGenerator();
 	public TestResultModel resultModel = new TestResultModel();
 	@Rule
     public TestRule watcher = new TestWatcher() {
@@ -47,8 +48,9 @@ public class Opportunity_Creation_All_Record_Types {
 				}
         }
     };
-	//@Test
+	@Test
 	public void A_SalesOps_CustomerAccountRT_ContactRT_Opp_Product_Creation() throws Exception {
+		
 		resultModel.setLoginName("Sales Operations");
 		resultModel.setMethodName("");
 		ObjectRepositoryMain.launchChrome();
@@ -60,8 +62,14 @@ public class Opportunity_Creation_All_Record_Types {
 		ObjectRepositoryMain.selectCustomerRecord();
 		Thread.sleep(2000);
 		todayDate = new Date();
-		ObjectRepositoryMain.SalesOps_AccountCustomerRT_Creation(sdf.format(todayDate));
-		resultModel.setAccountName(sdf.format(todayDate));
+		//ObjectRepositoryMain.SalesOps_AccountCustomerRT_Creation(sdf.format(todayDate));
+		
+		String contactName, firstName = rchGen.randomIdentifier(), lastName = rchGen.randomIdentifier();
+		String fullName = firstName.substring(0, 1).toUpperCase() + firstName.substring(1) +"_"+
+				lastName.substring(0, 1).toUpperCase() + lastName.substring(1);
+		
+		ObjectRepositoryMain.SalesOps_AccountCustomerRT_Creation(fullName);
+		resultModel.setAccountName(fullName);
 		resultModel.setAccountType("- Customer Record Type");
 		Thread.sleep(1000);
 		ObjectRepositoryMain.click_Save_Button();
@@ -69,12 +77,22 @@ public class Opportunity_Creation_All_Record_Types {
 		ObjectRepositoryMain.createNewContact();
 		ObjectRepositoryMain.selectContactRecordType();
 		todayDate = new Date();
-		ObjectRepositoryMain.SalesOps_ContactRT_Creation(sdf.format(todayDate));
-		resultModel.setContactName(sdf.format(todayDate));
+		
+		firstName = rchGen.randomIdentifier(); lastName = rchGen.randomIdentifier();
+		contactName = fullName = firstName.substring(0, 1).toUpperCase() + firstName.substring(1) +"_"+
+				lastName.substring(0, 1).toUpperCase() + lastName.substring(1);
+		
+		ObjectRepositoryMain.SalesOps_ContactRT_Creation(fullName);
+		resultModel.setContactName(fullName);
 		resultModel.setContactType("- Contact Record Type");
-		ObjectRepositoryMain.fillNewOpportunityFormAndSave(sdf.format(todayDate));
-		resultModel.setOpportunityName(sdf.format(todayDate));
-		ObjectRepositoryMain.fillNewProductAndSave(sdf.format(todayDate));
+		
+		firstName = rchGen.randomIdentifier(); lastName = rchGen.randomIdentifier();
+		fullName = firstName.substring(0, 1).toUpperCase() + firstName.substring(1) +"_"+
+				lastName.substring(0, 1).toUpperCase() + lastName.substring(1);
+		
+		ObjectRepositoryMain.fillNewOpportunityFormAndSave(fullName, contactName);
+		resultModel.setOpportunityName(fullName);
+		ObjectRepositoryMain.fillNewProductAndSave(fullName);
 		ObjectRepositoryMain.closeChrome();
 		
 	}
@@ -103,7 +121,7 @@ public class Opportunity_Creation_All_Record_Types {
 		ObjectRepositoryMain.SalesOps_SDRRT_Creation(sdf.format(todayDate));
 		resultModel.setContactName(sdf.format(todayDate));
 		resultModel.setContactType("- SDR Record Type");
-		ObjectRepositoryMain.fillNewOpportunityFormAndSave(sdf.format(todayDate));
+		ObjectRepositoryMain.fillNewOpportunityFormAndSave(sdf.format(todayDate), _);
 		resultModel.setOpportunityName(sdf.format(todayDate));
 		ObjectRepositoryMain.fillNewProductAndSave(sdf.format(todayDate));
 		ObjectRepositoryMain.closeChrome();
@@ -134,7 +152,7 @@ public class Opportunity_Creation_All_Record_Types {
 		ObjectRepositoryMain.SalesOps_SalesRT_Creation(sdf.format(todayDate));
 		resultModel.setContactName(sdf.format(todayDate));
 		resultModel.setContactType("- Sales Record Type");
-		ObjectRepositoryMain.fillNewOpportunityFormAndSave(sdf.format(todayDate));
+		ObjectRepositoryMain.fillNewOpportunityFormAndSave(sdf.format(todayDate), _);
 		resultModel.setOpportunityName(sdf.format(todayDate));
 		ObjectRepositoryMain.fillNewProductAndSave(sdf.format(todayDate));
 		ObjectRepositoryMain.closeChrome();
@@ -164,7 +182,7 @@ public class Opportunity_Creation_All_Record_Types {
 		ObjectRepositoryMain.SalesOps_ContactRT_Creation(sdf.format(todayDate));
 		resultModel.setContactName(sdf.format(todayDate));
 		resultModel.setContactType("- Contact Record Type");
-		ObjectRepositoryMain.fillNewOpportunityFormAndSave(sdf.format(todayDate));
+		ObjectRepositoryMain.fillNewOpportunityFormAndSave(sdf.format(todayDate), _);
 		resultModel.setOpportunityName(sdf.format(todayDate));
 		ObjectRepositoryMain.fillNewProductAndSave(sdf.format(todayDate));
 		ObjectRepositoryMain.closeChrome();
@@ -195,7 +213,7 @@ public class Opportunity_Creation_All_Record_Types {
 		ObjectRepositoryMain.SalesOps_SDRRT_Creation(sdf.format(todayDate));
 		resultModel.setContactName(sdf.format(todayDate));
 		resultModel.setContactType("- SDR Record Type");
-		ObjectRepositoryMain.fillNewOpportunityFormAndSave(sdf.format(todayDate));
+		ObjectRepositoryMain.fillNewOpportunityFormAndSave(sdf.format(todayDate), _);
 		resultModel.setOpportunityName(sdf.format(todayDate));
 		ObjectRepositoryMain.fillNewProductAndSave(sdf.format(todayDate));
 		ObjectRepositoryMain.closeChrome();
@@ -226,14 +244,14 @@ public class Opportunity_Creation_All_Record_Types {
 		ObjectRepositoryMain.SalesOps_SalesRT_Creation(sdf.format(todayDate));
 		resultModel.setContactName(sdf.format(todayDate));
 		resultModel.setContactType("- Sales Record Type");
-		ObjectRepositoryMain.fillNewOpportunityFormAndSave(sdf.format(todayDate));
+		ObjectRepositoryMain.fillNewOpportunityFormAndSave(sdf.format(todayDate), _);
 		resultModel.setOpportunityName(sdf.format(todayDate));
 		ObjectRepositoryMain.fillNewProductAndSave(sdf.format(todayDate));
 		ObjectRepositoryMain.closeChrome();
 	}
 	
 	//Cannot create opportunity for competitor is the error
-	@Test
+	//@Test
 	public void G_SalesOps_CompetitortRT_ContactRT_Opp_Product_Creation() throws Exception {
 		resultModel.setLoginName("Sales Operations");
 		resultModel.setMethodName("SalesOps_CustomerAccountRT_SalesRT_Opp_Product_Creation");
@@ -355,7 +373,7 @@ public class Opportunity_Creation_All_Record_Types {
 		ObjectRepositoryMain.SalesOps_ContactRT_Creation(sdf.format(todayDate));
 		resultModel.setContactName(sdf.format(todayDate));
 		resultModel.setContactType("- Contact Record Type");
-		ObjectRepositoryMain.fillNewOpportunityFormAndSave(sdf.format(todayDate));
+		ObjectRepositoryMain.fillNewOpportunityFormAndSave(sdf.format(todayDate), _);
 		resultModel.setOpportunityName(sdf.format(todayDate));
 		ObjectRepositoryMain.fillNewProductAndSave(sdf.format(todayDate));
 		ObjectRepositoryMain.closeChrome();
@@ -386,7 +404,7 @@ public class Opportunity_Creation_All_Record_Types {
 		ObjectRepositoryMain.SalesOps_SDRRT_Creation(sdf.format(todayDate));
 		resultModel.setContactName(sdf.format(todayDate));
 		resultModel.setContactType("- SDR Record Type");
-		ObjectRepositoryMain.fillNewOpportunityFormAndSave(sdf.format(todayDate));
+		ObjectRepositoryMain.fillNewOpportunityFormAndSave(sdf.format(todayDate), _);
 		resultModel.setOpportunityName(sdf.format(todayDate));
 		ObjectRepositoryMain.fillNewProductAndSave(sdf.format(todayDate));
 		ObjectRepositoryMain.closeChrome();
@@ -416,7 +434,7 @@ public class Opportunity_Creation_All_Record_Types {
 		ObjectRepositoryMain.SalesOps_SalesRT_Creation(sdf.format(todayDate));
 		resultModel.setContactName(sdf.format(todayDate));
 		resultModel.setContactType("- Sales Record Type");
-		ObjectRepositoryMain.fillNewOpportunityFormAndSave(sdf.format(todayDate));
+		ObjectRepositoryMain.fillNewOpportunityFormAndSave(sdf.format(todayDate), _);
 		resultModel.setOpportunityName(sdf.format(todayDate));
 		ObjectRepositoryMain.fillNewProductAndSave(sdf.format(todayDate));
 		ObjectRepositoryMain.closeChrome();
@@ -443,7 +461,7 @@ public class Opportunity_Creation_All_Record_Types {
 		//ObjectRepositoryMain.selectContactRecordType();
 		todayDate = new Date();
 		ObjectRepositoryMain.SalesOps_SDRRT_Creation(sdf.format(todayDate));
-		ObjectRepositoryMain.fillNewOpportunityFormAndSave(sdf.format(todayDate));
+		ObjectRepositoryMain.fillNewOpportunityFormAndSave(sdf.format(todayDate), _);
 		opportunityName = sdf.format(todayDate);
 		ObjectRepositoryMain.fillNewProductAndSave(sdf.format(todayDate));
 		ObjectRepositoryMain.closeChrome();
@@ -471,7 +489,7 @@ public class Opportunity_Creation_All_Record_Types {
 		ObjectRepositoryMain.Sales_ContactRT_Creation(sdf.format(todayDate));
 		resultModel.setContactName(sdf.format(todayDate));
 		resultModel.setContactType("");
-		ObjectRepositoryMain.fillNewOpportunityFormAndSave(sdf.format(todayDate));
+		ObjectRepositoryMain.fillNewOpportunityFormAndSave(sdf.format(todayDate), _);
 		resultModel.setOpportunityName(sdf.format(todayDate));
 		ObjectRepositoryMain.fillNewProductAndSave(sdf.format(todayDate));
 		ObjectRepositoryMain.closeChrome();
@@ -496,7 +514,7 @@ public class Opportunity_Creation_All_Record_Types {
 		ObjectRepositoryMain.createNewContact();
 		ObjectRepositoryMain.selectContactRecordType();
 		//ObjectRepositoryMain.fillContactFormAndSave(sdf.format(todayDate));
-		ObjectRepositoryMain.fillNewOpportunityFormAndSave(sdf.format(todayDate));
+		ObjectRepositoryMain.fillNewOpportunityFormAndSave(sdf.format(todayDate), _);
 		opportunityName = sdf.format(todayDate);
 		ObjectRepositoryMain.fillNewProductAndSave(sdf.format(todayDate));
 		ObjectRepositoryMain.closeChrome();
@@ -519,7 +537,7 @@ public class Opportunity_Creation_All_Record_Types {
 		ObjectRepositoryMain.createNewContact();
 		todayDate = new Date();
 		ObjectRepositoryMain.MarketOps_ContactRT_Creation(sdf.format(todayDate));
-		ObjectRepositoryMain.fillNewOpportunityFormAndSave(sdf.format(todayDate));
+		ObjectRepositoryMain.fillNewOpportunityFormAndSave(sdf.format(todayDate), _);
 		opportunityName = sdf.format(todayDate);
 		ObjectRepositoryMain.fillNewProductAndSave(sdf.format(todayDate));
 		ObjectRepositoryMain.closeChrome();

@@ -23,7 +23,7 @@ public class Sprint1_US_0696 {
 		ObjectRepositoryMain.selectContactRecordType();
 		todayDate = new Date();
 		ObjectRepositoryMain.fillContactFormAndSave(sdf.format(todayDate), "CCRT");
-		ObjectRepositoryMain.fillNewOpportunityFormAndSave(sdf.format(todayDate)+"CCRT");
+		ObjectRepositoryMain.fillNewOpportunityFormAndSave(sdf.format(todayDate)+"CCRT", _);
 		ObjectRepositoryMain.takeScreenShot("sprint1_US_0696");
 		Assert.assertEquals("You can't add an Opportunity to a Competitor", ObjectRepositoryMain.getXpath("//p[contains(text(),\"You can't add an Opportunity to a Competitor\")]"));
 		ObjectRepositoryMain.closeChrome();

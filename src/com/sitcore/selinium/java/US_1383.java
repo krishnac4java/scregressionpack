@@ -70,7 +70,7 @@ public class US_1383 {
 		ObjectRepositoryMain.SalesOps_ContactRT_Creation(sdf.format(todayDate));
 		//resultModel.setContactName(sdf.format(todayDate));
 		//resultModel.setContactType("- Contact Record Type");
-		ObjectRepositoryMain.fillNewOpportunityFormAndSave(sdf.format(todayDate));
+		ObjectRepositoryMain.fillNewOpportunityFormAndSave(sdf.format(todayDate), _);
 		String funnelStatus = ObjectRepositoryMain.verifyFunnelStatus();
 		Assert.assertEquals("Opportunity", funnelStatus);
 		//resultModel.setOpportunityName(sdf.format(todayDate));

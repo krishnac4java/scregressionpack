@@ -619,7 +619,7 @@ public static void loginUser_SalesOps() throws InterruptedException {
 		driver.findElement(By.xpath("//div/div/div/div/div/fieldset/div/div[4]/input")).sendKeys(timestamp);
 		driver.findElement(By.xpath("//div/div/div/div/div[2]/div/div/div/div/input")).sendKeys(timestamp);
 		//driver.findElement(By.xpath("//div/div/div[3]/div/div/div[2]/span/div/div/input")).sendKeys(timestamp+postName+"@gmail.com");
-		driver.findElement(By.xpath("//div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/input[1]")).sendKeys(timestamp+"@gmail.com");
+		driver.findElement(By.xpath("//div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/input[1]")).sendKeys(timestamp.replaceAll(" ", "")+"@gmail.com");
 		
 		driver.findElement(By.xpath("//div[5]/div[2]/div/div/div/input")).sendKeys(timestamp);
 		
@@ -651,7 +651,7 @@ public static void loginUser_SalesOps() throws InterruptedException {
 		driver.findElement(By.xpath("//div/div/div/div/div/fieldset/div/div[4]/input")).sendKeys(timestamp);
 		driver.findElement(By.xpath("//div/div/div/div/div[2]/div/div/div/div/input")).sendKeys(timestamp);
 		//driver.findElement(By.xpath("//div/div/div[3]/div/div/div[2]/span/div/div/input")).sendKeys(timestamp+postName+"@gmail.com");
-		driver.findElement(By.xpath("//div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/input[1]")).sendKeys(timestamp+"@gmail.com");
+		driver.findElement(By.xpath("//div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/input[1]")).sendKeys(timestamp.replaceAll(" ", "")+"@gmail.com");
 		
 		driver.findElement(By.xpath("//div[5]/div[2]/div/div/div/input")).sendKeys(timestamp);
 		
@@ -683,7 +683,7 @@ public static void loginUser_SalesOps() throws InterruptedException {
 		driver.findElement(By.xpath("//div/div/div/div/div/fieldset/div/div[4]/input")).sendKeys(timestamp);
 		driver.findElement(By.xpath("//div/div/div/div/div[2]/div/div/div/div/input")).sendKeys(timestamp);
 		//driver.findElement(By.xpath("//div/div/div[3]/div/div/div[2]/span/div/div/input")).sendKeys(timestamp+postName+"@gmail.com");
-		driver.findElement(By.xpath("//div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/input[1]")).sendKeys(timestamp+"@gmail.com");
+		driver.findElement(By.xpath("//div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/input[1]")).sendKeys(timestamp.replaceAll(" ", "")+"@gmail.com");
 		
 		driver.findElement(By.xpath("//div[5]/div[2]/div/div/div/input")).sendKeys(timestamp);
 		
@@ -715,7 +715,7 @@ public static void loginUser_SalesOps() throws InterruptedException {
 		driver.findElement(By.xpath("//div/div/div/div/div/fieldset/div/div[4]/input")).sendKeys(timestamp);
 		driver.findElement(By.xpath("//div/div/div/div/div[2]/div/div/div/div/input")).sendKeys(timestamp);
 		//driver.findElement(By.xpath("//div/div/div[3]/div/div/div[2]/span/div/div/input")).sendKeys(timestamp+postName+"@gmail.com");
-		driver.findElement(By.xpath("//div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/input[1]")).sendKeys(timestamp+"@gmail.com");
+		driver.findElement(By.xpath("//div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/input[1]")).sendKeys(timestamp.replaceAll(" ", "")+"@gmail.com");
 		
 		driver.findElement(By.xpath("//div[5]/div[2]/div/div/div/input")).sendKeys(timestamp);
 		
@@ -747,7 +747,7 @@ public static void loginUser_SalesOps() throws InterruptedException {
 		driver.findElement(By.xpath("//div/div/div/div/div/fieldset/div/div[4]/input")).sendKeys(timestamp);
 		driver.findElement(By.xpath("//div/div/div/div/div[2]/div/div/div/div/input")).sendKeys(timestamp);
 		//driver.findElement(By.xpath("//div/div/div[3]/div/div/div[2]/span/div/div/input")).sendKeys(timestamp+postName+"@gmail.com");
-		driver.findElement(By.xpath("//div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/input[1]")).sendKeys(timestamp+"@gmail.com");
+		driver.findElement(By.xpath("//div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/input[1]")).sendKeys(timestamp.replaceAll(" ", "")+"@gmail.com");
 		
 		driver.findElement(By.xpath("//div[5]/div[2]/div/div/div/input")).sendKeys(timestamp);
 		
@@ -772,7 +772,7 @@ public static void loginUser_SalesOps() throws InterruptedException {
 		driver.findElement(By.xpath("//div/div/div/div/div/fieldset/div/div[4]/input")).sendKeys(timestamp);
 		driver.findElement(By.xpath("//div/div/div/div/div[2]/div/div/div/div/input")).sendKeys(timestamp);
 		//driver.findElement(By.xpath("//div/div/div[3]/div/div/div[2]/span/div/div/input")).sendKeys(timestamp+postName+"@gmail.com");
-		driver.findElement(By.xpath("//div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/input[1]")).sendKeys(timestamp+"@gmail.com");
+		driver.findElement(By.xpath("//div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/input[1]")).sendKeys(timestamp.replaceAll(" ", "")+"@gmail.com");
 		
 		driver.findElement(By.xpath("//div[5]/div[2]/div/div/div/input")).sendKeys(timestamp);
 		
@@ -798,7 +798,7 @@ public static void loginUser_SalesOps() throws InterruptedException {
 		driver.findElement(By.xpath("//div/div/div/div/div/fieldset/div/div[4]/input")).sendKeys(timestamp);
 		driver.findElement(By.xpath("//div/div/div/div/div[2]/div/div/div/div/input")).sendKeys(timestamp);
 		//driver.findElement(By.xpath("//div/div/div[3]/div/div/div[2]/span/div/div/input")).sendKeys(timestamp+postName+"@gmail.com");
-		driver.findElement(By.xpath("//div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/input[1]")).sendKeys(timestamp+"@gmail.com");
+		driver.findElement(By.xpath("//div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/input[1]")).sendKeys(timestamp.replaceAll(" ", "")+"@gmail.com");
 		
 		driver.findElement(By.xpath("//div[5]/div[2]/div/div/div/input")).sendKeys(timestamp);
 		
@@ -858,11 +858,12 @@ public static void loginUser_SalesOps() throws InterruptedException {
 		Thread.sleep(5000);
 	}
 
-	public static void fillNewOpportunityFormAndSave(String timestamp) throws InterruptedException {
+	public static void fillNewOpportunityFormAndSave(String timestamp, String contactName) throws InterruptedException {
 		Thread.sleep(5000);
 		driver.findElement(By.xpath("//span[@class='slds-truncate'][contains(text(),'Contacts')]")).click();
-		driver.findElement(By.xpath("//div[2]/force-list-view-manager-search-bar/div/lightning-input/div/input")).sendKeys(timestamp);
-		driver.findElement(By.xpath("//a[@title='"+timestamp+"']")).click();
+		driver.findElement(By.xpath("//div[2]/force-list-view-manager-search-bar/div/lightning-input/div/input")).sendKeys(contactName);
+		driver.findElement(By.xpath("//div[2]/force-list-view-manager-search-bar/div/lightning-input/div/input")).sendKeys(Keys.ENTER);
+		driver.findElement(By.xpath("//a[@title='"+contactName+"']")).click();
 		driver.findElement(By.xpath("//div[@title='New Opportunity']")).click();
 		driver.findElement(By.name("Name")).sendKeys(timestamp);
 		driver.findElement(By.name("CloseDate")).sendKeys("Sep 30, 2019");
@@ -1023,7 +1024,7 @@ public static void loginUser_SalesOps() throws InterruptedException {
 		driver.findElement(By.xpath("//div[4]/input")).sendKeys(timestamp);
 		driver.findElement(By.xpath("//div/div/div/div/div/div/fieldset/div/div[2]/input")).sendKeys(timestamp);
 		driver.findElement(By.xpath("//div/div/div/div/div[2]/div/div/div/div/input")).sendKeys(timestamp);
-		driver.findElement(By.xpath("//div[3]/div/div/div/div/div/div/input")).sendKeys(timestamp+"@gmail.com");
+		driver.findElement(By.xpath("//div[3]/div/div/div/div/div/div/input")).sendKeys(timestamp.replaceAll(" ", "")+"@gmail.com");
 		driver.findElement(By.xpath("//div[5]/div/div/div/div/input")).sendKeys("1234567890");
 		driver.findElement(By.xpath("//div[5]/div[2]/div/div/div/div/div/div/div/a")).click();
 		driver.findElement(By.xpath("//a[contains(text(),'SAL')]")).click();
@@ -1043,7 +1044,7 @@ public static void loginUser_SalesOps() throws InterruptedException {
 		driver.findElement(By.xpath("//div[4]/input")).sendKeys(timestamp);
 		driver.findElement(By.xpath("//div/div/div/div/div/div/fieldset/div/div[2]/input")).sendKeys(timestamp);
 		driver.findElement(By.xpath("//div/div/div/div/div[2]/div/div/div/div/input")).sendKeys(timestamp);
-		driver.findElement(By.xpath("//div[3]/div/div/div/div/div/div/input")).sendKeys(timestamp+"@gmail.com");
+		driver.findElement(By.xpath("//div[3]/div/div/div/div/div/div/input")).sendKeys(timestamp.replaceAll(" ", "")+"@gmail.com");
 		driver.findElement(By.xpath("//div[5]/div/div/div/div/input")).sendKeys("1234567890");
 		driver.findElement(By.xpath("//div[5]/div[2]/div/div/div/div/div/div/div/a")).click();
 		driver.findElement(By.xpath("//a[contains(text(),'SAL')]")).click();
@@ -1064,7 +1065,7 @@ public static void loginUser_SalesOps() throws InterruptedException {
 		driver.findElement(By.xpath("//div[4]/input")).sendKeys(timestamp+"LC"+postFix);
 		driver.findElement(By.xpath("//div/div/div/div/div/div/fieldset/div/div[2]/input")).sendKeys("test");
 		driver.findElement(By.xpath("//div/div/div/div/div[2]/div/div/div/div/input")).sendKeys(timestamp+postFix);
-		driver.findElement(By.xpath("//div[3]/div/div/div/div/input")).sendKeys(timestamp+"@gmail.com");
+		driver.findElement(By.xpath("//div[3]/div/div/div/div/input")).sendKeys(timestamp.replaceAll(" ", "")+"@gmail.com");
 		driver.findElement(By.xpath("//div[5]/div/div/div/div/input")).sendKeys("1234567890");
 		driver.findElement(By.xpath("//div[5]/div[2]/div/div/div/div/div/div/div/a")).click();
 		driver.findElement(By.xpath("//a[contains(text(),'SQL')]")).click();
@@ -1098,7 +1099,7 @@ public static void loginUser_SalesOps() throws InterruptedException {
 		driver.findElement(By.xpath("//div[4]/input")).sendKeys(timestamp+"LC"+postFix);
 		driver.findElement(By.xpath("//div/div/div/div/div/div/fieldset/div/div[2]/input")).sendKeys("test");
 		driver.findElement(By.xpath("//div/div/div/div/div[2]/div/div/div/div/input")).sendKeys(timestamp+postFix);
-		driver.findElement(By.xpath("//div[3]/div/div/div/div/input")).sendKeys(timestamp+"@gmail.com");
+		driver.findElement(By.xpath("//div[3]/div/div/div/div/input")).sendKeys(timestamp.replaceAll(" ", "")+"@gmail.com");
 		driver.findElement(By.xpath("//div[5]/div/div/div/div/input")).sendKeys("1234567890");
 		driver.findElement(By.xpath("//div[5]/div[2]/div/div/div/div/div/div/div/a")).click();
 		driver.findElement(By.xpath("//a[contains(text(),'SQL')]")).click();
@@ -1118,7 +1119,7 @@ public static void loginUser_SalesOps() throws InterruptedException {
 		driver.findElement(By.xpath("//div[4]/input")).sendKeys(timestamp+"LC"+postFix);
 		driver.findElement(By.xpath("//div/div/div/div/div/div/fieldset/div/div[2]/input")).sendKeys("test");
 		driver.findElement(By.xpath("//div/div/div/div/div[2]/div/div/div/div/input")).sendKeys(timestamp+postFix);
-		driver.findElement(By.xpath("//div[3]/div/div/div/div/input")).sendKeys(timestamp+"@gmail.com");
+		driver.findElement(By.xpath("//div[3]/div/div/div/div/input")).sendKeys(timestamp.replaceAll(" ", "")+"@gmail.com");
 		driver.findElement(By.xpath("//div[5]/div/div/div/div/input")).sendKeys("1234567890");
 		driver.findElement(By.xpath("//div[5]/div[2]/div/div/div/div/div/div/div/a")).click();
 		driver.findElement(By.xpath("//a[contains(text(),'SAL')]")).click();
@@ -1136,7 +1137,7 @@ public static void loginUser_SalesOps() throws InterruptedException {
 		driver.findElement(By.xpath("//div[4]/input")).sendKeys(timestamp+"LC"+postFix);
 		driver.findElement(By.xpath("//div/div/div/div/div/div/fieldset/div/div[2]/input")).sendKeys("test");
 		driver.findElement(By.xpath("//div/div/div/div/div[2]/div/div/div/div/input")).sendKeys(timestamp+postFix);
-		driver.findElement(By.xpath("//div[3]/div/div/div/div/input")).sendKeys(timestamp+"@gmail.com");
+		driver.findElement(By.xpath("//div[3]/div/div/div/div/input")).sendKeys(timestamp.replaceAll(" ", "")+"@gmail.com");
 		driver.findElement(By.xpath("//div[5]/div/div/div/div/input")).sendKeys("1234567890");
 		driver.findElement(By.xpath("//div[3]/div[2]/div/div/div/div/div/div/div/a")).click();
 		driver.findElement(By.xpath("//a[contains(text(),'Disqualified')]")).click();
