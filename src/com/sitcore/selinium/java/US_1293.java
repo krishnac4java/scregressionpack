@@ -1,9 +1,5 @@
 package com.sitcore.selinium.java;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.concurrent.TimeUnit;
-
 import org.junit.Assert;
 import org.junit.Rule;
 import org.junit.Test;
@@ -12,8 +8,6 @@ import org.junit.rules.TestWatcher;
 import org.junit.runner.Description;
 
 public class US_1293 {
-	private static Date todayDate = new Date();
-	private static SimpleDateFormat sdf = new SimpleDateFormat("SSSssmmHHyyyMMdd");
 	public TestResultModel resultModel = new TestResultModel();
 	
 	@Rule
@@ -73,11 +67,11 @@ public class US_1293 {
 		ObjectRepositoryMain.contact_chooseCampaign();*/
 		ObjectRepositoryMain.clickLeadsTab();
 		ObjectRepositoryMain.leadGenerationLeadGenType();
-		todayDate = new Date();
-		ObjectRepositoryMain.salesOps_LeadGeneration_Lead_Creation_WO_Account(sdf.format(todayDate));
-		ObjectRepositoryMain.convert_Lead(sdf.format(todayDate));
-		ObjectRepositoryMain.convert_Lead_clickContact(sdf.format(todayDate));
-		String contactUSComment = ObjectRepositoryMain.verify_ContactUsComment(sdf.format(todayDate));
+		String leadName = ObjectRepositoryMain.fullNameCreation();
+		ObjectRepositoryMain.salesOps_LeadGeneration_Lead_Creation_WO_Account(leadName);
+		ObjectRepositoryMain.convert_Lead(leadName);
+		ObjectRepositoryMain.convert_Lead_clickContact(leadName);
+		String contactUSComment = ObjectRepositoryMain.verify_ContactUsComment(leadName);
 		Assert.assertEquals("ContactUsComment", contactUSComment);
 		ObjectRepositoryMain.closeChrome();
 	}

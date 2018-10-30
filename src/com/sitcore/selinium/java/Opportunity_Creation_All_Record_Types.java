@@ -1,8 +1,5 @@
 package com.sitcore.selinium.java;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
 import org.junit.Assert;
 import org.junit.FixMethodOrder;
 import org.junit.Rule;
@@ -11,12 +8,10 @@ import org.junit.rules.TestRule;
 import org.junit.rules.TestWatcher;
 import org.junit.runner.Description;
 import org.junit.runners.MethodSorters;
-import org.openqa.selenium.By;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class Opportunity_Creation_All_Record_Types {
 
-	private static SimpleDateFormat sdf = new SimpleDateFormat("SSSssmmHHddMMyyyy");
 	public TestResultModel resultModel = new TestResultModel();
 	@Rule
     public TestRule watcher = new TestWatcher() {

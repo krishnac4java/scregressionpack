@@ -1,9 +1,5 @@
 package com.sitcore.selinium.java;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.concurrent.TimeUnit;
-
 import org.junit.Assert;
 import org.junit.Rule;
 import org.junit.Test;
@@ -12,8 +8,6 @@ import org.junit.rules.TestWatcher;
 import org.junit.runner.Description;
 
 public class US_1383 {
-	private static Date todayDate = new Date();
-	private static SimpleDateFormat sdf = new SimpleDateFormat("SSSssmmHHyyyMMdd");
 	public TestResultModel resultModel = new TestResultModel();
 	
 	@Rule
@@ -57,8 +51,7 @@ public class US_1383 {
 		Thread.sleep(1000);
 		ObjectRepositoryMain.selectCustomerRecord();
 		Thread.sleep(2000);
-		todayDate = new Date();
-		ObjectRepositoryMain.SalesOps_AccountCustomerRT_Creation(sdf.format(todayDate));
+		ObjectRepositoryMain.SalesOps_AccountCustomerRT_Creation(ObjectRepositoryMain.fullNameCreation());
 		//resultModel.setAccountName(sdf.format(todayDate));
 		//resultModel.setAccountType("- Customer Record Type");
 		Thread.sleep(1000);
@@ -66,11 +59,11 @@ public class US_1383 {
 		Thread.sleep(1000);
 		ObjectRepositoryMain.createNewContact();
 		ObjectRepositoryMain.selectContactRecordType();
-		todayDate = new Date();
-		ObjectRepositoryMain.SalesOps_ContactRT_Creation(sdf.format(todayDate));
+		String contactName = ObjectRepositoryMain.fullNameCreation();
+		ObjectRepositoryMain.SalesOps_ContactRT_Creation(contactName);
 		//resultModel.setContactName(sdf.format(todayDate));
 		//resultModel.setContactType("- Contact Record Type");
-		ObjectRepositoryMain.fillNewOpportunityFormAndSave(sdf.format(todayDate), _);
+		ObjectRepositoryMain.fillNewOpportunityFormAndSave(ObjectRepositoryMain.fullNameCreation(), contactName);
 		String funnelStatus = ObjectRepositoryMain.verifyFunnelStatus();
 		Assert.assertEquals("Opportunity", funnelStatus);
 		//resultModel.setOpportunityName(sdf.format(todayDate));

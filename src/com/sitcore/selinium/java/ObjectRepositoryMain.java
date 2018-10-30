@@ -1,10 +1,5 @@
 package com.sitcore.selinium.java;
-import org.apache.commons.io.FileUtils;
-import org.junit.Assert;
-import org.junit.Assert.*;
-
 import java.io.File;
-import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -13,8 +8,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
+import org.apache.commons.io.FileUtils;
+import org.junit.Assert;
 import org.junit.Before;
-import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
@@ -24,10 +20,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import  org.junit.Test;
-import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.Select;
 public class ObjectRepositoryMain {
 	public  static WebDriver driver;
 	
@@ -1456,7 +1448,7 @@ public static void loginUser_SalesOps() throws InterruptedException {
 	
 	public static String fullNameCreation () {
 		RandomCharcterGenerator rchGen = new RandomCharcterGenerator();
-		String contactName, firstName = rchGen.randomIdentifier(), lastName = rchGen.randomIdentifier();
+		String firstName = rchGen.randomIdentifier(), lastName = rchGen.randomIdentifier();
 		String fullName = firstName.substring(0, 1).toUpperCase() + firstName.substring(1) +"_"+
 				lastName.substring(0, 1).toUpperCase() + lastName.substring(1);
 		return fullName;

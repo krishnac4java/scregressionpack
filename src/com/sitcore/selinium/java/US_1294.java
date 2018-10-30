@@ -13,7 +13,6 @@ import org.junit.runner.Description;
 
 public class US_1294 {
 	private static Date todayDate = new Date();
-	private static SimpleDateFormat sdf = new SimpleDateFormat("SSSssmmHHyyyMMdd");
 	public TestResultModel resultModel = new TestResultModel();
 	
 	@Rule
@@ -72,10 +71,10 @@ public class US_1294 {
 		ObjectRepositoryMain.contact_chooseCampaign();*/
 		ObjectRepositoryMain.clickLeadsTab();
 		ObjectRepositoryMain.leadGenerationLeadGenType();
-		todayDate = new Date();
-		ObjectRepositoryMain.salesOps_LeadGeneration_Lead_Creation_WO_Account(sdf.format(todayDate));
-		ObjectRepositoryMain.convert_Lead(sdf.format(todayDate));
-		ObjectRepositoryMain.convert_Lead_clickOpportunity(sdf.format(todayDate));
+		String leadName = ObjectRepositoryMain.fullNameCreation();
+		ObjectRepositoryMain.salesOps_LeadGeneration_Lead_Creation_WO_Account(leadName);
+		ObjectRepositoryMain.convert_Lead(leadName);
+		ObjectRepositoryMain.convert_Lead_clickOpportunity(leadName);
 		String closeDate = ObjectRepositoryMain.verifyDate_ConvertedLead();
 		SimpleDateFormat sm = new SimpleDateFormat("mm/dd/yyyy");
 		Date closedDate = sm.parse(closeDate);

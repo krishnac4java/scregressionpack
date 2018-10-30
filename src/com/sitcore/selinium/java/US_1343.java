@@ -1,9 +1,5 @@
 package com.sitcore.selinium.java;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
-import org.junit.Assert;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.TestRule;
@@ -12,8 +8,6 @@ import org.junit.runner.Description;
 
 
 public class US_1343 {
-	private static Date todayDate = new Date();
-	private static SimpleDateFormat sdf = new SimpleDateFormat("SSSssmmHHyyyMMdd");
 	public TestResultModel resultModel = new TestResultModel();
 	
 	@Rule

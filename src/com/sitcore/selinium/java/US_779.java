@@ -1,8 +1,5 @@
 package com.sitcore.selinium.java;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
 import org.junit.Assert;
 import org.junit.Rule;
 import org.junit.Test;
@@ -12,8 +9,6 @@ import org.junit.runner.Description;
 
 
 public class US_779 {
-	private static Date todayDate = new Date();
-	private static SimpleDateFormat sdf = new SimpleDateFormat("SSSssmmHHyyyMMdd");
 	public TestResultModel resultModel = new TestResultModel();
 	
 	@Rule
@@ -56,8 +51,7 @@ public class US_779 {
 		Thread.sleep(1000);
 		ObjectRepositoryMain.selectCustomerRecord();
 		Thread.sleep(2000);
-		todayDate = new Date();
-		ObjectRepositoryMain.SalesOps_AccountCustomerRT_Creation_US779(sdf.format(todayDate));
+		ObjectRepositoryMain.SalesOps_AccountCustomerRT_Creation_US779(ObjectRepositoryMain.fullNameCreation());
 		/*resultModel.setAccountName(sdf.format(todayDate));
 		resultModel.setAccountType("- Customer Record Type");*/
 		Thread.sleep(1000);
@@ -65,11 +59,10 @@ public class US_779 {
 		Thread.sleep(1000);
 		ObjectRepositoryMain.createNewContact();
 		ObjectRepositoryMain.selectContactRecordType();
-		todayDate = new Date();
-		ObjectRepositoryMain.SalesOps_ContactRT_Creation(sdf.format(todayDate));
+		ObjectRepositoryMain.SalesOps_ContactRT_Creation(ObjectRepositoryMain.fullNameCreation());
 		/*resultModel.setContactName(sdf.format(todayDate));
 		resultModel.setContactType("- Contact Record Type");*/
-		ObjectRepositoryMain.fillNewOpportunityFormAndSaveWithStage(sdf.format(todayDate));
+		ObjectRepositoryMain.fillNewOpportunityFormAndSaveWithStage(ObjectRepositoryMain.fullNameCreation());
 		ObjectRepositoryMain.takeScreenShot("US_779");
 		Assert.assertEquals("You can't add an Opportunity to a Competitor", ObjectRepositoryMain.getXpath("//lightning-messages/div/div/div/p"));
 		//resultModel.setOpportunityName(sdf.format(todayDate));
