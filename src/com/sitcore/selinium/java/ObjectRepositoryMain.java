@@ -956,11 +956,11 @@ public static void loginUser_SalesOps() throws InterruptedException {
 		Thread.sleep(1000);
 	}
 	
-	public static void fillNewOpportunityFormAndSaveWOCloseDate(String timestamp) throws InterruptedException {
+	public static void fillNewOpportunityFormAndSaveWOCloseDate(String timestamp, String contactName) throws InterruptedException {
 		Thread.sleep(5000);
 		driver.findElement(By.xpath("//span[@class='slds-truncate'][contains(text(),'Contacts')]")).click();
-		driver.findElement(By.xpath("//div[2]/force-list-view-manager-search-bar/div/lightning-input/div/input")).sendKeys(timestamp);
-		driver.findElement(By.xpath("//a[@title='"+timestamp+"']")).click();
+		driver.findElement(By.xpath("//div[2]/force-list-view-manager-search-bar/div/lightning-input/div/input")).sendKeys(contactName);
+		driver.findElement(By.xpath("//a[@title='"+contactName+"']")).click();
 		driver.findElement(By.xpath("//div[@title='New Opportunity']")).click();
 		driver.findElement(By.name("Name")).sendKeys(timestamp);
 		//Opportunity Type
@@ -1452,6 +1452,14 @@ public static void loginUser_SalesOps() throws InterruptedException {
 		driver.findElement(By.xpath("//a[contains(text(),'Other')]")).click();
 		driver.findElement(By.xpath("//button[@title='Cancel']//span[contains(@class,'label bBody')][contains(text(),'Cancel')]")).click();
 
+	}
+	
+	public static String fullNameCreation () {
+		RandomCharcterGenerator rchGen = new RandomCharcterGenerator();
+		String contactName, firstName = rchGen.randomIdentifier(), lastName = rchGen.randomIdentifier();
+		String fullName = firstName.substring(0, 1).toUpperCase() + firstName.substring(1) +"_"+
+				lastName.substring(0, 1).toUpperCase() + lastName.substring(1);
+		return fullName;
 	}
 }
 	
