@@ -1524,8 +1524,8 @@ public static void loginUser_SalesOps() throws InterruptedException {
 		driver.findElement(By.xpath("//div[4]/div/div[2]/div/div/div[3]/div/div/div/lightning-picklist/lightning-dual-listbox/div/div[2]/div/div[3]/div/ul/li/div/span/span")).click();
 		driver.findElement(By.xpath("//div[4]/div/div[2]/div/div/div[3]/div/div/div/lightning-picklist/lightning-dual-listbox/div/div[2]/div/div[4]/lightning-button-icon/button/lightning-primitive-icon")).click();
 		driver.findElement(By.xpath("//button[@title='Save']//span[contains(@class,'label bBody')][contains(text(),'Save')]")).click();
-		driver.findElement(By.xpath("//span[@class='custom-truncate uiOutputText']")).sendKeys(campaignName);
-		driver.findElement(By.xpath("//a[@title='"+campaignName+"']")).click();
+		String text = driver.findElement(By.xpath("//span[@class='custom-truncate uiOutputText']")).getText();
+		Assert.assertEquals(campaignName, text);
 		Thread.sleep(3000);
 	}
 	
