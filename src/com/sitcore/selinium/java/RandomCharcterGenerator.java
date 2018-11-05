@@ -3,7 +3,7 @@ package com.sitcore.selinium.java;
 import java.util.HashSet;
 import java.util.Set;
 
-public class RandomCharcterGenerator {
+public class RandomCharcterGenerator { 
 
 	final String lexicon = "abcdefghijklmnopqrstuvwxyz";
 
