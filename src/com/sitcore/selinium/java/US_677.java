@@ -6,7 +6,7 @@ import org.junit.rules.TestRule;
 import org.junit.rules.TestWatcher;
 import org.junit.runner.Description;
 
-public class US_948 {
+public class US_677 {
 	public TestResultModel resultModel = new TestResultModel();
 	
 	@Rule
@@ -40,7 +40,7 @@ public class US_948 {
 	public void salesOps_VerfyAccountFields() throws Exception {
 		
 		resultModel.setLoginName("Sales Operations");
-		resultModel.setMethodName("User Story - 948");
+		resultModel.setMethodName("User Story - 677");
 		ObjectRepositoryMain.launchChrome();
 		Thread.sleep(1000);
 		ObjectRepositoryMain.loginUser_SalesOps();
@@ -51,6 +51,8 @@ public class US_948 {
 		Thread.sleep(2000);
 		String accountName = ObjectRepositoryMain.fullNameCreation();
 		ObjectRepositoryMain.SalesOps_AccountCustomerRT_Creation(accountName);
+		resultModel.setAccountName(accountName);
+		resultModel.setAccountType("- Customer Record Type");
 		Thread.sleep(1000);
 		ObjectRepositoryMain.click_Save_Button();
 		Thread.sleep(1000);
@@ -58,9 +60,41 @@ public class US_948 {
 		ObjectRepositoryMain.selectContactRecordType();
 		String contactName = ObjectRepositoryMain.fullNameCreation();
 		ObjectRepositoryMain.SalesOps_ContactRT_Creation(contactName);
+		resultModel.setContactName(contactName);
+		resultModel.setContactType("- Contact Record Type");
 		String opportunityName = ObjectRepositoryMain.fullNameCreation();
 		ObjectRepositoryMain.fillNewOpportunityFormAndSave(opportunityName, contactName);
-		ObjectRepositoryMain.fillNewProductAndSave(opportunityName);
+		resultModel.setOpportunityName(opportunityName);
+		ObjectRepositoryMain.closeChrome();
+		
+		
+
+		
+		resultModel.setLoginName("Sales Operations");
+		resultModel.setMethodName("User Story - 677");
+		ObjectRepositoryMain.launchChrome();
+		Thread.sleep(1000);
+		ObjectRepositoryMain.loginUser_SalesOps();
+		Thread.sleep(3000);
+		ObjectRepositoryMain.clickAccountsTabAndNew();
+		Thread.sleep(1000);
+		ObjectRepositoryMain.selectCustomerRecord();
+		Thread.sleep(2000);
+		accountName = ObjectRepositoryMain.fullNameCreation();
+		ObjectRepositoryMain.SalesOps_AccountCustomerRT_Creation(accountName);
+		resultModel.setAccountName(accountName);
+		resultModel.setAccountType("- Customer Record Type");
+		Thread.sleep(1000);
+		ObjectRepositoryMain.click_Save_Button();
+		Thread.sleep(1000);
+		ObjectRepositoryMain.createNewContact();
+		ObjectRepositoryMain.selectContactRecordType();
+		contactName = ObjectRepositoryMain.fullNameCreation();
+		ObjectRepositoryMain.SalesOps_ContactRT_Creation(contactName);
+		resultModel.setContactName(contactName);
+		resultModel.setContactType("- Contact Record Type");
+		ObjectRepositoryMain.fillNewOpportunityFormAndSave(opportunityName, contactName);
+		resultModel.setOpportunityName(opportunityName);
 		ObjectRepositoryMain.closeChrome();
 		
 	}

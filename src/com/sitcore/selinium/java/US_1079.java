@@ -6,8 +6,7 @@ import org.junit.rules.TestRule;
 import org.junit.rules.TestWatcher;
 import org.junit.runner.Description;
 
-
-public class US_1169 {
+public class US_1079 {
 	public TestResultModel resultModel = new TestResultModel();
 	
 	@Rule
@@ -37,22 +36,16 @@ public class US_1169 {
 				}
         }
     };
-	
-    @Test
-	public void testMethod() throws Exception {
+	@Test
+	public void salesOps_VerfyAccountFields() throws Exception {
 		resultModel.setLoginName("Sales Operations");
-		resultModel.setMethodName("User Story - 1169");
+		resultModel.setMethodName("User Story - 1079");
 		ObjectRepositoryMain.launchChrome();
-		Thread.sleep(1000);
-		ObjectRepositoryMain.loginUser_SalesOps();
-		Thread.sleep(3000);
-		ObjectRepositoryMain.clickAccountsTabAndNew();
-		Thread.sleep(1000);
-		ObjectRepositoryMain.selectProgramRT();
-		Thread.sleep(1000);
-		//No Contact Information
-		ObjectRepositoryMain.verifyFields_1169();
-		Thread.sleep(1000);
+		ObjectRepositoryMain.loginUser_MarketOps();
+		ObjectRepositoryMain.clickCampaignTab();
+		Thread.sleep(2000);
+		String campaignName = ObjectRepositoryMain.fullNameCreation();
+		ObjectRepositoryMain.mops_newCampaign_US_1079(campaignName);
 		ObjectRepositoryMain.closeChrome();
 	}
 

@@ -164,13 +164,15 @@ public class ObjectRepositoryMain {
 	 static String Account_ProgramRT_SalesOps_HierarchyLevel_DropDown = "";
 	//Options: --None--, Global Ultimate Parent, Sitecore Top Parent, Subsidiary, None
 	
-	
-	 static String Account_ProgramRT_SalesOps_Type_DropDown = "";
+	//Options: --None--, Type	
+	 static String Account_ProgramRT_SalesOps_Type_DropDown = "div[4]/div/div/div/div/div[6]/div/div/div/div/div/div/div/div/a";
+	//Options: --Solution Partner
+	 static String Account_ProgramRT_SalesOps_Type_DropDown_Solution_Partner = "//a[@title='Solution Partner']";
 	//Options: --None--, Customer, Prospect	
 	 static String Account_ProgramRT_SalesOps_ParentAccount_Lookup = "";	
-	 static String Account_ProgramRT_SalesOps_RecordStatus_DropDown = "//div[4]/div[1]/div[1]/div[1]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]";
+	 static String Account_ProgramRT_SalesOps_RecordStatus_DropDown = "//div[4]/div[1]/div[1]/div[1]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]"; 
 	//Options: --None--, Unverified, Verified
-	 static String Account_ProgramRT_SalesOps_RecordStatus_DropDown_Verified ="//a[contains(text(),'Verified')]";	
+	 static String Account_ProgramRT_SalesOps_RecordStatus_DropDown_Verified ="//a[contains(text(),'Verified')]";
 	 static String Account_ProgramRT_SalesOps_LatticeAccountRanking_EditBox = "";
 	 static String Account_ProgramRT_SalesOps_AccountStatus_DropDown = "";
 	//Options: --None--, Active, Inactive	
@@ -477,6 +479,22 @@ public static void loginUser_SalesOps() throws InterruptedException {
 	
 	public static void SalesOps_AccountProgramRT_Creation(String timestamp) {
 		driver.findElement(By.xpath(ObjectRepositoryMain.Account_ProgramRT_SalesOps_AccountName_EditBox)).sendKeys(timestamp);		
+		driver.findElement(By.xpath(ObjectRepositoryMain.Account_ProgramRT_SalesOps_RecordStatus_DropDown)).click();
+		driver.findElement(By.xpath(ObjectRepositoryMain.Account_ProgramRT_SalesOps_RecordStatus_DropDown_Verified)).click();		
+		driver.findElement(By.xpath(ObjectRepositoryMain.Account_ProgramRT_SalesOps_BillingCountry_DropDown)).click();
+		driver.findElement(By.xpath(ObjectRepositoryMain.Account_ProgramRT_SalesOps_BillingCountry_DropDown_UK)).click();
+		driver.findElement(By.xpath(ObjectRepositoryMain.Account_ProgramRT_SalesOps_BillingSt_EditBox)).sendKeys(sdf.format(todayDate));
+		driver.findElement(By.xpath(ObjectRepositoryMain.Account_ProgramRT_SalesOps_BillingCity_EditBox)).sendKeys(sdf.format(todayDate));
+		driver.findElement(By.xpath(ObjectRepositoryMain.Account_ProgramRT_SalesOps_BillingState_DropDown)).click();
+		driver.findElement(By.xpath(ObjectRepositoryMain.Account_ProgramRT_SalesOps_BillingState_DropDown_England)).click();
+		driver.findElement(By.xpath(ObjectRepositoryMain.Account_ProgramRT_SalesOps_BillingPostCode_EditBox)).sendKeys(sdf.format(todayDate));
+		//driver.findElement(By.xpath("//div[@class='slds-form-element__control']/div/input")).sendKeys("1234567890");		
+	}
+	
+	public static void SalesOps_AccountProgramRT_Creation_US_634(String timestamp) {
+		driver.findElement(By.xpath(ObjectRepositoryMain.Account_ProgramRT_SalesOps_AccountName_EditBox)).sendKeys(timestamp);
+		driver.findElement(By.xpath(ObjectRepositoryMain.Account_ProgramRT_SalesOps_Type_DropDown));
+		driver.findElement(By.xpath(ObjectRepositoryMain.Account_ProgramRT_SalesOps_Type_DropDown_Solution_Partner));
 		driver.findElement(By.xpath(ObjectRepositoryMain.Account_ProgramRT_SalesOps_RecordStatus_DropDown)).click();
 		driver.findElement(By.xpath(ObjectRepositoryMain.Account_ProgramRT_SalesOps_RecordStatus_DropDown_Verified)).click();		
 		driver.findElement(By.xpath(ObjectRepositoryMain.Account_ProgramRT_SalesOps_BillingCountry_DropDown)).click();
@@ -817,7 +835,15 @@ public static void loginUser_SalesOps() throws InterruptedException {
 		driver.findElement(By.xpath("//button[@title='Save']")).click();
 		Thread.sleep(2000);
 	}
-	
+	public static void clickOpportunity_US634(String timestamp) throws InterruptedException {
+		Thread.sleep(5000);
+		driver.findElement(By.xpath("//span[@class='slds-truncate'][contains(text(),'Opportunities')]")).click();
+		driver.findElement(By.xpath("//lightning-input/div/input")).sendKeys(timestamp);
+		driver.findElement(By.xpath("//lightning-input/div/input")).sendKeys(Keys.ENTER);
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("//a[@title='"+timestamp+"']")).click();
+		Thread.sleep(5000);
+	}
 	public static void fillNewProductAndSave(String timestamp) throws InterruptedException {
 		Thread.sleep(5000);
 		driver.findElement(By.xpath("//span[@class='slds-truncate'][contains(text(),'Opportunities')]")).click();
@@ -853,7 +879,9 @@ public static void loginUser_SalesOps() throws InterruptedException {
 	public static void fillNewOpportunityFormAndSave(String timestamp, String contactName) throws InterruptedException {
 		Thread.sleep(5000);
 		driver.findElement(By.xpath("//span[@class='slds-truncate'][contains(text(),'Contacts')]")).click();
+		driver.findElement(By.xpath("//div[2]/force-list-view-manager-search-bar/div/lightning-input/div/input")).clear();
 		driver.findElement(By.xpath("//div[2]/force-list-view-manager-search-bar/div/lightning-input/div/input")).sendKeys(contactName);
+		Thread.sleep(2000);
 		driver.findElement(By.xpath("//div[2]/force-list-view-manager-search-bar/div/lightning-input/div/input")).sendKeys(Keys.ENTER);
 		driver.findElement(By.xpath("//a[@title='"+contactName+"']")).click();
 		driver.findElement(By.xpath("//div[@title='New Opportunity']")).click();
@@ -1453,5 +1481,53 @@ public static void loginUser_SalesOps() throws InterruptedException {
 				lastName.substring(0, 1).toUpperCase() + lastName.substring(1);
 		return fullName;
 	}
+	public static void verifyFields_1169 ( ) throws Exception {
+		driver.findElement(By.xpath("//div[4]/div[1]/div[1]/div[1]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]")).click();
+		driver.findElement(By.xpath(Account_AccRequestRT_SalesOps_RecordStatus_DropDown_Verified)).click();		
+		driver.findElement(By.xpath("//div[4]/div[1]/div[1]/div[1]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]")).click();
+		driver.findElement(By.xpath("//a[contains(text(),'Unverified')]")).click();
+		driver.findElement(By.xpath("/div[4]/div[1]/div[1]/div[1]/div[1]/div[6]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]")).click();
+		driver.findElement(By.xpath("//a[contains(@title,'Solution Partner')]")).click();
+		driver.findElement(By.xpath("//a[contains(@title,'Affiliates')]")).click();
+		driver.findElement(By.xpath("//div[4]/div[1]/div[1]/div[1]/div[1]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]")).click();
+		driver.findElement(By.xpath("//a[contains(@title,'Active')]")).click();
+		driver.findElement(By.xpath("//div[4]/div[1]/div[1]/div[1]/div[1]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]")).click();
+		driver.findElement(By.xpath("//a[contains(@title,'Inactive')]")).click();
+		Assert.assertEquals("Address Information", driver.findElement(By.xpath("//span[contains(text(),'Address Information')]")).getText());
+		Assert.assertEquals("Company information", driver.findElement(By.xpath("//span[contains(text(),'Company information')]")).getText());
+		Assert.assertEquals("Program Information", driver.findElement(By.xpath("//span[contains(text(),'Program Information')]")).getText());
+		Assert.assertEquals("Program Incentives", driver.findElement(By.xpath("//span[contains(text(),'Program Incentives')]")).getText());
+		Assert.assertEquals("Partner Attached Accounts", driver.findElement(By.xpath("//span[contains(text(),'Partner Attached Accounts')]")).getText());
+			
+	}
+	
+	public static void mops_newCampaign_US_1079 (String campaignName) throws Exception {
+		driver.findElement(By.xpath("//div[@title='New']")).click();
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("//div[4]/div/div/div/div/div/div/div/div/div/input")).sendKeys(campaignName);
+		driver.findElement(By.xpath("//div[2]/div/div/div/div/div/div/div/div/div/div/div/a")).click();
+		driver.findElement(By.xpath("//a[@title='Other']")).click();
+		driver.findElement(By.xpath("//div[2]/div/div/div[2]/div[2]/div/div/div/div/div/div/div/a")).click();
+		driver.findElement(By.xpath("//a[@title='Sales']")).click();
+		driver.findElement(By.xpath("//div[2]/div/div/div[3]/div[2]/div/div/div/div/div/div/div/a")).click();
+		driver.findElement(By.xpath("//a[@title='Global']")).click();
+		driver.findElement(By.xpath("//div[4]/div/div[2]/div/div/div/div[2]/div/div/div/input")).sendKeys(campaignName);
+		driver.findElement(By.xpath("//div[4]/div/div[2]/div/div/div[5]/div/div/div/div/div/div/div/div/a")).click();
+		driver.findElement(By.xpath("//a[@title='Accounting']")).click();
+		driver.findElement(By.xpath("//div[4]/div/div[2]/div/div/div[2]/div/div/div/div/input")).sendKeys(campaignName);
+		driver.findElement(By.xpath("//div[4]/div/div[2]/div/div/div[6]/div[2]/div/div/div/input")).sendKeys(campaignName);
+		driver.findElement(By.xpath("//div[4]/div/div[2]/div/div/div[4]/div/div/div/lightning-picklist/lightning-dual-listbox/div/div[2]/div/div[3]/div/ul/li/div/span/span")).click();
+		driver.findElement(By.xpath("//div[4]/div/div[2]/div/div/div[4]/div/div/div/lightning-picklist/lightning-dual-listbox/div/div[2]/div/div[4]/lightning-button-icon/button/lightning-primitive-icon")).click();
+		driver.findElement(By.xpath("//div[4]/div/div[2]/div/div/div[8]/div/div/div/div/input")).sendKeys(campaignName);
+		driver.findElement(By.xpath("//div[4]/div/div[2]/div/div/div[7]/div/div/div/div/div/div/div/div/a")).click();
+		driver.findElement(By.xpath("//a[contains(@title,'Above Funnel')]")).click();
+		driver.findElement(By.xpath("//div[4]/div/div[2]/div/div/div[3]/div/div/div/lightning-picklist/lightning-dual-listbox/div/div[2]/div/div[3]/div/ul/li/div/span/span")).click();
+		driver.findElement(By.xpath("//div[4]/div/div[2]/div/div/div[3]/div/div/div/lightning-picklist/lightning-dual-listbox/div/div[2]/div/div[4]/lightning-button-icon/button/lightning-primitive-icon")).click();
+		driver.findElement(By.xpath("//button[@title='Save']//span[contains(@class,'label bBody')][contains(text(),'Save')]")).click();
+		driver.findElement(By.xpath("//span[@class='custom-truncate uiOutputText']")).sendKeys(campaignName);
+		driver.findElement(By.xpath("//a[@title='"+campaignName+"']")).click();
+		Thread.sleep(3000);
+	}
+	
 }
 	
