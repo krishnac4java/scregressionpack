@@ -42,29 +42,20 @@ public class US_478 {
     @Test
 	public void testMethod() throws Exception {
 		resultModel.setLoginName("Sales Operations");
-		resultModel.setMethodName("User Story - 779");
+		resultModel.setMethodName("User Story - 478");
 		ObjectRepositoryMain.launchChrome();
 		Thread.sleep(1000);
-		ObjectRepositoryMain.loginUser_SalesOps();
+		ObjectRepositoryMain.loginUser_MarketOps();
 		Thread.sleep(3000);
-		ObjectRepositoryMain.clickAccountsTabAndNew();
+		ObjectRepositoryMain.clickLeadsTab();
 		Thread.sleep(1000);
-		ObjectRepositoryMain.selectCustomerRecord();
-		Thread.sleep(2000);
-		ObjectRepositoryMain.SalesOps_AccountCustomerRT_Creation_US779(ObjectRepositoryMain.fullNameCreation());
-		/*resultModel.setAccountName(sdf.format(todayDate));
-		resultModel.setAccountType("- Customer Record Type");*/
+		String leadFullName = ObjectRepositoryMain.fullNameCreation();
+		ObjectRepositoryMain.leadGeneration("",leadFullName);
 		Thread.sleep(1000);
-		ObjectRepositoryMain.click_Save_Button();
-		Thread.sleep(1000);
-		ObjectRepositoryMain.createNewContact();
-		ObjectRepositoryMain.selectContactRecordType();
-		ObjectRepositoryMain.SalesOps_ContactRT_Creation(ObjectRepositoryMain.fullNameCreation());
-		/*resultModel.setContactName(sdf.format(todayDate));
-		resultModel.setContactType("- Contact Record Type");*/
-		ObjectRepositoryMain.fillNewOpportunityFormAndSaveWithStage(ObjectRepositoryMain.fullNameCreation());
-		ObjectRepositoryMain.takeScreenShot("US_779");
-		Assert.assertEquals("You can't add an Opportunity to a Competitor", ObjectRepositoryMain.getXpath("//lightning-messages/div/div/div/p"));
+		ObjectRepositoryMain.clickEdit();
+		ObjectRepositoryMain.changeType_US_478();
+		ObjectRepositoryMain.takeScreenShot("US_478");
+		Assert.assertEquals("Ensure BANT Score is at-least 3 before Lead can be Passed onto SQL", ObjectRepositoryMain.getXpath("//div[3]/div/ul/li"));
 		//resultModel.setOpportunityName(sdf.format(todayDate));
 		ObjectRepositoryMain.closeChrome();
 		

@@ -43,7 +43,7 @@ public class US_634 {
 		resultModel.setMethodName("User Story - 634");
 		ObjectRepositoryMain.launchChrome();
 		Thread.sleep(1000);
-		ObjectRepositoryMain.loginUser_SalesOps();
+		ObjectRepositoryMain.loginUser_Admin();
 		Thread.sleep(3000);
 		ObjectRepositoryMain.clickAccountsTabAndNew();
 		Thread.sleep(1000);

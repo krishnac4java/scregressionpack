@@ -286,6 +286,15 @@ public static void loginUser_SalesOps() throws InterruptedException {
 	    driver.findElement(By.id("Login")).click();
 	    Thread.sleep(3000);
 	}
+	public static void loginUser_Admin() throws InterruptedException {
+		
+		driver.findElement(By.id("username")).clear();
+	    driver.findElement(By.id("username")).sendKeys("vima@sitecore.net.finaluat");	
+	    driver.findElement(By.id("password")).clear();
+	    driver.findElement(By.id("password")).sendKeys("Ovj4519oe26");	
+	    driver.findElement(By.id("Login")).click();
+	    Thread.sleep(3000);
+	}
      public static void loginUser_PAM() throws InterruptedException {
 		
 		driver.findElement(By.id("username")).clear();
@@ -1058,6 +1067,23 @@ public static void loginUser_SalesOps() throws InterruptedException {
 		driver.findElement(By.xpath("//a[@title='United Kingdom']")).click();
 		driver.findElement(By.xpath("//div/button[3]")).click();
 	}
+	public static void leadGeneration(String accountName, String timestamp) throws InterruptedException {
+		driver.findElement(By.xpath("//fieldset/div/div/div/div/div/div/a")).click();
+		driver.findElement(By.xpath("//a[contains(text(),'Mr.')]")).click();
+		driver.findElement(By.xpath("//div[4]/input")).sendKeys(timestamp);
+		driver.findElement(By.xpath("//div/div/div/div/div/div/fieldset/div/div[2]/input")).sendKeys(timestamp);
+		driver.findElement(By.xpath("//div/div/div/div/div[2]/div/div/div/div/input")).sendKeys(timestamp);
+		driver.findElement(By.xpath("//div[3]/div/div/div/div/div/div/input")).sendKeys(timestamp.replaceAll(" ", "")+"@gmail.com");
+		driver.findElement(By.xpath("//div[5]/div/div/div/div/input")).sendKeys("1234567890");
+		driver.findElement(By.xpath("//div[5]/div[2]/div/div/div/div/div/div/div/a")).click();
+		driver.findElement(By.xpath("//a[contains(text(),'SAL')]")).click();
+		driver.findElement(By.xpath("//div[7]/div[2]/div/div/div/div/div/div/div/a")).click();
+		driver.findElement(By.xpath("//div[11]/div/ul/li[3]/a")).click();
+		driver.findElement(By.xpath("//div/div[2]/div/div/div[2]/div/div/div/div/input")).sendKeys(timestamp);
+		driver.findElement(By.xpath("//fieldset/div/div[2]/div/div/div/div/div/div/a")).click();
+		driver.findElement(By.xpath("//a[@title='United Kingdom']")).click();
+		driver.findElement(By.xpath("//div/button[3]")).click();
+	}
 	public static void salesOps_LeadGeneration_Lead_Creation_WO_Account(String timestamp) throws InterruptedException {
 		driver.findElement(By.xpath("//fieldset/div/div/div/div/div/div/a")).click();
 		driver.findElement(By.xpath("//a[contains(text(),'Mr.')]")).click();
@@ -1528,6 +1554,13 @@ public static void loginUser_SalesOps() throws InterruptedException {
 		Assert.assertEquals(campaignName, text);
 		Thread.sleep(3000);
 	}
-	
+	public static void clickEdit () {
+		driver.findElement(By.xpath("//div[@title='Edit']")).click();
+	}
+	public static void changeType_US_478 () {
+		driver.findElement(By.xpath("//div[5]/div[2]/div/div/div/div/div/div/div/a")).click();
+		driver.findElement(By.xpath("//a[contains(text(),'SQL')]")).click();
+		driver.findElement(By.xpath("//div/button[3]")).click();
+	}
 }
 	
