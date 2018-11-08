@@ -1562,5 +1562,20 @@ public static void loginUser_SalesOps() throws InterruptedException {
 		driver.findElement(By.xpath("//a[contains(text(),'SQL')]")).click();
 		driver.findElement(By.xpath("//div/button[3]")).click();
 	}
+	public static void fieldValidation_US_1075 () {
+		driver.findElement(By.xpath("//div[4]/div/div/div/div/div[4]/div[2]/div/div/div/div/div/div/div/a")).click();
+		driver.findElement(By.xpath("//a[@title='Customer']")).click();
+		driver.findElement(By.xpath("//div[4]/div/div/div/div/div[4]/div[2]/div/div/div/div/div/div/div/a")).click();
+		driver.findElement(By.xpath("//a[@title='Prospect']")).click();
+		driver.findElement(By.xpath("//div[4]/div/div/div/div/div[5]/div[2]/div/div/div/div/div/div/div/a")).click();
+		driver.findElement(By.xpath("//a[@title='Verified']")).click();
+		driver.findElement(By.xpath("//div[4]/div/div/div/div/div[5]/div[2]/div/div/div/div/div/div/div/a")).click();
+		driver.findElement(By.xpath("//a[@title='Unverified']")).click();
+		driver.findElement(By.xpath("//div[4]/div/div/div/div/div[6]/div[2]/div/div/div/div/div/div/div/a")).click();
+		driver.findElement(By.xpath("//a[@title='Active']")).click();
+		driver.findElement(By.xpath("//div[4]/div/div/div/div/div[6]/div[2]/div/div/div/div/div/div/div/a")).click();
+		driver.findElement(By.xpath("//a[@title='Inactive']")).click();
+		driver.findElement(By.xpath("//button[@title='Cancel']//span[contains(@class,'label bBody')][contains(text(),'Cancel')]")).click();
+	}
 }
 	

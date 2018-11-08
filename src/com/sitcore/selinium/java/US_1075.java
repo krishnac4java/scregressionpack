@@ -1,14 +1,12 @@
 package com.sitcore.selinium.java;
 
-import org.junit.Assert;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.TestRule;
 import org.junit.rules.TestWatcher;
 import org.junit.runner.Description;
 
-
-public class US_779 {
+public class US_1075 {
 	public TestResultModel resultModel = new TestResultModel();
 	
 	@Rule
@@ -38,35 +36,16 @@ public class US_779 {
 				}
         }
     };
-	
-    @Test
-	public void testMethod() throws Exception {
+	@Test
+	public void salesOps_VerfyAccountFields() throws Exception {
 		resultModel.setLoginName("Sales Operations");
-		resultModel.setMethodName("User Story - 779");
+		resultModel.setMethodName("User Story - 1075");
 		ObjectRepositoryMain.launchChrome();
-		Thread.sleep(1000);
 		ObjectRepositoryMain.loginUser_SalesOps();
-		Thread.sleep(3000);
 		ObjectRepositoryMain.clickAccountsTabAndNew();
-		Thread.sleep(1000);
-		ObjectRepositoryMain.selectCustomerRecord();
 		Thread.sleep(2000);
-		ObjectRepositoryMain.SalesOps_AccountCustomerRT_Creation_US779(ObjectRepositoryMain.fullNameCreation());
-		/*resultModel.setAccountName(sdf.format(todayDate));
-		resultModel.setAccountType("- Customer Record Type");*/
-		Thread.sleep(1000);
-		ObjectRepositoryMain.click_Save_Button();
-		Thread.sleep(1000);
-		ObjectRepositoryMain.createNewContact();
-		ObjectRepositoryMain.selectContactRecordType();
-		String contact = ObjectRepositoryMain.fullNameCreation();
-		ObjectRepositoryMain.SalesOps_ContactRT_Creation(contact);
-		/*resultModel.setContactName(sdf.format(todayDate));
-		resultModel.setContactType("- Contact Record Type");*/
-		ObjectRepositoryMain.fillNewOpportunityFormAndSaveWithStage(contact);
-		ObjectRepositoryMain.takeScreenShot("US_779");
-		Assert.assertEquals("You can't add an Opportunity to a Competitor", ObjectRepositoryMain.getXpath("//lightning-messages/div/div/div/p"));
-		//resultModel.setOpportunityName(sdf.format(todayDate));
+		ObjectRepositoryMain.selectCustomerRecord();
+		ObjectRepositoryMain.fieldValidation_US_1075();
 		ObjectRepositoryMain.closeChrome();
 		
 	}

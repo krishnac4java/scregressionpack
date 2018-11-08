@@ -367,7 +367,7 @@ public class Opportunity_Creation_All_Record_Types {
 	@Test
 	public void K_SalesOps_ProgramRecordRT_SDRRT_Opp_Product_Creation() throws Exception {
 		resultModel.setLoginName("Sales Operations");
-		resultModel.setMethodName("SalesOps_ProgramRecordRT_ContactRT_Opp_Product_Creation");
+		resultModel.setMethodName("SalesOps_ProgramRecordRT_ContactSDRRT_Opp_Product_Creation");
 		ObjectRepositoryMain.launchChrome();
 		Thread.sleep(1000);
 		ObjectRepositoryMain.loginUser_SalesOps();
