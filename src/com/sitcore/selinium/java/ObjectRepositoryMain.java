@@ -1577,5 +1577,18 @@ public static void loginUser_SalesOps() throws InterruptedException {
 		driver.findElement(By.xpath("//a[@title='Inactive']")).click();
 		driver.findElement(By.xpath("//button[@title='Cancel']//span[contains(@class,'label bBody')][contains(text(),'Cancel')]")).click();
 	}
+	public static String fieldValidation_US_1072 () {
+		WebElement element = driver.findElement(By.xpath("//div[4]/div/div/div/div/div[5]/div[2]/div/div/div/div/div/div/div/a"));
+		String defaultItem = element.getText();
+		return defaultItem;
+	}
+
+	public static void fieldValidation_US_1070 () {
+		driver.findElement(By.xpath("//div[4]/div/div[3]/div/div/div[3]/div/div/div/div/div/div/div/div/a")).click();		
+	}
+	public static void fieldValidation_US_1135() {
+		driver.findElement(By.xpath("//div[7]/div[2]/div/div/div/div/div/div/div/a")).click();
+		driver.findElement(By.xpath("//a[@title='Outbound SDR']")).click();
+	}
 }
 	
